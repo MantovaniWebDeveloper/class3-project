@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="538eec07-687b-4a2b-9de4-bbfdcd4b8770" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,24 +17,87 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2019_03_18_170055_create_images_table.php">
+        <entry file="file://$PROJECT_DIR$/database/seeds/ApartmentsSeeder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="19" column="84" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="19" selection-end-column="84" />
+            <state relative-caret-position="45">
+              <caret line="3" column="33" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="33" />
+              <folding>
+                <element signature="e#9#40#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/seeds/UsersTableSeeder.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="49" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
+              <folding>
+                <element signature="e#9#40#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2019_03_18_170333_create_apartment_service_table.php">
+        <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="19" column="77" selection-start-line="19" selection-start-column="77" selection-end-line="19" selection-end-column="77" />
+            <state relative-caret-position="240">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>lucca\b</find>
+      <find>monza</find>
+      <find>macerata\b</find>
+      <find>modena\b</find>
+      <find>massa</find>
+      <find>napoli</find>
+      <find>napoli\b</find>
+      <find>novara</find>
+      <find>piacenza\b</find>
+      <find>padova\b</find>
+      <find>pordenone\b</find>
+      <find>pavia\b</find>
+      <find>potenza\b</find>
+      <find>reggio</find>
+      <find>roma\b</find>
+      <find>rovigo</find>
+      <find>trento</find>
+      <find>torino\b</find>
+      <find>treviso\b</find>
+      <find>udine\b</find>
+      <find>varese\b</find>
+      <find>cusio</find>
+      <find>ossola</find>
+      <find>vercelli</find>
+      <find>vicenza</find>
+      <find>verbano</find>
+      <find>andria</find>
+      <find>andria\b</find>
+      <find>reggio cal</find>
+      <find>]</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>]</replace>
+      <replace>=&gt;</replace>
+      <replace>}</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -48,6 +112,14 @@
         <option value="$PROJECT_DIR$/database/migrations/2019_03_18_170055_create_images_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_03_18_170239_create_services_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_03_18_170333_create_apartment_service_table.php" />
+        <option value="$PROJECT_DIR$/coordinate.json" />
+        <option value="$PROJECT_DIR$/coordinate.php" />
+        <option value="$PROJECT_DIR$/province.php" />
+        <option value="$PROJECT_DIR$/province.json" />
+        <option value="$PROJECT_DIR$/database/seeds/ApartmentsSeeder.php" />
+        <option value="$PROJECT_DIR$/app/User.php" />
+        <option value="$PROJECT_DIR$/database/seeds/UsersTableSeeder.php" />
+        <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
       </list>
     </option>
   </component>
@@ -135,7 +207,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="61" />
     <option name="y" value="23" />
-    <option name="width" value="1249" />
+    <option name="width" value="1250" />
     <option name="height" value="1417" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -154,6 +226,17 @@
             <path>
               <item name="class3-project" type="b2602c69:ProjectViewProjectNode" />
               <item name="class3-project" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="class3-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="class3-project" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="User.php" type="88303cf5:PhpFileNode" />
+            </path>
+            <path>
+              <item name="class3-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="class3-project" type="462c0819:PsiDirectoryNode" />
               <item name="database" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -166,75 +249,36 @@
               <item name="class3-project" type="b2602c69:ProjectViewProjectNode" />
               <item name="class3-project" type="462c0819:PsiDirectoryNode" />
               <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-              <item name="2014_10_12_000000_create_users_table.php" type="88303cf5:PhpFileNode" />
+              <item name="seeds" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="class3-project" type="b2602c69:ProjectViewProjectNode" />
               <item name="class3-project" type="462c0819:PsiDirectoryNode" />
               <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-              <item name="2014_10_12_000000_create_users_table.php" type="88303cf5:PhpFileNode" />
-              <item name="CreateUsersTable" type="e2efd96b:PhpElementNode" />
+              <item name="seeds" type="462c0819:PsiDirectoryNode" />
+              <item name="ApartmentsSeeder.php" type="88303cf5:PhpFileNode" />
             </path>
             <path>
               <item name="class3-project" type="b2602c69:ProjectViewProjectNode" />
               <item name="class3-project" type="462c0819:PsiDirectoryNode" />
               <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-              <item name="2019_03_18_164508_create_apartments_table.php" type="88303cf5:PhpFileNode" />
+              <item name="seeds" type="462c0819:PsiDirectoryNode" />
+              <item name="ApartmentsSeeder.php" type="88303cf5:PhpFileNode" />
+              <item name="ApartmentsSeeder" type="e2efd96b:PhpElementNode" />
             </path>
             <path>
               <item name="class3-project" type="b2602c69:ProjectViewProjectNode" />
               <item name="class3-project" type="462c0819:PsiDirectoryNode" />
               <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-              <item name="2019_03_18_164508_create_apartments_table.php" type="88303cf5:PhpFileNode" />
-              <item name="CreateApartmentsTable" type="e2efd96b:PhpElementNode" />
+              <item name="seeds" type="462c0819:PsiDirectoryNode" />
+              <item name="DatabaseSeeder.php" type="88303cf5:PhpFileNode" />
             </path>
             <path>
               <item name="class3-project" type="b2602c69:ProjectViewProjectNode" />
               <item name="class3-project" type="462c0819:PsiDirectoryNode" />
               <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-              <item name="2019_03_18_165817_create_messages_table.php" type="88303cf5:PhpFileNode" />
-            </path>
-            <path>
-              <item name="class3-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="class3-project" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-              <item name="2019_03_18_165817_create_messages_table.php" type="88303cf5:PhpFileNode" />
-              <item name="CreateMessagesTable" type="e2efd96b:PhpElementNode" />
-            </path>
-            <path>
-              <item name="class3-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="class3-project" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-              <item name="2019_03_18_170055_create_images_table.php" type="88303cf5:PhpFileNode" />
-            </path>
-            <path>
-              <item name="class3-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="class3-project" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-              <item name="2019_03_18_170055_create_images_table.php" type="88303cf5:PhpFileNode" />
-              <item name="CreateImagesTable" type="e2efd96b:PhpElementNode" />
-            </path>
-            <path>
-              <item name="class3-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="class3-project" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-              <item name="2019_03_18_170239_create_services_table.php" type="88303cf5:PhpFileNode" />
-            </path>
-            <path>
-              <item name="class3-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="class3-project" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-              <item name="2019_03_18_170333_create_apartment_service_table.php" type="88303cf5:PhpFileNode" />
+              <item name="seeds" type="462c0819:PsiDirectoryNode" />
+              <item name="UsersTableSeeder.php" type="88303cf5:PhpFileNode" />
             </path>
           </expand>
           <select />
@@ -272,19 +316,19 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1552926517241</updated>
-      <workItem from="1552926519424" duration="2167000" />
+      <workItem from="1552926519424" duration="7691000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2167000" />
+    <option name="totallyTimeSpent" value="7691000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="61" y="23" width="1249" height="1417" extended-state="0" />
+    <frame x="61" y="23" width="1250" height="1417" extended-state="0" />
     <layout>
       <window_info id="npm" side_tool="true" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.32725766" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.32698676" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" />
@@ -352,8 +396,70 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_03_18_170333_create_apartment_service_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="77" selection-start-line="19" selection-start-column="77" selection-end-line="19" selection-end-column="77" />
+        <state relative-caret-position="450">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coordinate.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="40846" column="26" lean-forward="true" selection-start-line="40846" selection-start-column="26" selection-end-line="40846" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coordinate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="526">
+          <caret line="39363" column="22" lean-forward="true" selection-start-line="39363" selection-start-column="22" selection-end-line="39363" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/province.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="438">
+          <caret line="775" column="25" lean-forward="true" selection-start-line="775" selection-start-column="25" selection-end-line="775" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/province.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="18" column="31" lean-forward="true" selection-start-line="1" selection-start-column="4" selection-end-line="793" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/ApartmentsSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="33" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="33" />
+          <folding>
+            <element signature="e#9#40#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/UsersTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="49" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
+          <folding>
+            <element signature="e#9#40#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>
