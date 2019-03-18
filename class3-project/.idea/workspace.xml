@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="538eec07-687b-4a2b-9de4-bbfdcd4b8770" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,19 +16,19 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.env">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2019_03_18_170055_create_images_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="33" column="18" lean-forward="true" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
+            <state relative-caret-position="255">
+              <caret line="19" column="84" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="19" selection-end-column="84" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2019_03_18_170333_create_apartment_service_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="20" column="52" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
+            <state relative-caret-position="255">
+              <caret line="19" column="77" selection-start-line="19" selection-start-column="77" selection-end-line="19" selection-end-column="77" />
             </state>
           </provider>
         </entry>
@@ -47,6 +43,11 @@
       <list>
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_03_18_164508_create_apartments_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_03_18_165817_create_messages_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_03_18_170055_create_images_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_03_18_170239_create_services_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_03_18_170333_create_apartment_service_table.php" />
       </list>
     </option>
   </component>
@@ -168,6 +169,73 @@
               <item name="migrations" type="462c0819:PsiDirectoryNode" />
               <item name="2014_10_12_000000_create_users_table.php" type="88303cf5:PhpFileNode" />
             </path>
+            <path>
+              <item name="class3-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="class3-project" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+              <item name="2014_10_12_000000_create_users_table.php" type="88303cf5:PhpFileNode" />
+              <item name="CreateUsersTable" type="e2efd96b:PhpElementNode" />
+            </path>
+            <path>
+              <item name="class3-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="class3-project" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+              <item name="2019_03_18_164508_create_apartments_table.php" type="88303cf5:PhpFileNode" />
+            </path>
+            <path>
+              <item name="class3-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="class3-project" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+              <item name="2019_03_18_164508_create_apartments_table.php" type="88303cf5:PhpFileNode" />
+              <item name="CreateApartmentsTable" type="e2efd96b:PhpElementNode" />
+            </path>
+            <path>
+              <item name="class3-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="class3-project" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+              <item name="2019_03_18_165817_create_messages_table.php" type="88303cf5:PhpFileNode" />
+            </path>
+            <path>
+              <item name="class3-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="class3-project" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+              <item name="2019_03_18_165817_create_messages_table.php" type="88303cf5:PhpFileNode" />
+              <item name="CreateMessagesTable" type="e2efd96b:PhpElementNode" />
+            </path>
+            <path>
+              <item name="class3-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="class3-project" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+              <item name="2019_03_18_170055_create_images_table.php" type="88303cf5:PhpFileNode" />
+            </path>
+            <path>
+              <item name="class3-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="class3-project" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+              <item name="2019_03_18_170055_create_images_table.php" type="88303cf5:PhpFileNode" />
+              <item name="CreateImagesTable" type="e2efd96b:PhpElementNode" />
+            </path>
+            <path>
+              <item name="class3-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="class3-project" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+              <item name="2019_03_18_170239_create_services_table.php" type="88303cf5:PhpFileNode" />
+            </path>
+            <path>
+              <item name="class3-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="class3-project" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+              <item name="2019_03_18_170333_create_apartment_service_table.php" type="88303cf5:PhpFileNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -204,16 +272,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1552926517241</updated>
-      <workItem from="1552926519424" duration="709000" />
+      <workItem from="1552926519424" duration="2167000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="709000" />
+    <option name="totallyTimeSpent" value="2167000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="61" y="23" width="1249" height="1417" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="npm" side_tool="true" />
       <window_info id="Favorites" side_tool="true" />
@@ -244,14 +311,49 @@
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
-          <caret line="33" column="18" lean-forward="true" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
+          <caret line="33" column="18" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_03_18_170239_create_services_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_03_18_165817_create_messages_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="20" column="84" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="20" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_03_18_164508_create_apartments_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="30" column="74" lean-forward="true" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="74" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="20" column="52" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
+        <state relative-caret-position="465">
+          <caret line="33" column="9" lean-forward="true" selection-start-line="31" selection-start-column="8" selection-end-line="33" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_03_18_170055_create_images_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" column="84" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="19" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_03_18_170333_create_apartment_service_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" column="77" selection-start-line="19" selection-start-column="77" selection-end-line="19" selection-end-column="77" />
         </state>
       </provider>
     </entry>
