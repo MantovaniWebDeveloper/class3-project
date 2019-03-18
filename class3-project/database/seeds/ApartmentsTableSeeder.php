@@ -3,7 +3,7 @@
 	use Illuminate\Database\Seeder;
 	use Faker\Generator as Faker;
 	
-	class ApartmentsSeeder extends Seeder {
+	class ApartmentsTableSeeder extends Seeder {
 		/**
 		 * Run the database seeds.
 		 *
@@ -805,20 +805,66 @@
 		];
 		
 		public function run(Faker $faker) {
-			//coordinate base non inserite nel DB
-//			$lat = 38.67624141;
-//			$lon = 16.10157559;
-			$km_to_add = 5;
-			$decimal_round = 5;
-//			for ($i = 0; $i < 30; $i++) {
-//				$new_lat = round($lat + ($km_to_add / 6371) * (180 / pi()), $decimal_round);
-//				$entry = ['name' => $faker->name, 'latitude' => $new_lat, 'longitude' => $lon, 'rooms' => rand(3, 10)];
-//				\App\Apartment::create($entry);
-//				$lat = $new_lat;
-//			}
-			
-			for ($i = 0; $i < 1; $i++) {
-			
+			$apartmentsPerAxis = 5;
+			$kmToAdd = 5;
+			for ($i = 0; $i < count($this->province); $i++) {
+				//inserisco appartamento nella città
+				$lat = $this->province[$i]['lat'];
+				$lng = $this->province[$i]['lng'];
+				$cityApartment = $this->getRandomData($faker, $lat, $lng);
+				\App\Apartment::create($cityApartment);
+				//inserisco n appartamenti verso Nord
+				for ($k = 0; $k < $apartmentsPerAxis; $k++) {
+					$lat = $this->getNewLatitude($lat, $kmToAdd);
+					$newApartment = $this->getRandomData($faker, $lat, $lng);
+					\App\Apartment::create($newApartment);
+				}
+				//inserisco n appartamenti verso Sud
+				$lat = $cityApartment['latitude'];
+				for ($k = 0; $k < $apartmentsPerAxis; $k++) {
+					$lat = $this->getNewLatitude($lat, -$kmToAdd);
+					$newApartment = $this->getRandomData($faker, $lat, $lng);
+					\App\Apartment::create($newApartment);
+				}
+				//inserisco n appartamenti verso Est
+				$lat = $cityApartment['latitude'];
+				for ($k = 0; $k < $apartmentsPerAxis; $k++) {
+					$lng = $this->getNewLongitude($lat, $lng, $kmToAdd);
+					$newApartment = $this->getRandomData($faker, $lat, $lng);
+					\App\Apartment::create($newApartment);
+				}
+				$lng = $cityApartment['longitude'];
+				//inserisco n appartamenti verso Est
+				for ($k = 0; $k < $apartmentsPerAxis; $k++) {
+					$lng = $this->getNewLongitude($lat, $lng, -$kmToAdd);
+					$newApartment = $this->getRandomData($faker, $lat, $lng);
+					\App\Apartment::create($newApartment);
+				}
 			}
+		}
+		
+		private function getRandomData(Faker $faker, $lat, $lng) {
+			return [
+			  'user_id' => DB::table('users')->inRandomOrder()->first()->id,
+			  'title' => $faker->text(rand(50, 100)),
+			  'description' => $faker->text(250),
+			  'room_count' => rand(3, 6),
+			  'bed_count' => rand(2, 8),
+			  'bathroom_count' => rand(1, 3),
+			  'square_meters' => rand(50, 150),
+			  'price' => rand(300, 6000),
+			  'latitude' => $lat,
+			  'longitude' => $lng
+			];
+		}
+		
+		private function getNewLatitude($latitude, $kmToAdd) {
+			$decimal_round = 5;
+			return round($latitude + ($kmToAdd / 6371) * (180 / pi()), $decimal_round);
+		}
+		
+		private function getNewLongitude($latitude, $longitude, $kmToAdd) {
+			$decimal_round = 5;
+			return round($longitude + ($kmToAdd / 6371) * (180 / pi()) / cos($latitude * pi() / 180), $decimal_round);
 		}
 	}

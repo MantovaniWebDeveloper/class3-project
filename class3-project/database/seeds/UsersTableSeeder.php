@@ -11,7 +11,7 @@
 				\App\User::create(
 				  [
 					'email' => $faker->unique()->email,
-					'password' => 'boolean',
+					'password' => bcrypt('secret'),
 					'first_name' => $faker->firstName,
 					'last_name' => $faker->lastName,
 					'date_of_birth' => $faker->dateTime,

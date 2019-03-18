@@ -16,7 +16,7 @@
 				$table->increments('id');
 				$table->unsignedInteger('user_id');
 				$table->string('title',100);
-				$table->string('title_slug',110)->unique();
+				$table->string('slug',110)->unique();
 				$table->text('description');
 				$table->tinyInteger('room_count');
 				$table->tinyInteger('bed_count');
@@ -24,6 +24,7 @@
 				$table->smallInteger('square_meters');
 				$table->float('latitude',8,5);
 				$table->float('longitude',8,5);
+				$table->float('price',6,2);
 				$table->tinyInteger('sale')->default(0);
 				$table->tinyInteger('is_showed')->default(1);
 				$table->dateTime('end_promo')->nullable();
