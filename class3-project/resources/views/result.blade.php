@@ -26,7 +26,11 @@
             <img class="img-fluid" src="" alt="">
           </div>
           <div class="wrapDescrizione col-8">
-
+              <h4>Nome appartamento</h4>
+              <p><i class="fas fa-map-marker-alt"></i>localita</p>
+              <p>descrizione</p>
+              <p>numeri letti</p>
+              <button type="button" name="button">Descrzione completa ></button>
           </div>
     </div>
   </div>

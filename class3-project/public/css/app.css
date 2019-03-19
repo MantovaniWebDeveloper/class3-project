@@ -10710,3 +10710,7 @@ a.text-dark:focus {
   background-color: orange;
 }
 
+.wrapRisultato .wrapDescrizione button {
+  text-align: right;
+}
+
