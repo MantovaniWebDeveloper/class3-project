@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="538eec07-687b-4a2b-9de4-bbfdcd4b8770" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/class3-project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/class3-project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Apartment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Apartment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_03_18_164508_create_apartments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_03_18_164508_create_apartments_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/ApartmentsSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ApartmentsTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/UsersTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UsersTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,16 +15,28 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.7406794">
+    <splitter split-orientation="horizontal" split-proportion="0.5968543">
       <split-first>
         <leaf>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/database/seeds/ApartmentsTableSeeder.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="596">
-                  <caret line="807" column="34" selection-start-line="807" selection-start-column="33" selection-end-line="807" selection-end-column="34" />
+                <state relative-caret-position="296">
+                  <caret line="388" column="33" lean-forward="true" selection-start-line="388" selection-start-column="22" selection-end-line="388" selection-end-column="33" />
                   <folding>
                     <element signature="e#9#40#0#PHP" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ApartmentController.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="375">
+                  <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+                  <folding>
+                    <element signature="e#44#62#0#PHP" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -42,32 +45,11 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/Apartment.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="150">
-                  <caret line="10" column="61" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
+                <state relative-caret-position="525">
+                  <caret line="35" column="38" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="38" />
                   <folding>
                     <element signature="e#23#62#0#PHP" expanded="true" />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/database/seeds/UsersTableSeeder.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="315">
-                  <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-                  <folding>
-                    <element signature="e#9#40#0#PHP" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="255">
-                  <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
                 </state>
               </provider>
             </entry>
@@ -87,7 +69,11 @@
           </file>
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/routes/web.php">
-              <provider selected="true" editor-type-id="text-editor" />
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="210">
+                  <caret line="23" column="37" lean-forward="true" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="37" />
+                </state>
+              </provider>
             </entry>
           </file>
         </leaf>
@@ -96,7 +82,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>lucca\b</find>
       <find>monza</find>
       <find>macerata\b</find>
       <find>modena\b</find>
@@ -126,6 +111,7 @@
       <find>andria\b</find>
       <find>reggio cal</find>
       <find>]</find>
+      <find>macerata</find>
     </findStrings>
     <replaceStrings>
       <replace>]</replace>
@@ -152,10 +138,12 @@
         <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/database/seeds/UsersTableSeeder.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_03_18_164508_create_apartments_table.php" />
-        <option value="$PROJECT_DIR$/app/Apartment.php" />
         <option value="$PROJECT_DIR$/database/seeds/ApartmentsSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/ApartmentsTableSeeder.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/app/Apartment.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ApartmentController.php" />
       </list>
     </option>
   </component>
@@ -245,7 +233,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="61" />
     <option name="y" value="23" />
-    <option name="width" value="1250" />
+    <option name="width" value="1920" />
     <option name="height" value="1417" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -389,15 +377,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1552926517241</updated>
-      <workItem from="1552926519424" duration="11397000" />
+      <workItem from="1552926519424" duration="15342000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11397000" />
+    <option name="totallyTimeSpent" value="15342000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="61" y="23" width="1250" height="1417" extended-state="0" />
+    <frame x="61" y="23" width="1920" height="1417" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="npm" side_tool="true" />
       <window_info id="Favorites" side_tool="true" />
@@ -509,15 +498,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="210">
+          <caret line="23" column="37" lean-forward="true" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="37" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/database/seeds/UsersTableSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -529,22 +515,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/ApartmentsTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="388" column="33" lean-forward="true" selection-start-line="388" selection-start-column="22" selection-end-line="388" selection-end-column="33" />
+          <folding>
+            <element signature="e#9#40#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Apartment.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="61" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
+        <state relative-caret-position="525">
+          <caret line="35" column="38" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="38" />
           <folding>
             <element signature="e#23#62#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/ApartmentsTableSeeder.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ApartmentController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="596">
-          <caret line="807" column="34" selection-start-line="807" selection-start-column="33" selection-end-line="807" selection-end-column="34" />
+        <state relative-caret-position="375">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
           <folding>
-            <element signature="e#9#40#0#PHP" expanded="true" />
+            <element signature="e#44#62#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

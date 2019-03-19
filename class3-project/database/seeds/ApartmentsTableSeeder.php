@@ -853,6 +853,8 @@
 			  'bathroom_count' => rand(1, 3),
 			  'square_meters' => rand(50, 150),
 			  'price' => rand(300, 6000),
+			  'sale' => (rand(1, 4) === rand(1, 4) ? rand(10, 50) : 0),
+			  'end_promo' => $faker->dateTimeInInterval('-5 days', '+10 days'),
 			  'latitude' => $lat,
 			  'longitude' => $lng
 			];
