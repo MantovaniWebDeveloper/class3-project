@@ -10660,3 +10660,20 @@ a.text-dark:focus {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+#headerInterno {
+  height: 70px;
+  line-height: 70px;
+}
+
+#headerInterno .wrapLogo {
+  height: 70px;
+}
+
+#headerInterno .wrapLogo .logo_title {
+  line-height: 70px;
+}
+
+#headerInterno .wrapMenu {
+  text-align: right;
+}
+
