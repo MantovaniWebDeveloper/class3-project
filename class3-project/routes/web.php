@@ -10,7 +10,7 @@
 	| contains the "web" middleware group. Now create something great!
 	|
 	*/
-	//test dario
+	//TEST DARIO
 	Route::get('/', 'HomeController@index')->name('home');
 	Route::get('/result', 'HomeController@result')->name('result');
 	
@@ -24,14 +24,20 @@
 	| contains the "web" middleware group. Now create something great!
 	|
 	*/
-	//test emanuele
+	//TEST EMANUELE
 	
 	Auth::routes();
 	
 	Route::get('/home', 'HomeController@index')->name('home');
 	
-	//ROTTE DI TEST
+	//rotte di test
 	Route::get('/appartamenti/ricerca', 'ApartmentController@simpleSearch');
 	Route::get('/', 'ApartmentController@index');
 	Route::get('/token', 'ApartmentController@showToken');
+	
+	//TEST DAVIDE
+	Route::get(
+	  '/', function () {
+		return view('index');
+	});
 
