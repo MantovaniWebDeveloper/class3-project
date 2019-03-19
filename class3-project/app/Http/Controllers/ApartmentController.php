@@ -12,7 +12,7 @@
 		function index() {
 			$utc = Carbon::now('Europe/Rome');
 			$saleApartment = Apartment::where('sale', '>', 0)->inRandomOrder()->first();
-			$promoApartments = Apartment::where('end_promo', '>', $utc)->orderBy('end_promo','asc')->paginate(10);
+			$promoApartments = Apartment::where('end_promo', '>', $utc)->orderBy('end_promo', 'asc')->paginate(10);
 			return view('home')->withSaleApartment($saleApartment)->withPromoApartments($promoApartments);
 		}
 		
@@ -31,5 +31,13 @@
 			} catch (\Exception $e) {
 				abort(500);
 			}
+		}
+		
+		function advancedSearch(Request $request) {
+			return $request->all();
+		}
+		
+		function showToken(){
+			return csrf_token();
 		}
 	}

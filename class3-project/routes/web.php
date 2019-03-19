@@ -11,11 +11,12 @@
 	|
 	*/
 	
-	Route::get('/', 'ApartmentController@index');
 	
 	Auth::routes();
 	
 	Route::get('/home', 'HomeController@index')->name('home');
 	
-	//nuove rotte
+	//ROTTE DI TEST
 	Route::get('/appartamenti/ricerca', 'ApartmentController@simpleSearch');
+	Route::get('/', 'ApartmentController@index');
+	Route::get('/token','ApartmentController@showToken');

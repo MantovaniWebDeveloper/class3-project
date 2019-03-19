@@ -18,6 +18,7 @@
 				$table->unsignedInteger('service_id');
 				$table->foreign('apartment_id')->references('id')->on('apartments');
 				$table->foreign('service_id')->references('id')->on('services');
+				$table->timestamps();
 			});
 		}
 		

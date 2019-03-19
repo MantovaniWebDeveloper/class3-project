@@ -10,6 +10,10 @@
 		
 		protected $guarded = ['id', 'created_at', 'updated_at'];
 		
+		public function services(){
+			return $this->belongsToMany(Service::class)->withTimestamps();
+		}
+		
 		/**
 		 * Return the sluggable configuration array for this model.
 		 *
