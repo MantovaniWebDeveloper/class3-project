@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @extends('layout.main')
 @section('content')
 @include('header')
@@ -36,3 +37,6 @@
   </div>
 </div>
 @endsection
+=======
+@extends('layouts.app')
+>>>>>>> emanuele
