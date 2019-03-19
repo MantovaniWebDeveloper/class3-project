@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @extends('layout.main')
 @section('content')
 @include('header')
@@ -22,6 +21,10 @@
         <input type="checkbox" name="service"><label class="nomiCheck">Piscina</label>
       </div>
     </div>
+    @php
+     dd($apartments);
+    @endphp
+
     <div class="row wrapRisultato">
           <div class="wrapImg col-4">
             <img class="img-fluid" src="" alt="">
@@ -37,6 +40,3 @@
   </div>
 </div>
 @endsection
-=======
-@extends('layouts.app')
->>>>>>> emanuele

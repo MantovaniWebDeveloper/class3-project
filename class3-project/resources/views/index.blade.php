@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>BOOLBNB</title>
-    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="{{ asset('css/index.css')}}">
   </head>
   <body>
     {{-- NAVBAR --}}
@@ -61,30 +61,8 @@
     </div>
 
     {{-- FORM RICERCA --}}
-    <div class="container">
-      <div class="row">
-        <div class="col-8">
-          <form>
-            <div class="form-group" action="#" method="post">
-              @method('POST')
-              @csrf
-              <label for="exampleInputEmail1">Località</label>
-              <input type="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Inserisci città">
-              <label for="n_ospiti">Numero ospiti</label>
-              <input type="password" id="n_ospiti" placeholder="Password">
-            </div>
-            <div class="form-group">
-            </div>
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">Attiva filtri avanzati</label>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-        </div>
-      </div>
-    </div>
-
+  @include('search')
+  @dd($promoApartments);
     {{-- @foreach($apartments as $apartment)
       <div class="container">
         <div class="row">

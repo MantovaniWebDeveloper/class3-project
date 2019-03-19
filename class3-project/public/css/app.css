@@ -10660,3 +10660,57 @@ a.text-dark:focus {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+#headerInterno {
+  height: 70px;
+  line-height: 70px;
+}
+
+#headerInterno .wrapLogo {
+  height: 70px;
+}
+
+#headerInterno .wrapLogo .logo_title {
+  line-height: 70px;
+}
+
+#headerInterno .wrapMenu {
+  text-align: right;
+}
+
+.formRicerca {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  width: 100%;
+  background-color: red;
+}
+
+.formRicerca form {
+  text-align: center;
+  width: 100%;
+  background-color: yellow;
+}
+
+.nomiCheck {
+  margin-left: 10px;
+}
+
+.wrapRisultato {
+  margin-top: 20px;
+  background-color: green;
+  height: 200px;
+}
+
+.wrapRisultato .wrapImg {
+  background-color: pink;
+}
+
+.wrapRisultato .wrapDescrizione {
+  background-color: orange;
+}
+
+.wrapRisultato .wrapDescrizione button {
+  text-align: right;
+}
+
