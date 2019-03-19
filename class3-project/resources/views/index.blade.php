@@ -62,20 +62,23 @@
 
     {{-- FORM RICERCA --}}
   @include('search')
-  @dd($promoApartments);
-    {{-- @foreach($apartments as $apartment)
+  {{-- @dd($promoApartments); --}}
+     @foreach($promoApartments as $apartment)
       <div class="container">
         <div class="row">
           <div class="col-10">
-            BLOCCO APPARTAMENTO IN EVIDENZA
-            <h2>{{ $apartment->name }}</h2>
-            <img src="{{ $apartment->immagine }}">
+            APPARTAMENTO IN EVIDENZA
+            <small>la promozione termina il : {{$apartment->end_promo}}</small>
+            <h3>Nome appartamento : {{ $apartment->title }}</h3>
+            {{-- <img src="{{ $apartment->immagine }}"> --}}
             <ul>
-              <li>{{$apartment->service->service_name}}</li>
+              <li>Numero letti : {{ $apartment->bed_count}}</li>
+              <li>Gradezza in mq : {{ $apartment->square_meters}}</li>
+              {{-- <li>{{$apartment->services->}}</li> --}}
             </ul>
           </div>
         </div>
       </div>
-    @endforeach --}}
+    @endforeach
   </body>
 </html>
