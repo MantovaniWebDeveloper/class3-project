@@ -1,3 +1,14 @@
 .nomiCheck {
   margin-left: 10px;
 }
+.wrapRisultato {
+  margin-top: 20px;
+  background-color: green;
+  height: 200px;
+  .wrapImg {
+    background-color: pink;
+  }
+  .wrapDescrizione {
+    background-color: orange;
+  }
+}

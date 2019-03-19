@@ -10696,3 +10696,17 @@ a.text-dark:focus {
   margin-left: 10px;
 }
 
+.wrapRisultato {
+  margin-top: 20px;
+  background-color: green;
+  height: 200px;
+}
+
+.wrapRisultato .wrapImg {
+  background-color: pink;
+}
+
+.wrapRisultato .wrapDescrizione {
+  background-color: orange;
+}
+

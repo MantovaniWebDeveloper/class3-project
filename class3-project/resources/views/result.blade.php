@@ -21,6 +21,14 @@
         <input type="checkbox" name="service"><label class="nomiCheck">Piscina</label>
       </div>
     </div>
+    <div class="row wrapRisultato">
+          <div class="wrapImg col-4">
+            <img class="img-fluid" src="" alt="">
+          </div>
+          <div class="wrapDescrizione col-8">
+
+          </div>
+    </div>
   </div>
 </div>
 @endsection
