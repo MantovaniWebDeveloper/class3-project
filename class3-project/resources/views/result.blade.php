@@ -3,13 +3,8 @@
 @include('header')
 <div class="wrapSearch">
   <div class="container">
-    <form action="">
-      <input type="text" name="" value="">
-      <select class="" name="">
-        <option value=""></option>
-      </select>
-      <input type="submit" name="" value="">
-    </form>
+    @include('search')
+    <h4>Filtra per :</h4>
   </div>
 </div>
 @endsection

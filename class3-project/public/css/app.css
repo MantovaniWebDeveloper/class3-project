@@ -10677,3 +10677,18 @@ a.text-dark:focus {
   text-align: right;
 }
 
+.formRicerca {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  width: 100%;
+  background-color: red;
+}
+
+.formRicerca form {
+  text-align: center;
+  width: 100%;
+  background-color: yellow;
+}
+
