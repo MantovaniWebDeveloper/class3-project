@@ -4,7 +4,7 @@
 	use Illuminate\Database\Schema\Blueprint;
 	use Illuminate\Database\Migrations\Migration;
 	
-	class CreateUsersTable extends Migration {
+	class CreateMessagesTable extends Migration {
 		/**
 		 * Run the migrations.
 		 *
@@ -12,15 +12,13 @@
 		 */
 		public function up() {
 			Schema::create(
-			  'users', function (Blueprint $table) {
+			  'messages', function (Blueprint $table) {
 				$table->increments('id');
-				$table->string('email')->unique();
-				$table->string('password');
-				$table->string('first_name')->nullable();
-				$table->string('last_name')->nullable();
-				$table->string('date_of_birth')->nullable();
-				$table->rememberToken();
+				$table->unsignedInteger('apartment_id');
+				$table->string('from');
+				$table->text('text');
 				$table->timestamps();
+				$table->foreign('apartment_id')->references('id')->on('apartments');
 			});
 		}
 		
@@ -30,6 +28,6 @@
 		 * @return void
 		 */
 		public function down() {
-			Schema::dropIfExists('users');
+			Schema::dropIfExists('messages');
 		}
 	}
