@@ -19,7 +19,7 @@
 				$promoApartments = Apartment::where('end_promo', '>', $utc)->orderBy('end_promo', 'asc')->take(5)->get();
 				return view('index')->withSaleApartment($saleApartment)->withPromoApartments($promoApartments);
 			} catch (\Exception $e) {
-				abort(500);
+				return abort(500);
 			}
 		}
 		
@@ -39,7 +39,7 @@
 				$data = Apartment::findInRange($radius, $lat, $lng)->where('bed_count', '>=', $bedCount)->paginate($pagination);
 				return view('result')->withApartments($data);
 			} catch (\Exception $e) {
-				abort(500);
+				return abort(500);
 			}
 		}
 		
@@ -49,12 +49,24 @@
 				$promoApartments = Apartment::where('end_promo', '>', $utc)->orderBy('end_promo', 'asc')->take(5)->get();
 				return view('index')->withPromoApartments($promoApartments);
 			} catch (\Exception $e) {
-				abort(500);
+				return abort(500);
 			}
 		}
 		
+		function cities() {
+			$rawData = \Config::get('cities');
+			$cities = [];
+			foreach ($rawData as $index => $data) {
+				$cities[] = [
+				  'name' => $data['provincia'],
+				  'code' => $index
+				];
+			}
+			return $cities;
+		}
+		
 		function advancedSearch(Request $request) {
-			return $request->all();
+			return "TODO";
 		}
 		
 	}
