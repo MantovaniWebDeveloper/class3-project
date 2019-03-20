@@ -6,7 +6,9 @@
 	Route::get('/', 'ApartmentController@index')->name('home');
 	Route::post('/appartamenti/ricerca', 'ApartmentController@simpleSearch')->name('ricerca');
 	Route::get('/appartamenti/ricerca', 'ApartmentController@showAdvancedSearch')->name('ricerca_avanzata');
-
+	Route::get('/cities', 'ApartmentController@cities')->middleware('only_ajax');
+	//todo to be deleted
+	Route::view('/emanuele','emanuele');
 	
 	
 	

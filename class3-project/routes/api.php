@@ -20,4 +20,4 @@
 	
 	//ROTTE DI TEST
 	Route::get('/appartamenti/ricerca', 'ApartmentController@advancedSearch');
-	Route::get('/cities', 'ApartmentController@cities')->middleware('only_ajax');
+	

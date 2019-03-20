@@ -53,7 +53,8 @@
 			}
 		}
 		
-		function cities() {
+		function cities(Request $request) {
+			
 			$rawData = \Config::get('cities');
 			$cities = [];
 			foreach ($rawData as $index => $data) {
