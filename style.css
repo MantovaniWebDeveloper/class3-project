@@ -49,6 +49,12 @@ header {
   height: 300px;
   background: rgba(255,255,255,.7);
 }
+#menu{
+  display: none;
+}
+.block{
+  display: block !important;
+}
 
 /*Box offerta*/
 .img-offerta_prezzo{
@@ -97,4 +103,33 @@ header {
 .box-prenotazioni .send{
   width: 60%;
   margin-top: 20px;
+}
+
+
+/*Evidenzia*/
+.evidenzia{
+  width: 100%;
+}
+.evidenzia .container-evidenzia{
+  width: 90%;
+  margin: auto;
+}
+.evidenzia h3{
+  width: 100%;
+}
+.box-card{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.card-appartamento{
+  width: 24%;
+  height: 300px;
+  background: #111;
+  margin-bottom: 20px;
+}
+
+.footer h6{
+  text-align: center;
+  width: 100%;
 }
