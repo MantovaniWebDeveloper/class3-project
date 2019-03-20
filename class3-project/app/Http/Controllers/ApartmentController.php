@@ -66,6 +66,21 @@
 			return $cities;
 		}
 		
+		function indexNew(){
+			$utc = Carbon::now('Europe/Rome');
+			try {
+				$saleApartment = Apartment::where('sale', '>', 0)->inRandomOrder()->first();
+				$promoApartments = Apartment::where('end_promo', '>', $utc)->orderBy('end_promo', 'asc')->take(5)->get();
+//				return view('index')->withSaleApartment($saleApartment)->withPromoApartments($promoApartments);
+//				$safeCollection = $saleApartment->except(['id']);
+				dd($saleApartment->toArray());
+//				dd($saleApartment->except(['id'])->toArray());
+//				dd($safeCollection);
+			} catch (\Exception $e) {
+				return abort(500);
+			}
+		}
+		
 		function advancedSearch(Request $request) {
 			return "TODO";
 		}

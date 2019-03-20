@@ -9,8 +9,10 @@
 		use Sluggable;
 		
 		protected $guarded = ['id', 'created_at', 'updated_at'];
+		protected $hidden = ['id', 'user_id', 'end_promo', 'created_at', 'updated_at'];
+		protected $with = array('services');
 		
-		public function services(){
+		public function services() {
 			return $this->belongsToMany(Service::class)->withTimestamps();
 		}
 		

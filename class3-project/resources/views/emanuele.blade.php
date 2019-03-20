@@ -7,7 +7,18 @@
         <title></title>
     </head>
     <body>
-
+        <form action="/bho.php" method="get">
+            <input list="cities" name="cities">
+            <datalist id="cities">
+                {{--questo sarà riempito da handlebars--}}
+            </datalist>
+            <input type="submit" value="CERCA">
+        </form>
+        <script id="city-template" type="text/x-handlebars-template">
+            @{{#each this}}
+            <option data-value="@{{code}}">@{{name}}</option>
+            @{{/each}}
+        </script>
         <script src="{{ asset('js/app.js') }}"></script>
         <script src="{{ asset('js/emanuele.js') }}"></script>
     </body>
