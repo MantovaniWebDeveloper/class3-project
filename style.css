@@ -4,7 +4,7 @@
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
 }
-header {
+header{
   width: 100%;
   background-image: url('https://fastpasstours.com/166/biglietto-salta-fila-visita-alla-torre-eiffel-e-crociera-sulla-senna.jpg');
   height: 500px;
@@ -82,7 +82,7 @@ header {
   background: red;
 }
 
-/**/
+/*section prenotazione*/
 .prenotazione{
 
 }
@@ -106,7 +106,7 @@ header {
 }
 
 
-/*Evidenzia*/
+/*section in evidenza*/
 .evidenzia{
   width: 100%;
 }
@@ -123,12 +123,39 @@ header {
   flex-wrap: wrap;
 }
 .card-appartamento{
+  width: 30%;
+  height: 300px;
+  background: #111;
+  margin-bottom: 20px;
+}
+/*section località*/
+.località{
+  width: 100%;
+}
+.località .container-località{
+  width: 90%;
+  margin: auto;
+}
+.località h3{
+  width: 100%;
+}
+.box-card{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.card-città{
   width: 24%;
   height: 300px;
   background: #111;
   margin-bottom: 20px;
 }
 
+
+
+
+
+/*Footer*/
 .footer h6{
   text-align: center;
   width: 100%;
