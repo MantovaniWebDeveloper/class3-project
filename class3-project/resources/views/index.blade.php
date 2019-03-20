@@ -61,7 +61,6 @@
     </div>
 
     {{-- FORM RICERCA --}}
-  @include('search')
   {{-- @dd($promoApartments); --}}
      @foreach($promoApartments as $apartment)
       <div class="container">
