@@ -173,7 +173,11 @@ ul li{
   background: #111;
   margin-bottom: 20px;
 }
-
+.img-city img{
+  width: 100%;
+  height: 300px;
+  background-size: cover;
+}
 
 
 
