@@ -15267,19 +15267,18 @@ __webpack_require__.r(__webpack_exports__);
 var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 $(document).ready(function () {
-  var url = 'http://127.0.0.1:8000/api/cities'; //alert("sono vivo cazzo");
+  var url = 'http://127.0.0.1:8000/api/cities';
+  var cittaItaliane = []; //alert("sono vivo cazzo");
 
   $.ajax({
     url: url,
     type: 'GET',
     success: function success(data) {
       //console.log(data);
-      for (var i = 0; i < data.length; i++) {
-        var codeCitta = data[i].code;
-        var nameCitta = data[i].name;
-        console.log(codeCitta);
-        console.log(nameCitta);
-      }
+      var templateBase = $('#elencoCitta-template').html();
+      var templateCompilato = handlebars_dist_cjs_handlebars__WEBPACK_IMPORTED_MODULE_0___default.a.compile(templateBase);
+      var html = templateCompilato(data);
+      $('#listaCitta').html(html);
     },
     error: function error(errore) {
       console.log(errore);

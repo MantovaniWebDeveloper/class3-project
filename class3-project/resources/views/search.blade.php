@@ -5,7 +5,11 @@
             @csrf
             <h2>Inserisci la città ed il numero di ospiti</h2>
             <div class="form-row d-flex justify-content-center">
-              <div class="form-group col-6 " id="cittaRisultato">
+              <div class="form-group col-6 " >
+                <input list="listaCitta" name="cities">
+               <datalist id="listaCitta">
+                   {{--questo sarà riempito da handlebars--}}
+               </datalist>
 
               </div>
               <div class="form-group col-6">
@@ -27,11 +31,11 @@
         </div>
       </div>
   </div>
+  <!-- ZONA HANDLEBARS!!!-->
   <script id="elencoCitta-template" type="text/x-handlebars-template">
-    <input list="citta"  class="form-control"  placeholder="Localita" name="query">
-    <datalist id="citta">
-      @{{#each cittaItaliane}}
-      <option data-value="@{{codeCitta}}">@{{nomeCitta}}</option>
-      @{{/each}}
+    @{{#each this}}
+          <option data-value="@{{code}}">@{{name}}</option>
+    @{{/each}}
     </datalist>
+
   </script>
