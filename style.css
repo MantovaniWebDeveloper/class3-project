@@ -41,6 +41,20 @@ header{
 .homepage .fa-bars:hover{
   cursor: pointer;
 }
+
+#menu{
+  display: none;
+}
+ul li{
+  list-style-type: none;
+  text-transform: uppercase;
+  padding: 10px;
+}
+.block{
+  display: block !important;
+}
+
+/*Box offerta*/
 .box-offerta{
   position: absolute;
   top: 100px;
@@ -49,22 +63,21 @@ header{
   height: 300px;
   background: rgba(255,255,255,.7);
 }
-#menu{
-  display: none;
+.box-offerta h3{
+  padding: 10px;
 }
-.block{
-  display: block !important;
-}
-
-/*Box offerta*/
 .img-offerta_prezzo{
   display: flex;
   justify-content: space-between;
+  padding: 10px;
 }
 .img-offerta_prezzo img{
   width: 50%;
   height: 100px;
   background-size: cover;
+}
+.subtitle{
+  font-size: 12px;
 }
 .box-benefit{
   display: flex;
@@ -119,6 +132,7 @@ header{
 }
 .evidenzia h3{
   width: 100%;
+  padding: 5px;
 }
 .box-card{
   display: flex;
@@ -140,6 +154,7 @@ header{
   margin: auto;
 }
 .località h3{
+  padding: 5px;
   width: 100%;
 }
 .box-card{
