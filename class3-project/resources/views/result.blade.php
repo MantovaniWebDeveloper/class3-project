@@ -22,7 +22,7 @@
       </div>
     </div>
     @php
-     dd($apartments);
+  //   dd($apartments);
     @endphp
 
     <div class="row wrapRisultato">
@@ -39,4 +39,5 @@
     </div>
   </div>
 </div>
+<script src="{{ asset('js/chiamataApiCitta.js') }}" defer></script>
 @endsection

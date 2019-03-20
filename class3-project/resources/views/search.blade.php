@@ -6,7 +6,10 @@
             <h2>Inserisci la città ed il numero di ospiti</h2>
             <div class="form-row d-flex justify-content-center">
               <div class="form-group col-6">
-                <input type="text" class="form-control"  name="query" placeholder="Localita">
+                <input list="citta"  class="form-control"  placeholder="Localita" name="query">
+                <datalist id="citta">
+                  <option value="">
+                </datalist>
               </div>
               <div class="form-group col-6">
                 <select class="selectPersone form-control" name="bed_count">
