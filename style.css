@@ -84,15 +84,18 @@ header{
 
 /*section prenotazione*/
 .prenotazione{
+  height: 300px;
 
 }
 .prenotazione .title{
   margin:auto;
+  padding: 20px;
   text-align: center;
 }
 .box-prenotazioni{
   max-width: 450px;
   margin: auto;
+  padding: 20px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -159,4 +162,5 @@ header{
 .footer h6{
   text-align: center;
   width: 100%;
+  padding: 5px;
 }
