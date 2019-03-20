@@ -13,6 +13,7 @@
 			$maxServicesForApartment = count($services);
 			$apartments = \App\Apartment::get();
 			foreach ($apartments as $apartment) {
+				$services = $services->shuffle();
 				for ($i = 0; $i < rand(1, $maxServicesForApartment); $i++) {
 					$apartment->services()->attach($services->get($i));
 				}
