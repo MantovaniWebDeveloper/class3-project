@@ -7,10 +7,10 @@
 	Route::post('/appartamenti/ricerca', 'ApartmentController@simpleSearch')->name('ricerca');
 	Route::get('/appartamenti/ricerca', 'ApartmentController@showAdvancedSearch')->name('ricerca_avanzata');
 
-	
-	
-	
-	
+
+
+
+
 	//TEST DARIO
 //	Route::get('/result', 'HomeController@result')->name('result');
 
@@ -23,7 +23,6 @@
 //	Route::get('/token', 'ApartmentController@showToken');
 
 	//TEST DAVIDE
-/*	Route::get(
-	  '/', function () {
-		return view('index');
-	});*/
+	Route::get('/html', function() {
+		return view('html.index-raw');
+	});;

@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <title>BoolBnb</title>
 </head>
@@ -66,7 +65,7 @@
   </section>
 
 <!-- SECTION IN EVIDENZA -->
-  {{-- <section class="evidenzia">
+  <section class="evidenzia">
     <div class="container-evidenzia">
       <h3>In evidenza</h3>
       <div class="box-card">
@@ -86,26 +85,8 @@
       </div>
       </div>
     </div>
-  </section> --}}
-  {{-- @include('search') --}}
-  {{-- @dd($promoApartments); --}}
-  <div class="container">
-    <div class="d-flex flex-row flex-wrap justify-content-around">
-     @foreach($promoApartments as $apartment)
-          <div class="col-3 card-appartamento">
-            APPARTAMENTO IN EVIDENZA
-            <small>la promozione termina il : {{$apartment->end_promo}}</small>
-            <h3>Nome appartamento : {{ $apartment->title }}</h3>
-            {{-- <img src="{{ $apartment->immagine }}"> --}}
-            <ul>
-              <li>Numero letti : {{ $apartment->bed_count}}</li>
-              <li>Gradezza in mq : {{ $apartment->square_meters}}</li>
-              {{-- <li>{{$apartment->services->}}</li> --}}
-            </ul>
-          </div>
-    @endforeach
-  </div>
-</div>
+  </section>
+
 <!-- SECTION LOCALITA -->
 <section class="località">
   <div class="container-località">
@@ -132,7 +113,9 @@
     </div>
   </footer>
 </body>
-<script src="{{asset('js/main.js')}}"></script>
-{{-- non sapevo a cosa servisse insieme a questi nello script che mi davano errore integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-crossorigin="anonymous"  <script src="script.js"></script> --}}
+<script
+  src="{{asset('js/main.js')}}"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src="script.js"></script>
 </html>
