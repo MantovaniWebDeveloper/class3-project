@@ -5,11 +5,8 @@
             @csrf
             <h2>Inserisci la città ed il numero di ospiti</h2>
             <div class="form-row d-flex justify-content-center">
-              <div class="form-group col-6">
-                <input list="citta"  class="form-control"  placeholder="Localita" name="query">
-                <datalist id="citta">
-                  <option value="">
-                </datalist>
+              <div class="form-group col-6 " id="cittaRisultato">
+
               </div>
               <div class="form-group col-6">
                 <select class="selectPersone form-control" name="bed_count">
@@ -30,3 +27,11 @@
         </div>
       </div>
   </div>
+  <script id="elencoCitta-template" type="text/x-handlebars-template">
+    <input list="citta"  class="form-control"  placeholder="Localita" name="query">
+    <datalist id="citta">
+      @{{#each cittaItaliane}}
+      <option data-value="@{{codeCitta}}">@{{nomeCitta}}</option>
+      @{{/each}}
+    </datalist>
+  </script>

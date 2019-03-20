@@ -40,4 +40,5 @@
   </div>
 </div>
 <script src="{{ asset('js/chiamataApiCitta.js') }}" defer></script>
+
 @endsection
