@@ -13,14 +13,14 @@
 
               </div>
               <div class="form-group col-4">
-                <select class="selectPersone form-control" name="bed_count">
-                  <option value="0">numero ospiti</option>
+                <select class="selectBedCount form-control" name="bed_count">
+                  <option value="0">numero letti</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                 </select>
               </div>
               <div class="form-group col-4">
-                <select class="selectStanze form-control" name="bed_count">
+                <select class="selectRoomCount form-control" name="bed_count">
                   <option value="0">numero stanze</option>
                   <option value="1">1</option>
                   <option value="2">2</option>

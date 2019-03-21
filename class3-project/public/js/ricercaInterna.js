@@ -15288,16 +15288,25 @@ $(document).ready(function () {
   } //invio del form che riesce a passare il data-id
 
 
-  $('#cercaBtn').on('click', function (e) {
-    e.preventDefault();
+  $('#cercaBtn').on('click', function () {
+    //  e.preventDefault();
     var ricerca = $("#listaCitta option[value='" + $('#listaCitta-input').val() + "']").attr('data-id');
     var url = 'http://127.0.0.1:8000/api/cities';
-    var bed_count = $('.selectPersone').val();
+    var room_count = $('.selectRoomCount').val();
+    var bed_count = $('.selectBedCount').val();
     console.log(ricerca);
+    console.log(room_count);
+    console.log(bed_count);
     $.ajax({
       url: url,
       type: 'GET',
-      data: {},
+      data: {
+        "city_code": ricerca,
+        "room_count": room_count,
+        "bed_count": bed_count,
+        "order_type": 4,
+        "radius": 20
+      },
       success: function success(data) {
         console.log(data);
       },
