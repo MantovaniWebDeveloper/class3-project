@@ -3,22 +3,22 @@ import Handlebars from 'handlebars/dist/cjs/handlebars';
 var $ = require("jquery");
 
 $(document).ready(function() {
-  var url = 'http://127.0.0.1:8000/api/cities'
+  var url = 'http://127.0.0.1:8000/api/cities';
   var cittaItaliane = [];
   //alert("sono vivo cazzo");
   $.ajax({
     url: url,
     type: 'GET',
     success: function(data) {
-      //console.log(data);
-      renderDatalistCitta(data);
+      console.log(data);
+      // renderDatalistCitta(data);
     },
     error: function(errore) {
       console.log(errore);
     }
 
 
-  })
+  });
 
   //funzione per stampare via handlebars le citta nel datalist
   function renderDatalistCitta(data){
