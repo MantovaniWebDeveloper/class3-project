@@ -10487,7 +10487,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/dariomantovani/Desktop/progettiLaravel/class3-project/class3-project/resources/js/common.js */"./resources/js/common.js");
+module.exports = __webpack_require__(/*! /home/parallels/Desktop/Boolean/sites/progetto-finale/class3-project/resources/js/common.js */"./resources/js/common.js");
 
 
 /***/ })
