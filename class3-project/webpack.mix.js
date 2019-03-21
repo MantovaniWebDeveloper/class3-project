@@ -17,4 +17,5 @@ mix.js('resources/js/app.js', 'public/js')
    .js('resources/js/common.js', 'public/js/common.js' )
    .sass('resources/sass/app.scss', 'public/css')
    .sass('resources/sass/index.scss', 'public/css')
-   .styles(['resources/sass/style.css'], 'public/css/style.css');
+   .styles(['resources/sass/style.css'], 'public/css/style.css')
+   .copyDirectory('resources/img', 'public/img');;

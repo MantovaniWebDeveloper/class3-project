@@ -37,7 +37,7 @@
                 <div class="img-offerta_prezzo">
                     <img src="https://fastpasstours.com/166/biglietto-salta-fila-visita-alla-torre-eiffel-e-crociera-sulla-senna.jpg" alt="">
                     <div class="prezzo">
-                        <p>{{$saleApartment['price'] - floor($saleApartment['price'] * $saleApartment['sale'] / 100)}} €</p>
+                        <p>{{$saleApartment->price - floor($saleApartment['price'] * $saleApartment['sale'] / 100)}} €</p>
                         <br>
                         <p>Invece di </p>
                         <br>

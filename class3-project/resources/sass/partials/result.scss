@@ -1,17 +1,32 @@
-.nomiCheck {
-  margin-left: 10px;
-}
-.wrapRisultato {
-  margin-top: 20px;
-  background-color: green;
-  height: 200px;
-  .wrapImg {
-    background-color: pink;
+.wrapAll {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  padding-top: 20px;
+  aside {
+    height: 100vh;
+    width: 30%;
+    background-color: green;
   }
-  .wrapDescrizione {
+  .wrapResult {
     background-color: orange;
-    button {
-      text-align: right;
+    height: 100vh;
+    width: 65%;
+    margin-left: 5%;
+    .wrapRisultato {
+      margin-top: 20px;
+      background-color: green;
+      height: 200px;
+      .wrapImg {
+        background-color: pink;
+      }
+      .wrapDescrizione {
+        background-color: orange;
+        button {
+          text-align: right;
+        }
+      }
     }
   }
+
 }
