@@ -19,16 +19,10 @@
                   <option value="2">2</option>
                 </select>
               </div>
-              <div class="form-group col-3">
-                <input type="hidden" name="lat" value="44.91297351">
-              </div>
-              <div class="form-group col-3">
-                <input type="hidden" name="lng" value="8.61540116">
-              </div>
             </div>
             <input id="inputNascosto" type="hidden" name="citiesCode" value="">
           </form>
-          <button type="submit" id="cercaBtn" class="btn btn-primary">Cerca</button>
+          <button type="" id="cercaBtn" class="btn btn-primary">Cerca</button>
 
         </div>
       </div>

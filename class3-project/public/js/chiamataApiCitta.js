@@ -15285,8 +15285,7 @@ $(document).ready(function () {
     }
   }); //recupero data value
 
-  $('#cercaBtn').on('click', function (e) {
-    e.preventDefault();
+  $('#cercaBtn').on('click', function () {
     var ricerca = $("#listaCitta option[value='" + $('#listaCitta-input').val() + "']").attr('data-id');
     $('#inputNascosto').val(ricerca);
     $('#formInterno').submit();
