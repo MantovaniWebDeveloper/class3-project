@@ -10,10 +10,14 @@
 		
 		protected $guarded = ['id', 'created_at', 'updated_at'];
 		protected $hidden = ['id', 'user_id', 'end_promo', 'created_at', 'updated_at'];
-		protected $with = array('services');
+		protected $with = array('services', 'images');
 		
 		public function services() {
 			return $this->belongsToMany(Service::class)->withTimestamps();
+		}
+		
+		public function images() {
+			return $this->hasMany(Image::class);
 		}
 		
 		/**
@@ -41,5 +45,9 @@
 			  ->selectRaw("{$haversine} AS distance")
 			  ->whereRaw("{$haversine} <= ?", [$radius])
 			  ->orderByRaw('distance');
+		}
+		
+		public function scopeIsShowed($query) {
+			return $query->where('is_showed', 1);
 		}
 	}
