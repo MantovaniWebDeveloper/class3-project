@@ -15275,17 +15275,23 @@ $(document).ready(function () {
     type: 'GET',
     success: function success(data) {
       //console.log(data);
-      var templateBase = $('#elencoCitta-template').html();
-      var templateCompilato = handlebars_dist_cjs_handlebars__WEBPACK_IMPORTED_MODULE_0___default.a.compile(templateBase);
-      var html = templateCompilato(data);
-      $('#listaCitta').html(html);
+      renderDatalistCitta(data);
     },
     error: function error(errore) {
       console.log(errore);
     }
-  }); //recupero data value
+  }); //funzione per stampare via handlebars le citta nel datalist
 
-  $('#cercaBtn').on('click', function () {
+  function renderDatalistCitta(data) {
+    var templateBase = $('#elencoCitta-template').html();
+    var templateCompilato = handlebars_dist_cjs_handlebars__WEBPACK_IMPORTED_MODULE_0___default.a.compile(templateBase);
+    var html = templateCompilato(data);
+    $('#listaCitta').html(html);
+  } //invio del form che riesce a passare il data-id
+
+
+  $('#cercaBtn').on('click', function (e) {
+    e.preventDefault();
     var ricerca = $("#listaCitta option[value='" + $('#listaCitta-input').val() + "']").attr('data-id');
     $('#inputNascosto').val(ricerca);
     $('#formInterno').submit();

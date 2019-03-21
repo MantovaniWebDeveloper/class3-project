@@ -29,7 +29,8 @@ $(document).ready(function() {
   }
 
   //invio del form che riesce a passare il data-id
-  $('#cercaBtn').on('click', function(){
+  $('#cercaBtn').on('click', function(e){
+      e.preventDefault();
       var ricerca = $("#listaCitta option[value='" + $('#listaCitta-input').val() + "']").attr('data-id');
 
       $('#inputNascosto').val(ricerca);

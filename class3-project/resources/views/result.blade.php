@@ -3,7 +3,7 @@
 @include('header')
 <div class="wrapSearch">
   <div class="container">
-    @include('search')
+    @include('searchInterno')
     <h4>Filtra per :</h4>
 
     <h4>Includi anche :</h4>
@@ -40,5 +40,6 @@
   </div>
 </div>
 <script src="{{ asset('js/chiamataApiCitta.js') }}" defer></script>
+<script src="{{ asset('js/ricercaInterna.js') }}" defer></script>
 
 @endsection
