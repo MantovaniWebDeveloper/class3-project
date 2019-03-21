@@ -61,6 +61,7 @@
     </div>
 
     {{-- FORM RICERCA --}}
+    @include('search')
   {{-- @dd($promoApartments); --}}
      @foreach($promoApartments as $apartment)
       <div class="container">
@@ -79,5 +80,7 @@
         </div>
       </div>
     @endforeach
+    <script src="{{ asset('js/chiamataApiCitta.js') }}" defer></script>
+
   </body>
 </html>
