@@ -1,18 +1,13 @@
 <?php
-
+	
 	namespace App\Http\Controllers;
-
+	
 	use App\Apartment;
 	use Illuminate\Http\Request;
 	use Illuminate\Support\Carbon;
-<<<<<<< HEAD
-	use Illuminate\Support\Facades\DB;
-
-=======
 	
->>>>>>> emanuele
 	class ApartmentController extends Controller {
-
+		
 		/*
 		 * Ritorna la homepage con un 1 appartamento in offerta,
 		 * n appartamenti in evidenza e
@@ -39,7 +34,7 @@
 				return abort(500);
 			}
 		}
-
+		
 		/*
 		 * Questo metodo viene chiamato dal submit del form nella homepage
 		 */
@@ -66,39 +61,14 @@
 				return abort(500);
 			}
 		}
-
-		function showAdvancedSearch() {
-<<<<<<< HEAD
-			$utc = Carbon::now('Europe/Rome');
-			try {
-				$promoApartments = Apartment::where('end_promo', '>', $utc)->orderBy('end_promo', 'asc')->take(5)->get();
-				return view('result')->withPromoApartments($promoApartments);
-			} catch (\Exception $e) {
-				return abort(500);
-			}
-		}
-
-		function cities() {
-			$rawData = \Config::get('cities');
-			$cities = [];
-			foreach ($rawData as $index => $data) {
-				$cities[] = [
-				  'name' => $data['provincia'],
-				  'code' => $index
-				];
-			}
-			return $cities;
-=======
 		
->>>>>>> emanuele
+		function showAdvancedSearch() {
+		
 		}
-
+		
 		function advancedSearch(Request $request) {
 			return "TODO";
 		}
-<<<<<<< HEAD
-
-=======
 		
 		/*
 		 * questo metodo restituisce un array di appartamenti che sono compresi
@@ -149,5 +119,4 @@
 			}
 		}
 		
->>>>>>> emanuele
 	}
