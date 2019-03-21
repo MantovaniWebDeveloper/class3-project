@@ -16,7 +16,7 @@ header{
   width: 100%;
   background: rgba(255,255,255,.7);
   position: sticky;
-  top: 0px;
+  top: 0%;
   z-index: 999;
 }
 .container{
@@ -42,18 +42,17 @@ header{
   cursor: pointer;
 }
 #menu{
-  background: red;
-  height: 0px;
-  opacity: 0;
-  visibility: hidden;
+  background: #ffffff;
+  opacity:.5;
 }
 .primary-menu{
   display: flex;
   justify-content: flex-end;
   position: absolute;
-  top: 50px;
+  top: 38px;
   z-index: 1000;
-  right: 5%;
+  right: 0%;
+  width: 300px;
 }
 /*
 .visibile{
@@ -204,7 +203,7 @@ ul li{
   height: 300px;
   background-size: cover;
 }
-.galleria div:hover{
+.galleria .card-città:hover{
   filter: brightness(70%);
 }
 
