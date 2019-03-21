@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         <link rel="stylesheet" href="{{asset('css/app.css')}}">
         <link rel="stylesheet" href="{{asset('css/style.css')}}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.0/css/all.css" integrity="sha384-Mmxa0mLqhmOeaE8vgOSbKacftZcsNYDjQzuCOm6D02luYSzBG8vpaOykv9lFQ51Y" crossorigin="anonymous">
         <title>BoolBnb</title>
     </head>
     <body class="homepage">
@@ -55,6 +56,7 @@
             </div>
         </header>
 
+
         <!-- SECTION PRENOTAZIONE -->
         <section class="prenotazione">
             <h3 class="title">Prenota il tuo appartamento
@@ -69,52 +71,76 @@
             </div>
         </section>
 
-        <!-- SECTION IN EVIDENZA -->
-        {{-- <section class="evidenzia">
-          <div class="container-evidenzia">
-            <h3>In evidenza</h3>
-            <div class="box-card">
-              <div class="card-appartamento">
+        {{-- <!-- SECTION IN EVIDENZA -->
+          <section class="evidenzia">
+            <div class="container-evidenzia">
+              <h3>In evidenza</h3>
+              <div class="box-card">
+                <div class="card-appartamento">
+                  <div class="img-evidenza">
+                    <img src="img/stanza.jpg" alt="camera">
+                  </div>
+                </div>
+                <div class="card-appartamento">
+                  <div class="img-evidenza">
+                    <img src="img/bedroom.jpg" alt="camera">
+                  </div>
+                </div>
+                <div class="card-appartamento">
+                  <div class="img-evidenza">
+                    <img src="img/stanza.jpg" alt="camera">
+                  </div>
+                </div>
+                <div class="card-appartamento">
+                  <div class="img-evidenza">
+                    <img src="img/bedroom.jpg" alt="camera">
+                  </div>
+                </div>
+                <div class="card-appartamento">
+                  <div class="img-evidenza">
+                    <img src="img/stanza.jpg" alt="camera">
+                  </div>
+                </div>
+                <div class="card-appartamento">
+                  <div class="img-evidenza">
+                    <img src="img/bedroom.jpg" alt="camera">
+                  </div>
+                </div>
               </div>
-              <div class="card-appartamento">
               </div>
-              <div class="card-appartamento">
-              </div>
-              <div class="card-appartamento">
-              </div>
-              <div class="card-appartamento">
-              </div>
-              <div class="card-appartamento">
-              </div>
-
-          {{-- FORM RICERCA --}}
-        @include('search')
-        {{--=======--}}
-        {{--</div>--}}
-        {{--</div>--}}
-        {{--</div>--}}
-        {{--</section> --}}
-        {{-- @include('search') --}}
-        {{-->>>>>>> davide--}}
-        {{-- @dd($promoApartments); --}}
-        <div class="container">
-            <div class="d-flex flex-row flex-wrap justify-content-around">
-                @foreach($promoApartments as $apartment)
-                    <div class="col-3 card-appartamento">
-                        APPARTAMENTO IN EVIDENZA
-                        <small>la promozione termina il : {{$apartment->end_promo}}</small>
-                        <h3>Nome appartamento : {{ $apartment->title }}</h3>
-                        {{-- <img src="{{ $apartment->immagine }}"> --}}
-                        <ul>
-                            <li>Numero letti : {{ $apartment->bed_count}}</li>
-                            <li>Gradezza in mq : {{ $apartment->square_meters}}</li>
-                            {{-- <li>{{$apartment->services->}}</li> --}}
-                        </ul>
-                    </div>
-                @endforeach
-
             </div>
-        </div>
+          </section> --}}
+
+         @include('search')
+        {{-- @dd($promoApartments); --}}
+        <section class="evidenzia">
+          <div class="container-evidenzia">
+            <h2>Appartamenti in evidenza</h2>
+              <div class="box-card">
+                  @foreach($promoApartments as $apartment)
+                      <div class="card-appartamento">
+                        <div class="img-evidenza">
+                          <img src="http://lorempixel.com/300/200/nature" alt="">
+                        </div>
+                          <small>la promozione termina il : {{$apartment->end_promo}}</small>
+                          <h3>Appartamento : {{ str_limit($apartment->title, $limit = 10, $end = '...') }}</h3>
+                          <div class="dettagli">
+                            <ul>
+                              <li>
+                                <i class="fas fa-bed"></i>
+                                <span>Ospiti: {{ $apartment->bed_count}}</span>
+                              </li>
+                              <li>
+                                <i class="fas fa-home"></i>
+                                <span>Spazio: {{ $apartment->square_meters}}<small>mq</small></span>
+                              </li>
+                            </ul>
+                          </div>
+                      </div>
+                  @endforeach
+              </div>
+          </div>
+        </section>
         <!-- SECTION LOCALITA -->
         <section class="località">
             <div class="container-località">

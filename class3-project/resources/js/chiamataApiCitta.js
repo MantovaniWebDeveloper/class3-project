@@ -12,8 +12,8 @@ $(document).ready(function () {
             console.log(data);
             renderDatalistCitta(data);
         },
-        error: function () {
-            console.log("errore");
+        error: function (errore) {
+            console.log(errore);
         }
 
     });

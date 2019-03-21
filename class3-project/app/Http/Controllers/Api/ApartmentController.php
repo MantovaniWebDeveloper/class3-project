@@ -7,6 +7,7 @@
 
 	class ApartmentController extends Controller {
 		function cities() {
+		
 			$rawData = \Config::get('cities');
 			$cities = [];
 			foreach ($rawData as $index => $data) {
