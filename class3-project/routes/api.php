@@ -18,8 +18,9 @@
 		return $request->user();
 	});
 	
-	Route::namespace('api')->middleware('only_ajax')->group(
+	Route::namespace('Api')->middleware('only_ajax')->group(
 	  function () {
 		  Route::get('/cities', 'ApartmentController@cities');
+		  Route::get('/search', 'ApartmentController@spaSearch');
 	  }
 	);
