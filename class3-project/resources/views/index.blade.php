@@ -37,11 +37,11 @@
                 <div class="img-offerta_prezzo">
                     <img src="https://fastpasstours.com/166/biglietto-salta-fila-visita-alla-torre-eiffel-e-crociera-sulla-senna.jpg" alt="">
                     <div class="prezzo">
-                        <p>188€ </p>
+                        <p>{{$saleApartment['price'] - floor($saleApartment['price'] * $saleApartment['sale'] / 100)}} €</p>
                         <br>
                         <p>Invece di </p>
                         <br>
-                        <p>263€</p>
+                        <p>{{$saleApartment['price']}}</p>
                     </div>
                 </div>
                 <h3>Appartamento a pochi passi dal mare</h3>
@@ -137,7 +137,7 @@
                 <h6>Copyright &copy; 2019</h6>
             </div>
         </footer>
-        <script src="{{asset('js/main.js')}}"></script>
+        <script src="{{asset('js/common.js')}}"></script>
         <script src="{{ asset('js/chiamataApiCitta.js') }}" defer></script>
     </body>
     {{-- non sapevo a cosa servisse insieme a questi nello script che mi davano errore integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

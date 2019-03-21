@@ -1,13 +1,13 @@
 <?php
-	
+
 	namespace App\Http\Controllers;
-	
+
 	use App\Apartment;
 	use Illuminate\Http\Request;
 	use Illuminate\Support\Carbon;
-	
+
 	class ApartmentController extends Controller {
-		
+
 		/*
 		 * Ritorna la homepage con un 1 appartamento in offerta,
 		 * n appartamenti in evidenza e
@@ -26,7 +26,7 @@
 				$regionsToTake = 5;
 				$regions = array_slice($rawData, 0, $regionsToTake, true);;
 				//TODO la view finale è index
-				return view('emanuele')
+				return view('index')
 				  ->withRegions($regions)
 				  ->withSaleApartment($saleApartment->toArray())
 				  ->withPromoApartments($promoApartments);
@@ -34,7 +34,7 @@
 				return abort(500);
 			}
 		}
-		
+
 		/*
 		 * Questo metodo viene chiamato dal submit del form nella homepage
 		 */
@@ -48,7 +48,7 @@
 			$pagination = 10;
 			$cityId = $request->input('city_code');
 			try {
-				
+
 				$lat = $rawData[$cityId]['lat'];
 				$lng = $rawData[$cityId]['lng'];
 				$bedCount = $request->input('bed_count');
@@ -61,15 +61,15 @@
 				return abort(500);
 			}
 		}
-		
+
 		function showAdvancedSearch() {
-		
+
 		}
-		
+
 		function advancedSearch(Request $request) {
 			return "TODO";
 		}
-		
+
 		/*
 		 * questo metodo restituisce un array di appartamenti che sono compresi
 		 * all'interno di un raggio [$radius] di ogni provincia della regione
@@ -118,5 +118,5 @@
 				abort(500);
 			}
 		}
-		
+
 	}

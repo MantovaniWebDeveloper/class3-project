@@ -1,7 +1,7 @@
   <div class="formRicerca container d-flex justify-content-center">
       <div class="row">
         <div class="col-12">
-          <form id="formInterno" class="" action="{{ route('ricerca')}}" method="get">
+          <form id="formInterno" class="" action="{{ route('ricerca_avanzata')}}" method="get">
             @csrf
             <h2>Inserisci la città ed il numero di ospiti</h2>
             <div class="form-row d-flex justify-content-center">
@@ -20,7 +20,7 @@
                 </select>
               </div>
             </div>
-            <input id="inputNascosto" type="hidden" name="citiesCode" value="">
+            <input id="inputNascosto" type="hidden" name="city_code" value="">
             <button type="" id="cercaBtn" class="btn btn-primary">Cerca</button>
           </form>
 
