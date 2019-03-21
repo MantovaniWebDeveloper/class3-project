@@ -21,7 +21,7 @@
 			return $cities;
 		}
 		
-		function spaSearch(Request $request) {
+		function advancedSearch(Request $request) {
 			$validator = \Validator::make(
 			  $request->all(), [
 			  'city_code' => 'required|integer',
