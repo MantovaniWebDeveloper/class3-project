@@ -17,18 +17,18 @@
       .wrapRisultato {
         background-color: #fff;
         width: 100%;
-        height: 200px;
+        height: 100%;
         border-radius: 5px;
         border: 1px solid;
         margin-bottom: 10px;
         .wrapImg {
           background-color: pink;
         }
-        .wrapDescrizione {
-          background-color: orange;
-          button {
-            text-align: right;
-          }
+        .wrapBtn {
+          padding-bottom: 10px;
+          padding-right: 10px;
+          text-align: right;
+
         }
       }
     }
