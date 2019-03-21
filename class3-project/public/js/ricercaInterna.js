@@ -15270,8 +15270,16 @@ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"
 $('#cercaBtn').on('click', function (e) {
   e.preventDefault();
   var ricerca = $("#listaCitta option[value='" + $('#listaCitta-input').val() + "']").attr('data-id');
-  $('#inputNascosto').val(ricerca);
-  $('#formInterno').submit();
+  var url = 'http://127.0.0.1:8000/api/cities';
+  $.ajax({
+    url: url,
+    type: 'GET',
+    success: function success(data) {//console.log(data);
+    },
+    error: function error(errore) {
+      console.log(errore);
+    }
+  });
 });
 
 /***/ }),
