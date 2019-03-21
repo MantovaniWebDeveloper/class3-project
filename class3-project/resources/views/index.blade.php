@@ -1,86 +1,146 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>BOOLBNB</title>
-    <link rel="stylesheet" href="{{ asset('css/index.css')}}">
-  </head>
-  <body>
-    {{-- NAVBAR --}}
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">BOOL BNB</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="d-flex justify-content-end collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown link
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </header>
-
-    {{-- SIMIL JUMBOTRON --}}
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="container">
-            <div class="row">
-              <div class="col-8">
-                <h1>Offerta imperdibile</h1>
-              </div>
-              <div class="col-4">
-                <ul>
-                  <li>Accedi</li>
-                  <li>Registrati</li>
-                </ul>
-              </div>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{asset('css/app.css')}}">
+        <link rel="stylesheet" href="{{asset('css/style.css')}}">
+        <title>BoolBnb</title>
+    </head>
+    <body class="homepage">
+        <div class="menu">
+            <div class="container">
+                <div class="home_logo">
+                    <i class="fas fa-home"></i>
+                    <h1>BoolBnb</h1>
+                </div>
+                <div class="primary-menu">
+                    <i class="fas fa-bars" id="burgher-menu"></i>
+                    <nav id="menu">
+                        <ul>
+                            <li>Prova</li>
+                            <li>Prova</li>
+                            <li>Prova</li>
+                            <li>Prova</li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
+        <!-- HEADER-->
+        <header>
+            <div class="box-offerta">
+                <h3>Offerta imperdibile !</h3>
+                <div class="img-offerta_prezzo">
+                    <img src="https://fastpasstours.com/166/biglietto-salta-fila-visita-alla-torre-eiffel-e-crociera-sulla-senna.jpg" alt="">
+                    <div class="prezzo">
+                        <p>188€ </p>
+                        <br>
+                        <p>Invece di </p>
+                        <br>
+                        <p>263€</p>
+                    </div>
+                </div>
+                <h3>Appartamento a pochi passi dal mare</h3>
+                <div class="box-benefit">
+                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="btn-prenota">Prenota subito</div>
+            </div>
+        </header>
 
-    {{-- FORM RICERCA --}}
-    @include('search')
-  {{-- @dd($promoApartments); --}}
-     @foreach($promoApartments as $apartment)
-      <div class="container">
-        <div class="row">
-          <div class="col-10">
-            APPARTAMENTO IN EVIDENZA
-            <small>la promozione termina il : {{$apartment->end_promo}}</small>
-            <h3>Nome appartamento : {{ $apartment->title }}</h3>
-            {{-- <img src="{{ $apartment->immagine }}"> --}}
-            <ul>
-              <li>Numero letti : {{ $apartment->bed_count}}</li>
-              <li>Gradezza in mq : {{ $apartment->square_meters}}</li>
-              {{-- <li>{{$apartment->services->}}</li> --}}
-            </ul>
-          </div>
+        <!-- SECTION PRENOTAZIONE -->
+        <section class="prenotazione">
+            <h3 class="title">Prenota il tuo appartamento
+                <br> ovunque vuoi!
+            </h3>
+            <div class="box-prenotazioni">
+                <input class="city" type="text" placeholder="Località">
+                <input type="number" placeholder="Ospiti">
+                <input type="date">
+                <input type="date">
+                <input type="submit" class="send">
+            </div>
+        </section>
+
+        <!-- SECTION IN EVIDENZA -->
+        {{-- <section class="evidenzia">
+          <div class="container-evidenzia">
+            <h3>In evidenza</h3>
+            <div class="box-card">
+              <div class="card-appartamento">
+              </div>
+              <div class="card-appartamento">
+              </div>
+              <div class="card-appartamento">
+              </div>
+              <div class="card-appartamento">
+              </div>
+              <div class="card-appartamento">
+              </div>
+              <div class="card-appartamento">
+              </div>
+
+          {{-- FORM RICERCA --}}
+        @include('search')
+        {{--=======--}}
+        {{--</div>--}}
+        {{--</div>--}}
+        {{--</div>--}}
+        {{--</section> --}}
+        {{-- @include('search') --}}
+        {{-->>>>>>> davide--}}
+        {{-- @dd($promoApartments); --}}
+        <div class="container">
+            <div class="d-flex flex-row flex-wrap justify-content-around">
+                @foreach($promoApartments as $apartment)
+                    <div class="col-3 card-appartamento">
+                        APPARTAMENTO IN EVIDENZA
+                        <small>la promozione termina il : {{$apartment->end_promo}}</small>
+                        <h3>Nome appartamento : {{ $apartment->title }}</h3>
+                        {{-- <img src="{{ $apartment->immagine }}"> --}}
+                        <ul>
+                            <li>Numero letti : {{ $apartment->bed_count}}</li>
+                            <li>Gradezza in mq : {{ $apartment->square_meters}}</li>
+                            {{-- <li>{{$apartment->services->}}</li> --}}
+                        </ul>
+                    </div>
+                @endforeach
+
+            </div>
         </div>
-      </div>
-    @endforeach
-    <script src="{{ asset('js/chiamataApiCitta.js') }}" defer></script>
+        <!-- SECTION LOCALITA -->
+        <section class="località">
+            <div class="container-località">
+                <h3>Località</h3>
+                <div class="box-card">
+                    <div class="card-città">
+                    </div>
+                    <div class="card-città">
+                    </div>
+                    <div class="card-città">
+                    </div>
+                    <div class="card-città">
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  </body>
+        <footer class="footer">
+            <div class="container">
+                <h6>Copyright &copy; 2019</h6>
+            </div>
+        </footer>
+        <script src="{{asset('js/main.js')}}"></script>
+        <script src="{{ asset('js/chiamataApiCitta.js') }}" defer></script>
+    </body>
+    {{-- non sapevo a cosa servisse insieme a questi nello script che mi davano errore integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"  <script src="script.js"></script> --}}
+
 </html>

@@ -13,19 +13,25 @@ use Illuminate\Http\Request;
 
 
 
-	//TEST DARIO
-//	Route::get('/result', 'HomeController@result')->name('result');
-
-/*	Auth::routes();
-
-	Route::get('/home', 'HomeController@index')->name('home');
-*/
-	//rotte di test
-//	Route::get('/', 'ApartmentController@index');
-//	Route::get('/token', 'ApartmentController@showToken');
-
-	//TEST DAVIDE
-/*	Route::get(
-	  '/', function () {
-		return view('index');
-	});*/
+//<<<<<<< HEAD
+//=======
+//
+//
+//
+//
+//>>>>>>> davide
+//	//TEST DARIO
+////	Route::get('/result', 'HomeController@result')->name('result');
+//
+///*	Auth::routes();
+//
+//	Route::get('/home', 'HomeController@index')->name('home');
+//*/
+//	//rotte di test
+////	Route::get('/', 'ApartmentController@index');
+////	Route::get('/token', 'ApartmentController@showToken');
+//
+//	//TEST DAVIDE
+//	Route::get('/html', function() {
+//		return view('html.index-raw');
+//	});;
