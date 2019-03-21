@@ -10693,40 +10693,46 @@ a.text-dark:focus {
 }
 
 .wrapAll {
+  background-color: #e5e5e5;
+}
+
+.wrapAll .wrapAllInterno {
   display: flex;
   height: 100%;
   width: 100%;
   padding-top: 20px;
 }
 
-.wrapAll aside {
+.wrapAll .wrapAllInterno aside {
   height: 100vh;
   width: 30%;
-  background-color: green;
+  background-color: #fff;
 }
 
-.wrapAll .wrapResult {
-  background-color: orange;
-  height: 100vh;
+.wrapAll .wrapAllInterno .wrapResult {
+  height: 100%;
   width: 65%;
   margin-left: 5%;
 }
 
-.wrapAll .wrapResult .wrapRisultato {
-  margin-top: 20px;
-  background-color: green;
+.wrapAll .wrapAllInterno .wrapResult .wrapRisultato {
+  background-color: #fff;
+  width: 100%;
   height: 200px;
+  border-radius: 5px;
+  border: 1px solid;
+  margin-bottom: 10px;
 }
 
-.wrapAll .wrapResult .wrapRisultato .wrapImg {
+.wrapAll .wrapAllInterno .wrapResult .wrapRisultato .wrapImg {
   background-color: pink;
 }
 
-.wrapAll .wrapResult .wrapRisultato .wrapDescrizione {
+.wrapAll .wrapAllInterno .wrapResult .wrapRisultato .wrapDescrizione {
   background-color: orange;
 }
 
-.wrapAll .wrapResult .wrapRisultato .wrapDescrizione button {
+.wrapAll .wrapAllInterno .wrapResult .wrapRisultato .wrapDescrizione button {
   text-align: right;
 }
 
