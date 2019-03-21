@@ -15268,13 +15268,12 @@ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"
 
 $(document).ready(function () {
   var url = 'http://127.0.0.1:8000/api/cities';
-  var cittaItaliane = []; //alert("sono vivo cazzo");
-
+  var cittaItaliane = [];
   $.ajax({
     url: url,
     type: 'GET',
     success: function success(data) {
-      //console.log(data);
+      console.log(data);
       renderDatalistCitta(data);
     },
     error: function error() {
@@ -15307,7 +15306,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/parallels/Desktop/Boolean/sites/progetto-finale/class3-project/resources/js/chiamataApiCitta.js */"./resources/js/chiamataApiCitta.js");
+module.exports = __webpack_require__(/*! /Users/emanuelemazzante/WorkingDirectory/Esercizi_Boolean/apache_default/project_classe_3/class3-project/resources/js/chiamataApiCitta.js */"./resources/js/chiamataApiCitta.js");
 
 
 /***/ })
