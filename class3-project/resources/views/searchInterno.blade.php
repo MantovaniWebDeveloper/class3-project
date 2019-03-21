@@ -1,7 +1,7 @@
   <div class="formRicerca container d-flex justify-content-center">
       <div class="row">
         <div class="col-12">
-          <form id="formInterno" class="" action="{{ route('ricerca_avanzata')}}" method="get">
+          <form id="formInterno">
             @csrf
             <h2>Inserisci la città ed il numero di ospiti</h2>
             <div class="form-row d-flex justify-content-center">
@@ -20,7 +20,7 @@
                 </select>
               </div>
               <div class="form-group col-4">
-                <select class="selectPersone form-control" name="bed_count">
+                <select class="selectStanze form-control" name="bed_count">
                   <option value="0">numero stanze</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -28,8 +28,8 @@
               </div>
             </div>
             <input id="inputNascosto" type="hidden" name="citiesCode" value="">
-            <button type="" id="cercaBtn" class="btn btn-primary">Cerca</button>
           </form>
+          <button type="" id="cercaBtn" class="btn btn-primary">Cerca</button>
 
         </div>
       </div>

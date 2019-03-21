@@ -10692,25 +10692,41 @@ a.text-dark:focus {
   background-color: yellow;
 }
 
-.nomiCheck {
-  margin-left: 10px;
+.wrapAll {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  padding-top: 20px;
 }
 
-.wrapRisultato {
+.wrapAll aside {
+  height: 100vh;
+  width: 30%;
+  background-color: green;
+}
+
+.wrapAll .wrapResult {
+  background-color: orange;
+  height: 100vh;
+  width: 65%;
+  margin-left: 5%;
+}
+
+.wrapAll .wrapResult .wrapRisultato {
   margin-top: 20px;
   background-color: green;
   height: 200px;
 }
 
-.wrapRisultato .wrapImg {
+.wrapAll .wrapResult .wrapRisultato .wrapImg {
   background-color: pink;
 }
 
-.wrapRisultato .wrapDescrizione {
+.wrapAll .wrapResult .wrapRisultato .wrapDescrizione {
   background-color: orange;
 }
 
-.wrapRisultato .wrapDescrizione button {
+.wrapAll .wrapResult .wrapRisultato .wrapDescrizione button {
   text-align: right;
 }
 

@@ -1,6 +1,30 @@
 import Handlebars from 'handlebars/dist/cjs/handlebars';
 
 var $ = require("jquery");
+$(document).ready(function() {
+  var url = 'http://127.0.0.1:8000/api/cities'
+
+  $.ajax({
+    url: url,
+    type: 'GET',
+    success: function(data) {
+      //console.log(data);
+      renderDatalistCitta(data);
+    },
+    error: function(errore) {
+      console.log(errore);
+    }
+
+
+  })
+
+  //funzione per stampare via handlebars le citta nel datalist
+  function renderDatalistCitta(data){
+    var templateBase = $('#elencoCitta-template').html();
+    var templateCompilato = Handlebars.compile(templateBase);
+    var html = templateCompilato(data);
+    $('#listaCitta').html(html);
+  }
 
   //invio del form che riesce a passare il data-id
   $('#cercaBtn').on('click', function(e){
@@ -9,15 +33,23 @@ var $ = require("jquery");
         var ricerca = $("#listaCitta option[value='" + $('#listaCitta-input').val() + "']").attr('data-id');
         var url = 'http://127.0.0.1:8000/api/cities';
 
+        var bed_count = $('.selectPersone').val();
+
+        console.log(ricerca);
         $.ajax({
           url: url,
           type: 'GET',
-          success: function(data) {
-            //console.log(data);
+          data: {
           
+          },
+          success: function(data) {
+            console.log(data);
+
           },
           error: function(errore) {
             console.log(errore);
           }
         });
+  })
+
 })

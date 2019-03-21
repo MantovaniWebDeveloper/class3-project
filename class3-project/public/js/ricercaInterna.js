@@ -15264,21 +15264,47 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var handlebars_dist_cjs_handlebars__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(handlebars_dist_cjs_handlebars__WEBPACK_IMPORTED_MODULE_0__);
 
 
-var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"); //invio del form che riesce a passare il data-id
+var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
-
-$('#cercaBtn').on('click', function (e) {
-  e.preventDefault();
-  var ricerca = $("#listaCitta option[value='" + $('#listaCitta-input').val() + "']").attr('data-id');
+$(document).ready(function () {
   var url = 'http://127.0.0.1:8000/api/cities';
   $.ajax({
     url: url,
     type: 'GET',
-    success: function success(data) {//console.log(data);
+    success: function success(data) {
+      //console.log(data);
+      renderDatalistCitta(data);
     },
     error: function error(errore) {
       console.log(errore);
     }
+  }); //funzione per stampare via handlebars le citta nel datalist
+
+  function renderDatalistCitta(data) {
+    var templateBase = $('#elencoCitta-template').html();
+    var templateCompilato = handlebars_dist_cjs_handlebars__WEBPACK_IMPORTED_MODULE_0___default.a.compile(templateBase);
+    var html = templateCompilato(data);
+    $('#listaCitta').html(html);
+  } //invio del form che riesce a passare il data-id
+
+
+  $('#cercaBtn').on('click', function (e) {
+    e.preventDefault();
+    var ricerca = $("#listaCitta option[value='" + $('#listaCitta-input').val() + "']").attr('data-id');
+    var url = 'http://127.0.0.1:8000/api/cities';
+    var bed_count = $('.selectPersone').val();
+    console.log(ricerca);
+    $.ajax({
+      url: url,
+      type: 'GET',
+      data: {},
+      success: function success(data) {
+        console.log(data);
+      },
+      error: function error(errore) {
+        console.log(errore);
+      }
+    });
   });
 });
 
