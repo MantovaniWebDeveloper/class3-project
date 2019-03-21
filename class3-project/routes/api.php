@@ -18,6 +18,8 @@
 		return $request->user();
 	});
 	
-	//ROTTE DI TEST
-//	Route::get('/appartamenti/ricerca', 'ApartmentController@advancedSearch');
-	Route::get('/cities', 'ApartmentController@cities')->middleware('only_ajax');
+	Route::namespace('api')->middleware('only_ajax')->group(
+	  function () {
+		  Route::get('/cities', 'ApartmentController@cities');
+	  }
+	);

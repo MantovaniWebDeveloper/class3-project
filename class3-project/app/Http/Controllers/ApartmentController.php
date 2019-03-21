@@ -55,8 +55,8 @@
 				$apartments = Apartment::findInRange($radius, $lat, $lng)->isShowed()->where('bed_count', '>=', $bedCount)->paginate($pagination);
 				return view('result')
 				  ->withApartments($apartments->toArray())
-				  ->withCityCode($cityId)
-				  ->withCityName($rawData[$cityId]['provincia']);
+				  ->withSearchType('city')
+				  ->withSearchLabel($rawData[$cityId]['provincia']);
 			} catch (\Exception $e) {
 				return abort(500);
 			}
@@ -64,18 +64,6 @@
 		
 		function showAdvancedSearch() {
 		
-		}
-		
-		function cities() {
-			$rawData = \Config::get('cities');
-			$cities = [];
-			foreach ($rawData as $index => $data) {
-				$cities[] = [
-				  'name' => $data['provincia'],
-				  'code' => $index
-				];
-			}
-			return $cities;
 		}
 		
 		function advancedSearch(Request $request) {
@@ -96,29 +84,39 @@
 			if ($validator->fails()) {
 				abort(404);
 			};
-			//ottengo il codice regio
-			$regionCode = $request->input('region_code');
-			//ottengo array delle città dalla config
-			$rawData = \Config::get('cities');
-			//filtro array per includere solo le province della regione passata
-			$cities = array_filter(
-			  $rawData, function ($item) use ($regionCode) {
-				return $item['id_regione'] == $regionCode ? true : false;
-			});
-			//imposto raggio di ricerca
-			$radius = 20;
-			//array contenente i risultati
-			$results = [];
-			foreach ($cities as $city) {
-				$data = Apartment::findInRange($radius, $city['lat'], $city['lng'])->get();
-				$data = $data->toArray();
-				$results = array_merge($results, $data);
+			try {
+				//ottengo il codice regio
+				$regionCode = $request->input('region_code');
+				//ottengo array delle città e delle regioni dalla config
+				$rawDataCities = \Config::get('cities');
+				$rawDataRegions = \Config::get('regions');
+				$index = array_search($regionCode, array_column($rawDataRegions, 'id_regione'));
+				$regionName = $rawDataRegions[$index]['nome'];
+				//filtro array per includere solo le province della regione passata
+				$cities = array_filter(
+				  $rawDataCities, function ($item) use ($regionCode) {
+					return $item['id_regione'] == $regionCode ? true : false;
+				});
+				//imposto raggio di ricerca e paginazione
+				$radius = 20;
+				//array contenente i risultati
+				$results = [];
+				foreach ($cities as $city) {
+					$data = Apartment::findInRange($radius, $city['lat'], $city['lng']);
+					$data = $data->toArray();
+					$results = array_merge($results, $data);
+				}
+				//ora $results potrà contenere dei valori duplicati che vado a eliminare in base
+				//allo slug che è univoco per ogni appartamento
+				$tempArr = array_unique(array_column($results, 'slug'));
+				$results = array_intersect_key($results, $tempArr);
+				return view('result')
+				  ->withApartments($results)
+				  ->withSearchType('region')
+				  ->withSearchLabel($regionName);
+			} catch (\Exception $e) {
+				abort(500);
 			}
-			//ora $results potrà contenere dei valori duplicati che vado a eliminare in base
-			//allo slug che è univoco per ogni appartamento
-			$tempArr = array_unique(array_column($results, 'slug'));
-			$results = array_intersect_key($results, $tempArr);
-			dd($results);
 		}
 		
 	}
