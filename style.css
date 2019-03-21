@@ -6,7 +6,7 @@
 }
 header{
   width: 100%;
-  background-image: url('https://fastpasstours.com/166/biglietto-salta-fila-visita-alla-torre-eiffel-e-crociera-sulla-senna.jpg');
+  background-image: url('https://besthqwallpapers.com/Uploads/13-8-2017/18370/thumb2-summer-vacation-beach-sand-beach-accessories-sea.jpg');
   height: 500px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -41,10 +41,29 @@ header{
 .homepage .fa-bars:hover{
   cursor: pointer;
 }
-
 #menu{
-  display: none;
+  background: red;
+  height: 0px;
+  opacity: 0;
+  visibility: hidden;
 }
+.primary-menu{
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  top: 50px;
+  z-index: 1000;
+  right: 5%;
+}
+/*
+.visibile{
+  background: yellow ;
+  height: 100% !important;
+  transition-duration: 1s;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+*/
 ul li{
   list-style-type: none;
   text-transform: uppercase;
@@ -53,9 +72,6 @@ ul li{
  a{
   text-decoration: none;
   color: #000;
-}
-.block{
-  display: block !important;
 }
 
 /*Box offerta*/
@@ -76,7 +92,7 @@ ul li{
   padding: 10px;
 }
 .img-offerta_prezzo img{
-  width: 50%;
+  width: 70%;
   height: 100px;
   background-size: cover;
 }
