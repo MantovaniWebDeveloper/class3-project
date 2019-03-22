@@ -10,10 +10,15 @@
 	
 	class ApartmentController extends Controller {
 		
-//		private 				$client = new Client(
-//		  [
-//			'base_uri' => 'https://api.tomtom.com'
-//		  ]);
+		private $client;
+		
+		public function __construct() {
+			
+			$this->client = new Client(
+			  [
+				'base_uri' => 'https://api.tomtom.com'
+			  ]);
+		}
 		
 		/*
 		 * Ritorna la homepage con un 1 appartamento in offerta,
@@ -22,7 +27,7 @@
 		function index() {
 			$utc = Carbon::now('Europe/Rome');
 			$promoApartmentsToShow = 5;
-			try {
+//			try {
 				//un appartamento scontato da mostrare nell'hero della home
 				$saleApartment = Apartment::isShowed()->where('sale', '>', 0)->inRandomOrder()->first();
 				//collection di appartamenti sponsorizzati
@@ -38,20 +43,9 @@
 				shuffle($mainCities);
 				$regionsToTake = 5;
 				$mainCities = array_slice($mainCities, 0, $regionsToTake, false);
-
+				//recupero indirizzi
 				foreach ($promoApartments as $promoApartment) {
-//					$uri = '/search/2/reverseGeocode/' . $promoApartment->latitude . ',' . $promoApartment->longitude . '.json';
-//					$response = $client->request(
-//					  'GET',
-//					  $uri, [
-//						'query' => [
-//						  'key' => 'rUTrqh7oaVBjDuzbkoBbTeQleSlTjRGj'
-//						],
-//						'headers' => [
-//						  'Accept' => '*/*'
-//						]
-//					  ]);
-//					dd($response->getBody()->getContents());
+					$reverseAddress = $this->getAddress($promoApartment->latitude, $promoApartment->longitude);
 					$promoApartment->myfield = 'emanuele';
 				}
 				dd($promoApartments->first()->myfield);
@@ -59,9 +53,26 @@
 				  ->withMainCities($mainCities)
 				  ->withSaleApartment($saleApartment)
 				  ->withPromoApartments($promoApartments);
-			} catch (\Exception $e) {
-				return abort(500);
-			}
+//			} catch (\Exception $e) {
+//				return abort(500);
+//			}
+		}
+		
+		private function getAddress($latitude, $longitude){
+//			$uri = '/search/2/reverseGeocode/' . $promoApartment->latitude . ',' . $promoApartment->longitude . '.json';
+			$uri = "/search/2/reverseGeocode/$latitude,$longitude.json";
+			$response = $this->client->request(
+			  'GET',
+			  $uri, [
+				'query' => [
+				  'key' => 'rUTrqh7oaVBjDuzbkoBbTeQleSlTjRGj'
+				],
+				'headers' => [
+				  'Accept' => '*/*'
+				]
+			  ]);
+			$json = json_decode($response->getBody()->getContents(), true);
+			dd($json);
 		}
 		
 		/*
