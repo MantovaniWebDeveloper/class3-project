@@ -15334,7 +15334,14 @@ $(document).ready(function () {
     };
 
     if (tipoPrezzi.length > 0) {
-      data.price_range = tipoPrezzi;
+      var sommaPrezzi = 0;
+
+      for (var i = 0; i < tipoPrezzi.length; i++) {
+        sommaPrezzi = sommaPrezzi + parseInt(tipoPrezzi[i]);
+      }
+
+      console.log(sommaPrezzi);
+      data.price_range = sommaPrezzi;
     }
 
     if (servizi.length > 0) {
@@ -15385,7 +15392,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/emanuelemazzante/WorkingDirectory/Esercizi_Boolean/apache_default/project_classe_3/class3-project/resources/js/ricercaInterna.js */"./resources/js/ricercaInterna.js");
+module.exports = __webpack_require__(/*! /Users/dariomantovani/Desktop/progettiLaravel/class3-project/class3-project/resources/js/ricercaInterna.js */"./resources/js/ricercaInterna.js");
 
 
 /***/ })
