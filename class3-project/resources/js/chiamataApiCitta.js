@@ -2,17 +2,17 @@ import Handlebars from 'handlebars/dist/cjs/handlebars';
 
 var $ = require("jquery");
 
-$(document).ready(function () {
+$(document).ready(function() {
     var url = 'http://127.0.0.1:8000/api/cities';
     var cittaItaliane = [];
     $.ajax({
         url: url,
         type: 'GET',
-        success: function (data) {
+        success: function(data) {
             console.log(data);
             renderDatalistCitta(data);
         },
-        error: function (errore) {
+        error: function(errore) {
             console.log(errore);
         }
 
@@ -27,7 +27,7 @@ $(document).ready(function () {
     }
 
     //invio del form che riesce a passare il data-id
-    $('#cercaBtn').on('click', function (e) {
+    $('#cercaBtn').on('click', function(e) {
         e.preventDefault();
         var ricerca = $("#listaCitta option[value='" + $('#listaCitta-input').val() + "']").attr('data-id');
 
