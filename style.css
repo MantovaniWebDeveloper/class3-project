@@ -177,14 +177,14 @@ ul li{
   background-size: cover;
 }
 /*section località*/
-.località{
+.localita{
   width: 100%;
 }
-.località .container-località{
+.localita .container-localita{
   width: 90%;
   margin: auto;
 }
-.località h3{
+.localita h3{
   padding: 5px;
   width: 100%;
 }
@@ -193,7 +193,7 @@ ul li{
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.card-città{
+.card-citta{
   width: 24%;
   height: 300px;
   margin-bottom: 20px;
@@ -203,7 +203,7 @@ ul li{
   height: 300px;
   background-size: cover;
 }
-.galleria .card-città:hover{
+.galleria .card-citta:hover{
   filter: brightness(70%);
 }
 
