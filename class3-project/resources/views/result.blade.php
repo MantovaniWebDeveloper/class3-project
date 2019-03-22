@@ -10,23 +10,14 @@
             <h4 class="pt-2 pl-2">Filtri per servizi clienti:</h4>
             <hr>
             <div class="wrapServizi pt-2 pl-2">
-              <div class="inpuServizi">
-                <input class="largo" type="checkbox" name="" value="wifi">
-                <label for="wifi">wifi</label>
-              </div>
-              <div class="inpuServizi">
-                <input class="" type="checkbox" name="" value="wifi">
-                <label for="wifi">parcheggio</label>
-              </div>
-              <div class="inpuServizi">
-                <input class="" type="checkbox" name="" value="wifi">
-                <label for="wifi">piscina</label>
-              </div>
-              <div class="inpuServizi">
-                <input class="" type="checkbox" name="" value="wifi">
-                <label for="wifi">sky</label>
-              </div>
+              @foreach ($services as  $servizio)
+                <div class="inpuServizi">
+                  <input class="largo" type="checkbox" name="services" value="{{$servizio->id}}">
+                  <label for="wifi">{{$servizio->name}}</label>
+                </div>
+              @endforeach
             </div>
+
             <div class="range pl-2 pr-2">
               <label for="formControlRange">Raggio km</label>
     <input type="range" class="form-control-range" id="formControlRange">

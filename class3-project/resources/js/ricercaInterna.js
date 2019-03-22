@@ -4,28 +4,46 @@ var $ = require("jquery");
 $(document).ready(function() {
   var url = 'http://127.0.0.1:8000/api/cities'
 
-  $.ajax({
+/*  $.ajax({
     url: url,
     type: 'GET',
     success: function(data) {
       //console.log(data);
-      renderDatalistCitta(data);
+      console.log("ciao");
+    //  renderDatalistCitta(data);
+      collegaListener();
     },
     error: function(errore) {
       console.log(errore);
     }
 
 
-  })
+  }) */
 
   //funzione per stampare via handlebars le citta nel datalist
-  function renderDatalistCitta(data){
+/*  function renderDatalistCitta(data){
     var templateBase = $('#elencoCitta-template').html();
     var templateCompilato = Handlebars.compile(templateBase);
     var html = templateCompilato(data);
     $('#listaCitta').html(html);
   }
 
+  function collegaListener(){
+    $('.services').change( function(){
+      leggivalori();
+
+
+    });
+
+  }
+
+  function leggiValori(){
+    var servizi = [];
+    $.each($("input[name='services']:checked"), function(){
+                servizi.push($(this).val());
+            });
+            console.log(servizi);
+  }
   //invio del form che riesce a passare il data-id
   $('#cercaBtn').on('click', function(){
       //  e.preventDefault();
@@ -40,6 +58,7 @@ $(document).ready(function() {
         console.log(ricerca);
         console.log(room_count);
         console.log(bed_count);
+
         $.ajax({
           url: url,
           type: 'GET',
@@ -51,13 +70,15 @@ $(document).ready(function() {
            "radius": 20
           },
           success: function(data) {
-            console.log(data);
+            var result = JSON.parse(data);
+            console.log(result);
 
           },
           error: function(errore) {
             console.log(errore);
           }
         });
-  })
+  }); */
 
-})
+
+});
