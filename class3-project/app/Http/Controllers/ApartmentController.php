@@ -27,7 +27,7 @@
 		function index() {
 			$utc = Carbon::now('Europe/Rome');
 			$promoApartmentsToShow = 5;
-//			try {
+			try {
 				//un appartamento scontato da mostrare nell'hero della home
 				$saleApartment = Apartment::isShowed()->where('sale', '>', 0)->inRandomOrder()->first();
 				//collection di appartamenti sponsorizzati
@@ -46,33 +46,56 @@
 				//recupero indirizzi
 				foreach ($promoApartments as $promoApartment) {
 					$reverseAddress = $this->getAddress($promoApartment->latitude, $promoApartment->longitude);
-					$promoApartment->myfield = 'emanuele';
+					$promoApartment->address = $reverseAddress;
 				}
-				dd($promoApartments->first()->myfield);
 				return view('index')
 				  ->withMainCities($mainCities)
 				  ->withSaleApartment($saleApartment)
 				  ->withPromoApartments($promoApartments);
-//			} catch (\Exception $e) {
-//				return abort(500);
-//			}
+			} catch (\Exception $e) {
+				return abort(500);
+			}
 		}
 		
-		private function getAddress($latitude, $longitude){
-//			$uri = '/search/2/reverseGeocode/' . $promoApartment->latitude . ',' . $promoApartment->longitude . '.json';
-			$uri = "/search/2/reverseGeocode/$latitude,$longitude.json";
-			$response = $this->client->request(
-			  'GET',
-			  $uri, [
-				'query' => [
-				  'key' => 'rUTrqh7oaVBjDuzbkoBbTeQleSlTjRGj'
-				],
-				'headers' => [
-				  'Accept' => '*/*'
-				]
-			  ]);
-			$json = json_decode($response->getBody()->getContents(), true);
-			dd($json);
+		private function getAddress($latitude, $longitude) {
+			try {
+				$uri = "/search/2/reverseGeocode/$latitude,$longitude.json";
+				$response = $this->client->request(
+				  'GET',
+				  $uri, [
+					'query' => [
+					  'key' => 'rUTrqh7oaVBjDuzbkoBbTeQleSlTjRGj'
+					],
+					'headers' => [
+					  'Accept' => '*/*'
+					]
+				  ]);
+				$decodedJson = json_decode($response->getBody()->getContents(), true);
+				if (array_key_exists('streetName', $decodedJson['addresses'][0]['address'])) {
+					$streetName = $decodedJson['addresses'][0]['address']['streetName'] . ', ';
+				}else{
+					$streetName='';
+				};
+				if (array_key_exists('municipality',$decodedJson['addresses'][0]['address'])) {
+					$municip = $decodedJson['addresses'][0]['address']['municipality'] . ', ';
+				}else{
+					$municip='';
+				};
+				if (array_key_exists('postalCode', $decodedJson['addresses'][0]['address'])) {
+					$pcode = $decodedJson['addresses'][0]['address']['postalCode'] . ', ';
+				}else{
+					$pcode='';
+				};
+				if (array_key_exists('countrySecondarySubdivision',$decodedJson['addresses'][0]['address'])) {
+					$province = $decodedJson['addresses'][0]['address']['countrySecondarySubdivision'] . ', ';
+				}else{
+					$province='';
+				};
+				return "$streetName $municip $pcode $province";
+			} catch (\Exception $e) {
+				return 'N/A';
+			}
+			
 		}
 		
 		/*
