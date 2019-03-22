@@ -54,9 +54,7 @@ ul li{
   text-decoration: none;
   color: #000;
 }
-.block{
-  display: block !important;
-}
+
 
 /*Box offerta*/
 .box-offerta{
@@ -137,6 +135,7 @@ ul li{
 /*section in evidenza*/
 .evidenzia{
   width: 100%;
+  margin-top: 5%;
 }
 .evidenzia .container-evidenzia{
   width: 90%;

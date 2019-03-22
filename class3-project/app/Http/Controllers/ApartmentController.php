@@ -14,7 +14,7 @@
 		 */
 		function index() {
 			$utc = Carbon::now('Europe/Rome');
-			$promoApartmentsToShow = 5;
+			$promoApartmentsToShow = 4;
 			try {
 				//un appartamento scontato da mostrare nell'hero della home
 				$saleApartment = Apartment::isShowed()->where('sale', '>', 0)->inRandomOrder()->first();
