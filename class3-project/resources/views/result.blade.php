@@ -12,15 +12,41 @@
             <div class="wrapServizi pt-2 pl-2">
               @foreach ($services as  $servizio)
                 <div class="inpuServizi">
-                  <input class="largo" type="checkbox" name="services" value="{{$servizio->id}}">
-                  <label for="wifi">{{$servizio->name}}</label>
+                  <input class="servizio largo" type="checkbox" name="services" value="{{$servizio->id}}">
+                  <label for="{{$servizio->name}}">{{$servizio->name}}</label>
                 </div>
               @endforeach
+            </div>
+            <h4 class="pt-2 pl-2">Odinamento:</h4>
+            <div class="wrapOrdinamento pt-2 pl-2">
+                <div class="inpuOrdinamento">
+                  <input class="ordinamento" type="radio" name="order_type" value="distance" checked>
+                  <label for="distanza">distanza</label>
+                </div>
+                <div class="inpuOrdinamento">
+                  <input class="ordinamento" type="radio" name="order_type" value="price">
+                  <label for="distanza">prezzo</label>
+                </div>
+            </div>
+            <h4 class="pt-2 pl-2">Prezzi :</h4>
+            <div class="wrapOrdinamento pt-2 pl-2">
+                <div class="inpuPrezzo">
+                  <input class="tipoPrezzo" type="checkbox" name="price_range" value="0" >
+                  <label for="tipo_prezzo">0 - 50 </label>
+                </div>
+                <div class="inpuPrezzo">
+                  <input class="tipoPrezzo" type="checkbox" name="price_range" value="1">
+                  <label for="tipo_prezzo">50 - 100</label>
+                </div>
+                <div class="inpuPrezzo">
+                  <input class="tipoPrezzo" type="checkbox" name="price_range" value="2">
+                  <label for="tipo_prezzo">100 - 300</label>
+                </div>
             </div>
 
             <div class="range pl-2 pr-2">
               <label for="formControlRange">Raggio km</label>
-    <input type="range" class="form-control-range" id="formControlRange">
+              <input type="range" class="barra custom-range" min="10" max="100" step="1" id="customRange2">
             </div>
           </aside>
           <div class="wrapResult">

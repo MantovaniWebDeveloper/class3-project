@@ -4,13 +4,13 @@ var $ = require("jquery");
 $(document).ready(function() {
   var url = 'http://127.0.0.1:8000/api/cities'
 
-/*  $.ajax({
+  $.ajax({
     url: url,
     type: 'GET',
     success: function(data) {
       //console.log(data);
-      console.log("ciao");
-    //  renderDatalistCitta(data);
+
+      renderDatalistCitta(data);
       collegaListener();
     },
     error: function(errore) {
@@ -18,10 +18,10 @@ $(document).ready(function() {
     }
 
 
-  }) */
+  })
 
   //funzione per stampare via handlebars le citta nel datalist
-/*  function renderDatalistCitta(data){
+ function renderDatalistCitta(data){
     var templateBase = $('#elencoCitta-template').html();
     var templateCompilato = Handlebars.compile(templateBase);
     var html = templateCompilato(data);
@@ -29,27 +29,55 @@ $(document).ready(function() {
   }
 
   function collegaListener(){
-    $('.services').change( function(){
-      leggivalori();
-
-
+    $('.servizio').change( function(){
+      leggiValori();
     });
+    $('.ordinamento').change(function(){
+      leggiValori();
+    })
+
+    $('.tipoPrezzo').change(function(){
+      leggiValori();
+    })
+    $('.barra').change(function(){
+      leggiValori();
+    })
 
   }
 
   function leggiValori(){
     var servizi = [];
+    var tipoPrezzi = [];
+    var barraKm = $('.barra').val();
+    var room_count = $('.selectRoomCount').val();
+    var bed_count = $('.selectBedCount').val();
+
     $.each($("input[name='services']:checked"), function(){
                 servizi.push($(this).val());
             });
-            console.log(servizi);
+          //  console.log(servizi);
+    var radioValue = $("input[name='order_type']:checked").val();
+
+    $.each($("input[name='price_range']:checked"), function(){
+                tipoPrezzi.push($(this).val());
+            });
+            console.log(tipoPrezzi);
+
+
   }
   //invio del form che riesce a passare il data-id
   $('#cercaBtn').on('click', function(){
       //  e.preventDefault();
 
         var ricerca = $("#listaCitta option[value='" + $('#listaCitta-input').val() + "']").attr('data-id');
-        var url = 'http://127.0.0.1:8000/api/cities';
+        if (ricerca == undefined) {
+          console.log("errore");
+          $('#listaCitta-input').addClass('errore');
+        }
+        else {
+          console.log(ricerca);
+        }
+        /*var url = 'http://127.0.0.1:8000/api/cities';
 
         var room_count = $('.selectRoomCount').val();
         var bed_count = $('.selectBedCount').val();
@@ -77,8 +105,8 @@ $(document).ready(function() {
           error: function(errore) {
             console.log(errore);
           }
-        });
-  }); */
+        });*/
+  });
 
 
 });

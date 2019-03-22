@@ -10692,6 +10692,10 @@ a.text-dark:focus {
   background-color: yellow;
 }
 
+.formRicerca form .errore {
+  border: 2px solid red;
+}
+
 .wrapAll {
   background-color: #e5e5e5;
 }
