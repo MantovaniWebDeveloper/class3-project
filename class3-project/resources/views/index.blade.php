@@ -120,7 +120,7 @@
                   @foreach($promoApartments as $apartment)
                       <div class="card-appartamento">
                         <div class="img-evidenza">
-                          <img src="http://lorempixel.com/300/200/nature" alt="">
+                          <img src="http://lorempixel.com/200/150/nature" alt="">
                         </div>
                           <small>la promozione termina il : {{$apartment->end_promo}}</small>
                           <h3>Appartamento : {{ str_limit($apartment->title, $limit = 10, $end = '...') }}</h3>
@@ -143,20 +143,39 @@
         </section>
         <!-- SECTION LOCALITA -->
         <section class="località">
-            <div class="container-località">
-                <h3>Località</h3>
-                <div class="box-card">
-                    <div class="card-città">
-                    </div>
-                    <div class="card-città">
-                    </div>
-                    <div class="card-città">
-                    </div>
-                    <div class="card-città">
-                    </div>
+          <div class="galleria container-località">
+            <h3>Località</h3>
+            <div class="box-card">
+              <div class="card-città">
+                <div class="img-city">
+                  <img src="http://lorempixel.com/250/200/nature" alt="camera">
+                  <h4>Dubai</h4>
                 </div>
+              </div>
+              <div class="card-città">
+                <div class="img-city">
+                  <img src="http://lorempixel.com/250/200/nature" alt="camera">
+                  <h4>Roma</h4>
+                </div>
+              </div>
+              <div class="card-città">
+                <div class="img-city">
+                  <img src="http://lorempixel.com/250/200/nature" alt="camera">
+                  <h4>Venezia</h4>
+                </div>
+              </div>
+              <div class="card-città">
+                <div class="img-city">
+                  <img src="http://lorempixel.com/250/200/nature" alt="camera">
+                </div>
+                <div class="contenuto">
+                  <h4>new york</h4>
+                </div>
+              </div>
             </div>
+          </div>
         </section>
+
 
         <footer class="footer">
             <div class="container">
