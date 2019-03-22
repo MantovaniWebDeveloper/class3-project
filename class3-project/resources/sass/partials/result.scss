@@ -1,17 +1,43 @@
-.nomiCheck {
-  margin-left: 10px;
-}
-.wrapRisultato {
-  margin-top: 20px;
-  background-color: green;
-  height: 200px;
-  .wrapImg {
-    background-color: pink;
-  }
-  .wrapDescrizione {
-    background-color: orange;
-    button {
-      text-align: right;
+.wrapAll {
+  background-color: #e5e5e5;
+  .wrapAllInterno {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    padding-top: 20px;
+    aside {
+      height: 100vh;
+      width: 30%;
+      background-color: #fff;
+      .wrapServizi {
+        .inpuServizi {
+          .largo {
+          }
+        }
+      }
     }
+    .wrapResult {
+      height: 100%;
+      width: 65%;
+      margin-left: 5%;
+      .wrapRisultato {
+        background-color: #fff;
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+        border: 1px solid;
+        margin-bottom: 10px;
+        .wrapImg {
+          background-color: pink;
+        }
+        .wrapBtn {
+          padding-bottom: 10px;
+          padding-right: 10px;
+          text-align: right;
+
+        }
+      }
+    }
+
   }
 }
