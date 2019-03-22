@@ -110,14 +110,15 @@ ul li{
   justify-content: space-between;
   padding: 10px;
 }
-.btn-prenota{
+.prenota{
   width: 50%;
   border-radius: 20px;
   background: #3F0D12;
   color: #fff;
   padding: 2px;
   margin: auto;
-  text-align: center;
+  display: flex;
+  justify-content: center;
 
 }
 
@@ -146,7 +147,10 @@ ul li{
   width: 30%;
   margin-top: 20px;
   border-radius: 20px;
+  background: #3F0D12;
+  color: #fff;
 }
+
 
 
 /*section in evidenza*/
