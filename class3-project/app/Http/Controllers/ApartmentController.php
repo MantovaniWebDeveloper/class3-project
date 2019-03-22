@@ -6,8 +6,14 @@
 	use App\Service;
 	use Illuminate\Http\Request;
 	use Illuminate\Support\Carbon;
+	use GuzzleHttp\Client;
 	
 	class ApartmentController extends Controller {
+		
+//		private 				$client = new Client(
+//		  [
+//			'base_uri' => 'https://api.tomtom.com'
+//		  ]);
 		
 		/*
 		 * Ritorna la homepage con un 1 appartamento in offerta,
@@ -32,6 +38,23 @@
 				shuffle($mainCities);
 				$regionsToTake = 5;
 				$mainCities = array_slice($mainCities, 0, $regionsToTake, false);
+
+				foreach ($promoApartments as $promoApartment) {
+//					$uri = '/search/2/reverseGeocode/' . $promoApartment->latitude . ',' . $promoApartment->longitude . '.json';
+//					$response = $client->request(
+//					  'GET',
+//					  $uri, [
+//						'query' => [
+//						  'key' => 'rUTrqh7oaVBjDuzbkoBbTeQleSlTjRGj'
+//						],
+//						'headers' => [
+//						  'Accept' => '*/*'
+//						]
+//					  ]);
+//					dd($response->getBody()->getContents());
+					$promoApartment->myfield = 'emanuele';
+				}
+				dd($promoApartments->first()->myfield);
 				return view('index')
 				  ->withMainCities($mainCities)
 				  ->withSaleApartment($saleApartment)
