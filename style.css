@@ -197,6 +197,7 @@ ul li{
   width: 24%;
   height: 300px;
   margin-bottom: 20px;
+  position: relative;
 }
 .img-city img{
   width: 100%;
@@ -206,7 +207,14 @@ ul li{
 .galleria .card-citta:hover{
   filter: brightness(70%);
 }
-
+h4{
+  text-transform: uppercase;
+}
+.contenuto h4{
+  position: absolute;
+  bottom: 130px;
+  left: 130px;
+}
 
 
 
