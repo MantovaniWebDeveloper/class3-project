@@ -206,15 +206,21 @@ ul li{
 }
 .galleria .card-citta:hover{
   filter: brightness(70%);
+  color: #fff;
 }
 h4{
   text-transform: uppercase;
+  font-weight: bold;
+  font-size: 30px;
+
 }
 .contenuto h4{
   position: absolute;
-  bottom: 130px;
-  left: 130px;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50% , -50%);
 }
+
 
 
 
