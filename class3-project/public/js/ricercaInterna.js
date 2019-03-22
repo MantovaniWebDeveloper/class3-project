@@ -15306,8 +15306,8 @@ $(document).ready(function () {
   function leggiValori() {
     var codiceCitta = controllaCitta();
 
-    if (codiceCitta == false) {
-      console.log("errore");
+    if (codiceCitta === false) {
+      console.log("controllo codice citta non passato - leggi valori");
       return;
     }
 
@@ -15329,7 +15329,8 @@ $(document).ready(function () {
       "city_code": codiceCitta,
       "room_count": room_count,
       "bed_count": bed_count,
-      "order_type": radioValue
+      "order_type": radioValue,
+      "radius": barraKm
     };
 
     if (tipoPrezzi.length > 0) {
@@ -15358,10 +15359,10 @@ $(document).ready(function () {
 
   function controllaCitta() {
     var codiceCitta = $("#listaCitta option[value='" + $('#listaCitta-input').val() + "']").attr('data-id');
-    console.log(codiceCitta);
+    console.log("Codice citta: " + codiceCitta);
 
     if (typeof codiceCitta === 'undefined') {
-      console.log("errore");
+      console.log("controllo codice citta non passato - funzione interna");
       $('#listaCitta-input').addClass('errore');
       return false;
     }
@@ -15371,32 +15372,7 @@ $(document).ready(function () {
 
 
   $('#cercaBtn').on('click', function () {
-    //  e.preventDefault();
     leggiValori();
-    /*var url = 'http://127.0.0.1:8000/api/cities';
-     var room_count = $('.selectRoomCount').val();
-    var bed_count = $('.selectBedCount').val();
-      console.log(ricerca);
-    console.log(room_count);
-    console.log(bed_count);
-     $.ajax({
-      url: url,
-      type: 'GET',
-      data: {
-       "city_code": ricerca,
-       "room_count": room_count,
-       "bed_count":bed_count,
-       "order_type":4,
-       "radius": 20
-      },
-      success: function(data) {
-        var result = JSON.parse(data);
-        console.log(result);
-       },
-      error: function(errore) {
-        console.log(errore);
-      }
-    });*/
   });
 });
 
