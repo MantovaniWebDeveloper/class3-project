@@ -5,7 +5,7 @@
             <h2>Inserisci la città ed il numero di ospiti</h2>
             <div class="form-row d-flex justify-content-center">
               <div class="form-group col-6 " >
-                <input list="listaCitta" id="listaCitta-input"name="cities">
+                <input list="listaCitta" id="listaCitta-input" name="cities" placeholder="Nome città">
                 <datalist id="listaCitta">
                    {{--questo sarà riempito da handlebars--}}
                  </datalist>
@@ -13,7 +13,7 @@
               </div>
               <div class="form-group col-6">
                 <select class="selectPersone form-control" name="bed_count">
-                  <option value="0">numero ospiti</option>
+                  <option selected value="0">Numero ospiti</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                 </select>
