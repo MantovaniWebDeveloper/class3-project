@@ -131,7 +131,6 @@ ul li{
 /*section prenotazione*/
 .prenotazione{
   height: 300px;
-
 }
 .prenotazione .title{
   margin:auto;
@@ -143,14 +142,12 @@ ul li{
   margin: auto;
   padding: 20px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
-.box-prenotazioni input{
-  width: 50%;
-}
 .box-prenotazioni .prenotare{
-  padding: 5px;
+  width: 45%;
+  margin-bottom: 10px;
 }
 .box-prenotazioni .send{
   width: 30%;
@@ -160,6 +157,9 @@ ul li{
   background: #3F0D12;
   color: #fff;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin: auto;
 }
 
 
