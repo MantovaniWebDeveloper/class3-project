@@ -1,13 +1,15 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Lato', sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
 }
-body{
+
+body {
   overflow-x: hidden;
 }
-header{
+
+header {
   width: 100%;
   background-image: url('https://besthqwallpapers.com/Uploads/13-8-2017/18370/thumb2-summer-vacation-beach-sand-beach-accessories-sea.jpg');
   height: 500px;
@@ -15,36 +17,46 @@ header{
   background-repeat: no-repeat;
   position: relative;
 }
-.menu{
+
+.menu {
   width: 100%;
-  background: rgba(255,255,255,.7);
+  background: #ECE9E6;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   position: sticky;
   top: 0%;
   z-index: 999;
 }
-.container{
+
+.container {
   max-width: 90%;
   margin: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.home_logo{
+
+.home_logo {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.homepage .fa-home{
+
+.homepage .fa-home {
   font-size: 30px;
   margin-right: 20px;
 }
-.homepage .fa-bars{
+
+.homepage .fa-bars {
   font-size: 20px;
 }
-.homepage .fa-bars:hover{
+
+.homepage .fa-bars:hover {
   cursor: pointer;
 }
-.primary-menu{
+
+.primary-menu {
   display: flex;
   justify-content: flex-end;
   position: absolute;
@@ -55,80 +67,96 @@ header{
   transform: translateX(200%);
   transition-duration: .7s;
 }
-.primary-menu.active{
+
+.primary-menu.active {
   transform: translateX(0%);
   transition-duration: .7s;
+  background: #ECE9E6;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
-.primary-menu nav{
-  background: rgba(255,255,255,.7);
+
+.primary-menu nav {
   height: 501px;
   text-align: center;
   width: 300px;
+  background: #ECE9E6;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-/*
-.visibile{
-  background: yellow ;
-  height: 100% !important;
-  transition-duration: 1s;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-*/
-ul li{
+ul li {
   list-style-type: none;
   text-transform: uppercase;
   padding: 10px;
-  width:90%;
+  width: 90%;
 }
- a{
+
+a {
   text-decoration: none;
   color: #000;
 }
 
 /*Box offerta*/
-.box-offerta{
+.box-offerta {
   position: absolute;
   top: 100px;
   left: 5%;
   width: 300px;
-  height: 300px;
-  background: rgba(255,255,255,.7);
+  height: 360px;
+  background: rgba(255, 255, 255, .7);
+  box-shadow:0 -3px 31px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, .3);
+  border-radius: 5px;
+  overflow: hidden;
 }
-.box-offerta h3{
+
+.box-offerta h3 {
   padding: 10px;
 }
-.img-offerta_prezzo{
+@media screen and (max-width: 550px){
+  .box-offerta{
+    width:90%;
+  }
+}
+
+.img-offerta_prezzo {
   display: flex;
   justify-content: space-between;
   padding: 10px;
 }
-.img-offerta_prezzo img{
+
+.img-offerta_prezzo img {
   width: 70%;
-  height: 100px;
-  background-size: cover;
+  height: 150px;
+  object-fit: cover;
 }
-.subtitle{
+
+.subtitle {
   font-size: 12px;
 }
-.box-benefit{
+
+.box-benefit {
   width: 70%;
   display: flex;
   flex-wrap: wrap;
 }
-.box-icone{
+
+.box-icone {
   width: 50%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 
 }
-.box-benefit .fas{
+
+.box-benefit .fas {
   width: 50%;
   display: flex;
   justify-content: space-between;
   padding: 10px;
 }
-.prenota{
+
+.prenota {
   width: 50%;
   border-radius: 20px;
   background: #3F0D12;
@@ -137,19 +165,25 @@ ul li{
   margin: auto;
   display: flex;
   justify-content: center;
-
+  border:none;
 }
 
 /*section prenotazione*/
-.prenotazione{
+.prenotazione {
   height: 300px;
+  background: #ECE9E6;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
-.prenotazione .title{
-  margin:auto;
+
+.prenotazione .title {
+  margin: auto;
   padding: 20px;
   text-align: center;
 }
-.box-prenotazioni{
+
+.box-prenotazioni {
   max-width: 450px;
   margin: auto;
   padding: 20px;
@@ -157,11 +191,13 @@ ul li{
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.box-prenotazioni .prenotare{
+
+.box-prenotazioni .prenotare {
   width: 45%;
   margin-bottom: 10px;
 }
-.box-prenotazioni .send{
+
+.box-prenotazioni .send {
   width: 30%;
   margin-top: 20px;
   padding: 5px;
@@ -172,112 +208,166 @@ ul li{
   display: flex;
   justify-content: center;
   margin: auto;
+  border:none;
 }
-
-
 
 
 /*section in evidenza*/
-.evidenzia{
+.evidenzia {
   width: 100%;
+  background: #ECE9E6;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
-.evidenzia .container-evidenzia{
+
+.evidenzia .container-evidenzia {
   width: 90%;
   margin: auto;
 }
 
 
-.evidenzia h3{
+.evidenzia h3 {
   width: 100%;
   padding: 5px;
 }
-.box-card{
+
+.box-card {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.card-appartamento{
+
+.card-appartamento {
   width: 30%;
   height: 300px;
   margin-bottom: 20px;
   position: relative;
+  box-shadow:0 -3px 31px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  overflow: hidden;
 }
-.card-appartamento:hover{
-  cursor:pointer;
+
+.card-appartamento:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 990px) {
+  .card-appartamento {
+    width: 48%;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .card-appartamento {
+    width: 100%;
+  }
 }
 
 
-img{
+img {
   width: 100%;
   height: 300px;
-  background-size: cover;
+  object-fit: cover;
 }
-.testo{
+
+.testo {
   position: absolute;
   width: 100%;
   bottom: 0px;
   background: rgba(255, 255, 255, .7);
 }
-.recensione{
+
+.recensione {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.valutazione{
+
+.valutazione {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.descrizione-stanza{
+
+.descrizione-stanza {
   margin-left: 10px;
   padding: 5px;
   font-weight: bold;
 }
-.descrizione{
+
+.descrizione {
   margin-right: 5px;
 }
+
 /*section località*/
-.localita{
+.localita {
   width: 100%;
+  background: #ECE9E6;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
-.localita .container-localita{
+
+.localita .container-localita {
   width: 90%;
   margin: auto;
 }
-.localita h3{
+
+.localita h3 {
   padding: 5px;
   width: 100%;
 }
-.box-card{
+
+.box-card {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.card-citta{
+
+.card-citta {
   width: 24%;
   height: 300px;
   margin-bottom: 20px;
   position: relative;
+box-shadow:0 -3px 31px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  overflow: hidden;
 }
-.card-citta:hover{
-  cursor:pointer;
+
+.card-citta:hover {
+  cursor: pointer;
 }
-.img-city img{
+@media screen and (max-width: 1000px){
+  .card-citta{
+    width: 48%;
+  }
+}
+@media screen and (max-width: 550px){
+  .card-citta{
+    width:100%;
+  }
+}
+
+.img-city img {
   width: 100%;
   height: 300px;
-  background-size: cover;
+  object-fit: cover;
 }
-.galleria .card-citta:hover{
+
+.galleria .card-citta:hover {
   filter: brightness(70%);
   color: #fff;
 }
-h4{
+
+h4 {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 30px;
 
 }
-.contenuto{
+
+.contenuto {
   position: absolute;
   top: 0;
   left: 0;
@@ -288,13 +378,18 @@ h4{
   justify-content: center;
 }
 
+.footer{
+  background: #ECE9E6;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-
+}
 
 
 /*Footer*/
-.footer h6{
+.footer h6 {
   text-align: center;
   width: 100%;
   padding: 5px;
+
 }
