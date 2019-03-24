@@ -188,6 +188,9 @@ ul li{
   margin-bottom: 20px;
   position: relative;
 }
+.card-appartamento:hover{
+  cursor:pointer;
+}
 img{
   width: 100%;
   height: 300px;
