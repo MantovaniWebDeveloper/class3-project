@@ -41,10 +41,6 @@ header{
 .homepage .fa-bars:hover{
   cursor: pointer;
 }
-#menu{
-  background: #ffffff;
-  opacity:.5;
-}
 .primary-menu{
   display: flex;
   justify-content: flex-end;
@@ -53,6 +49,15 @@ header{
   z-index: 1000;
   right: 0%;
   width: 300px;
+  transform: translateX(100%);
+  transition-duration: .7s;
+}
+.primary-menu.active{
+  transform: translateX(0%);
+  transition-duration: .7s;
+}
+.primary-menu nav{
+  background: rgba(255,255,255,.7);
 }
 /*
 .visibile{

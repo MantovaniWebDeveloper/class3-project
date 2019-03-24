@@ -1,5 +1,11 @@
 $(document).ready(function(){
-    console.log('ready');
+    $('#burgher-menu').on('click',function(){
+        console.log('click')
+        
+        $("#menu").toggleClass('active'); 
+    })
+
+
 });
 {
     flatpickr("#check-in", {
