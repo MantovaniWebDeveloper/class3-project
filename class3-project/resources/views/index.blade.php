@@ -28,7 +28,7 @@
              <nav >
                <ul>
                  <li><a href="#">Accedi</a></li>
-                 <li><a href="#">Registrati</a></li>
+                 <li><a href="{{ route('register') }}">Registrati</a></li>
                  <li><a href="#">I migliori appartamenti</a></li>
                  <li><a href="#">Aiuto</a></li>
                </ul>
