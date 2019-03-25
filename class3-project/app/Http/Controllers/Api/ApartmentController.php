@@ -1,16 +1,19 @@
 <?php
-
+	
 	namespace App\Http\Controllers\Api;
-
+	
 	use App\Apartment;
 	use Illuminate\Http\Request;
 	use App\Http\Controllers\Controller;
 	use Illuminate\Validation\Rule;
-
+	use App\Traits\ReverseGeo;
+	
 	class ApartmentController extends Controller {
-
+		
+		use ReverseGeo;
+		
 		function cities() {
-
+			
 			$rawData = \Config::get('cities');
 			$cities = [];
 			foreach ($rawData as $index => $data) {
@@ -21,8 +24,9 @@
 			}
 			return $cities;
 		}
-
+		
 		function advancedSearch(Request $request) {
+			//validazione
 			$validator = \Validator::make(
 			  $request->all(), [
 			  'city_code' => 'required|integer',
@@ -30,15 +34,20 @@
 			  'bed_count' => 'required|integer',
 			  'radius' => 'required|integer|between:10,100',
 			  'services' => 'array',
-			  'price_range' => 'array',
+			  'price_range' => [
+				'integer',
+				Rule::in([1, 10, 11, 100, 101, 110, 111]),
+			  ],
 			  'order_type' => [
 				'required', 'string',
 				Rule::in(['distance', 'price']),
 			  ]
 			]);
+			//messaggio di incoraggiamento in caso di errore
 			if ($validator->fails()) {
 				return 'macello - dati non validi';
 			}
+			//recupero valori
 			$rawData = \Config::get('cities');
 			$cityId = $request->input('city_code');
 			$lat = $rawData[$cityId]['lat'];
@@ -46,9 +55,12 @@
 			$bedCount = $request->input('bed_count');
 			$roomCount = $request->input('room_count');
 			$radius = $request->input('radius');
-			$builder = Apartment::findInRange($radius, $lat, $lng)
+			$orderBy = $request->input('order_type');
+			//costruzione del builder con raggio in km e di soli appartamenti visualizzati
+			$builder = Apartment::findInRange($radius, $lat, $lng, ($orderBy == 'price') ? false : true)
 			  ->isShowed()
 			  ->where([['bed_count', '>=', $bedCount], ['room_count', '>=', $roomCount]]);
+			//aggiunta filtri per i servizi
 			if ($request->has('services')) {
 				$services = $request->input('services');
 				foreach ($services as $service) {
@@ -58,44 +70,45 @@
 					});
 				}
 			}
+			//aggiunta filtro per range di prezzo
 			if ($request->has('price_range')) {
 				$prices = $request->input('price_range');
-				$builder->where(
-				  function ($query) use ($prices) {
-					  foreach ($prices as $key => $price) {
-						  //$price può assumere 0,1,2
-						  switch ($price) {
-							  case 0:
-								  //0=0..50
-								  if ($key == 0) {
-									  $query->where('price', '<=', 50);
-								  } else {
-									  $query->orWhere('price', '<=', 50);
-								  }
-								  break;
-							  case 1:
-								  //1=50..100
-								  if ($key == 0) {
-									  $query->where('price', '>=', 50)->orWhere('price', '<=', 100);
-								  } else {
-									  $query->orWhere('price', '>=', 50)->orWhere('price', '<=', 100);
-								  }
-								  break;
-							  default:
-								  //2=100+
-								  if ($key == 0) {
-									  $query->where('price', '>', 100);
-								  } else {
-									  $query->orWhere('price', '>', 100);
-								  }
-						  }
-					  }
-				  });
-
+				switch ($prices) {
+					case 1:
+						$builder->where('price', '<=', 50);
+						break;
+					case 10:
+						$builder->whereBetween('price', [50, 100]);
+						break;
+					case 11:
+						$builder->whereBetween('price', [0, 100]);
+						break;
+					case 100:
+						$builder->where('price', '>', 100);
+						break;
+					case 101:
+						$builder->where(
+						  function ($query) {
+							  $query->orWhere('price', '<=', 50);
+							  $query->orWhere('price', '>', 100);
+						  });
+						break;
+					case 110:
+						$builder->where('price', '>', 50);
+						break;
+					default:
+						$builder->where('price', '>', 0);
+						break;
+				}
 			}
-
-//			dd($builder->toSql());
-			$apartments = $builder->get();
+			//ordinamento
+			if ($orderBy == 'price') {
+				$builder->orderBy('price');
+			}
+			//ottenimento risultati
+			$apartments = $builder->paginate(3);
+			//recupero indirizzi
+			$this->collectAddress($apartments);
 			return $apartments->toJson();
 		}
 	}

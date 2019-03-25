@@ -6,19 +6,11 @@
 	use App\Service;
 	use Illuminate\Http\Request;
 	use Illuminate\Support\Carbon;
-	use GuzzleHttp\Client;
+	use App\Traits\ReverseGeo;
 	
 	class ApartmentController extends Controller {
 		
-		private $client;
-		
-		public function __construct() {
-			
-			$this->client = new Client(
-			  [
-				'base_uri' => 'https://api.tomtom.com'
-			  ]);
-		}
+		use ReverseGeo;
 		
 		/*
 		 * Ritorna la homepage con un 1 appartamento in offerta,
@@ -40,14 +32,15 @@
 					return array_key_exists("capoluogo", $city);
 					
 				});
-				shuffle($mainCities);
-				$regionsToTake = 5;
-				$mainCities = array_slice($mainCities, 0, $regionsToTake, false);
-				//recupero indirizzi
-				foreach ($promoApartments as $promoApartment) {
-					$reverseAddress = $this->getAddress($promoApartment->latitude, $promoApartment->longitude);
-					$promoApartment->address = $reverseAddress;
+				$filteredMainCities=[];
+				foreach ($mainCities as $key => $mainCity){
+					$filteredMainCities[]=['city_code'=>$key, 'city_name'=>$mainCity['provincia']];
 				}
+				shuffle($filteredMainCities);
+				$mainCitiesToTake = 5;
+				$mainCities = array_slice($filteredMainCities, 0, $mainCitiesToTake, false);
+				//recupero indirizzi
+				$this->collectAddress($promoApartments);
 				return view('index')
 				  ->withMainCities($mainCities)
 				  ->withSaleApartment($saleApartment)
@@ -57,54 +50,14 @@
 			}
 		}
 		
-		private function getAddress($latitude, $longitude) {
-			try {
-				$uri = "/search/2/reverseGeocode/$latitude,$longitude.json";
-				$response = $this->client->request(
-				  'GET',
-				  $uri, [
-					'query' => [
-					  'key' => 'rUTrqh7oaVBjDuzbkoBbTeQleSlTjRGj'
-					],
-					'headers' => [
-					  'Accept' => '*/*'
-					]
-				  ]);
-				$decodedJson = json_decode($response->getBody()->getContents(), true);
-				if (array_key_exists('streetName', $decodedJson['addresses'][0]['address'])) {
-					$streetName = $decodedJson['addresses'][0]['address']['streetName'] . ', ';
-				}else{
-					$streetName='';
-				};
-				if (array_key_exists('municipality',$decodedJson['addresses'][0]['address'])) {
-					$municip = $decodedJson['addresses'][0]['address']['municipality'] . ', ';
-				}else{
-					$municip='';
-				};
-				if (array_key_exists('postalCode', $decodedJson['addresses'][0]['address'])) {
-					$pcode = $decodedJson['addresses'][0]['address']['postalCode'] . ', ';
-				}else{
-					$pcode='';
-				};
-				if (array_key_exists('countrySecondarySubdivision',$decodedJson['addresses'][0]['address'])) {
-					$province = $decodedJson['addresses'][0]['address']['countrySecondarySubdivision'] . ', ';
-				}else{
-					$province='';
-				};
-				return "$streetName $municip $pcode $province";
-			} catch (\Exception $e) {
-				return 'N/A';
-			}
-			
-		}
-		
 		/*
 		 * Questo metodo viene chiamato dal submit del form nella homepage
 		 */
 		function simpleSearch(Request $request) {
 			if (!$request->has('city_code') || !$request->has('bed_count')) {
-				//todo non deve abortire ma tornare la view
-				//todo che a sua volta verifica la non presenza di dati e rileva la posizione dell'utente
+				//todo
+				// non deve abortire ma tornare la view che a sua volta
+				// verifica la non presenza di dati e rileva la posizione dell'utente
 				abort(404);
 			}
 			//recupero coordinate della città
@@ -118,7 +71,9 @@
 				$lat = $rawData[$cityId]['lat'];
 				$lng = $rawData[$cityId]['lng'];
 				$bedCount = $request->input('bed_count');
-				$apartments = Apartment::findInRange($radius, $lat, $lng)->isShowed()->where('bed_count', '>=', $bedCount)->get();
+				$apartments = Apartment::findInRange($radius, $lat, $lng, true)->isShowed()->where('bed_count', '>=', $bedCount)->get();
+				//recupero indirizzi
+				$this->collectAddress($apartments);
 				$services = Service::orderBy('name')->get();
 				return view('result')
 				  ->withApartments($apartments)
