@@ -10472,9 +10472,9 @@ return jQuery;
 var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 $(document).ready(function () {
-  $('#burgher-menu').click(function () {
+  $('#burgher-menu').on('click', function () {
     console.log('click');
-    $('#menu').toggleClass('block');
+    $('#menu').toggleClass('active');
   });
 });
 
