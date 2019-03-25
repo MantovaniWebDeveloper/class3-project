@@ -6,3 +6,5 @@
 	
 	Route::get('/appartamenti/ricerca', 'ApartmentController@simpleSearch')->name('ricerca_avanzata');
 	
+	Route::get('/appartamenti/{slug}', 'ApartmentController@show')->name('appartamento');
+	

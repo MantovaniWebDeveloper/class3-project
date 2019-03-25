@@ -32,15 +32,15 @@
 					return array_key_exists("capoluogo", $city);
 					
 				});
-				$filteredMainCities=[];
-				foreach ($mainCities as $key => $mainCity){
-					$filteredMainCities[]=['city_code'=>$key, 'city_name'=>$mainCity['provincia']];
+				$filteredMainCities = [];
+				foreach ($mainCities as $key => $mainCity) {
+					$filteredMainCities[] = ['city_code' => $key, 'city_name' => $mainCity['provincia']];
 				}
 				shuffle($filteredMainCities);
 				$mainCitiesToTake = 5;
 				$mainCities = array_slice($filteredMainCities, 0, $mainCitiesToTake, false);
 				//recupero indirizzi
-				$this->collectAddress($promoApartments);
+				$this->collectAddresses($promoApartments);
 				return view('index')
 				  ->withMainCities($mainCities)
 				  ->withSaleApartment($saleApartment)
@@ -55,10 +55,7 @@
 		 */
 		function simpleSearch(Request $request) {
 			if (!$request->has('city_code') || !$request->has('bed_count')) {
-				//todo
-				// non deve abortire ma tornare la view che a sua volta
-				// verifica la non presenza di dati e rileva la posizione dell'utente
-				abort(404);
+				return redirect()->route('home');
 			}
 			//recupero coordinate della città
 			$rawData = \Config::get('cities');
@@ -73,7 +70,7 @@
 				$bedCount = $request->input('bed_count');
 				$apartments = Apartment::findInRange($radius, $lat, $lng, true)->isShowed()->where('bed_count', '>=', $bedCount)->get();
 				//recupero indirizzi
-				$this->collectAddress($apartments);
+				$this->collectAddresses($apartments);
 				$services = Service::orderBy('name')->get();
 				return view('result')
 				  ->withApartments($apartments)
@@ -82,6 +79,19 @@
 			} catch (\Exception $e) {
 				return abort(500);
 			}
+		}
+		
+		function show(Request $request, $slug) {
+			$apartment = Apartment::where('slug', $slug)->get()->first();
+			if (count($apartment) === 0 || !$apartment->is_showed) {
+				abort(404);
+			}
+			//recupero indirizzo
+			$this->collectAddress($apartment);
+			//recupero mappa
+			$imgData = $this->getMap($apartment->latitude, $apartment->longitude);
+//			'<img src="data:image/png;base64,' + {!! $imgData !!} + '" />'
+			return view('apartment')->withApartment($apartment)->withImage($imgData);
 		}
 		
 	}
