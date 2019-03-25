@@ -8,6 +8,7 @@
         <div class="wrapAllInterno">
           <aside>
             <h4 class="pt-2 pl-2">Filtri per servizi clienti:</h4>
+
             <hr>
             <div class="wrapServizi pt-2 pl-2">
               @foreach ($services as  $servizio)
@@ -31,15 +32,15 @@
             <h4 class="pt-2 pl-2">Prezzi :</h4>
             <div class="wrapOrdinamento pt-2 pl-2">
                 <div class="inpuPrezzo">
-                  <input class="tipoPrezzo" type="checkbox" name="price_range" value="0" >
+                  <input class="tipoPrezzo" type="checkbox" name="price_range" value="1" >
                   <label for="tipo_prezzo">0 - 50 </label>
                 </div>
                 <div class="inpuPrezzo">
-                  <input class="tipoPrezzo" type="checkbox" name="price_range" value="1">
+                  <input class="tipoPrezzo" type="checkbox" name="price_range" value="10">
                   <label for="tipo_prezzo">50 - 100</label>
                 </div>
                 <div class="inpuPrezzo">
-                  <input class="tipoPrezzo" type="checkbox" name="price_range" value="2">
+                  <input class="tipoPrezzo" type="checkbox" name="price_range" value="100">
                   <label for="tipo_prezzo">100 - 300</label>
                 </div>
             </div>
@@ -50,14 +51,16 @@
             </div>
           </aside>
           <div class="wrapResult">
+            <h3>Risultati per la ricerca su : </h3>
             @foreach ($apartments as  $appartamento)
                 <div class="wrapRisultato">
-                  <div class="row ">
+                  <div class="row">
                   <div class="col-4 wrap-img">
                     <img class="img-fluid pt-2"src="{{asset("img/")}}/{{$appartamento->images()->first()->path}}" alt="">
                   </div>
                   <div class="col-8">
-                    <h5 class="pt-2">{{$appartamento->title}}</h5>
+                    <h3 class="pt-2">{{$appartamento->title}}</h3>
+                    <p><i class="fas fa-map-marker-alt pr-2 "></i>{{$appartamento->address['streetName']}} {{$appartamento->address['postal_code']}} {{$appartamento->address['municipality']}} - {{$appartamento->address['province']}}</p>
                     <h5>numeri letto: {{$appartamento->bed_count}}</h5>
                     <p>{{ $appartamento->description}}</p>
                     <h3>{{ $appartamento->price}} €</h3>

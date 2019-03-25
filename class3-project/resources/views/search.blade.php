@@ -5,7 +5,7 @@
             <h2>Inserisci la città ed il numero di ospiti</h2>
             <div class="form-row d-flex justify-content-center">
               <div class="form-group col-6 " >
-                <input list="listaCitta" id="listaCitta-input" name="cities" placeholder="Nome città">
+                <input list="listaCitta" id="listaCitta-input">
                 <datalist id="listaCitta">
                    {{--questo sarà riempito da handlebars--}}
                  </datalist>

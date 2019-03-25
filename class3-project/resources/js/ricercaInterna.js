@@ -74,7 +74,13 @@ $(document).ready(function () {
             "radius": barraKm
         };
         if (tipoPrezzi.length > 0) {
-            data.price_range = tipoPrezzi;
+          var sommaPrezzi = 0;
+
+          for (var i = 0; i < tipoPrezzi.length; i++) {
+            sommaPrezzi = sommaPrezzi + parseInt(tipoPrezzi[i]);
+          }
+            console.log(sommaPrezzi);
+            data.price_range = sommaPrezzi;
         }
         if (servizi.length > 0) {
             data.services = servizi;

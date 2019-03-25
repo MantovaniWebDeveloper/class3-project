@@ -1,19 +1,19 @@
 <?php
 	namespace App\Traits;
-	
+
 	use GuzzleHttp\Client;
-	
+
 	trait ReverseGeo {
 		private $client;
-		
+
 		public function __construct() {
-			
+
 			$this->client = new Client(
 			  [
 				'base_uri' => 'https://api.tomtom.com'
 			  ]);
 		}
-		
+
 		public function collectAddress(&$collection) {
 			//recupero indirizzi
 			foreach ($collection as $item) {
@@ -21,7 +21,7 @@
 				$item->address = $reverseAddress;
 			}
 		}
-		
+
 		private function getAddress($latitude, $longitude) {
 			$api = config('app.tomtom_api');
 			$useFake = true;

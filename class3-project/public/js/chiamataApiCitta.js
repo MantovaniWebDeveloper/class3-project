@@ -15306,7 +15306,11 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 module.exports = __webpack_require__(/*! /home/parallels/Desktop/Boolean/sites/progetto-finale/class3-project/resources/js/chiamataApiCitta.js */"./resources/js/chiamataApiCitta.js");
+=======
+module.exports = __webpack_require__(/*! /Users/dariomantovani/Desktop/progettiLaravel/class3-project/class3-project/resources/js/chiamataApiCitta.js */"./resources/js/chiamataApiCitta.js");
+>>>>>>> 0a7df231172e9ed581fa14ffddf6de7a2c057377
 
 
 /***/ })
