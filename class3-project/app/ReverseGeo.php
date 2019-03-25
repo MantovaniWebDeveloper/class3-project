@@ -97,7 +97,7 @@
 					]
 				  ]);
 			} catch (\Exception $e) {
-				return $e->getMessage();
+				return null;
 			}
 			$data = $response->getBody()->getContents();
 			return base64_encode($data);

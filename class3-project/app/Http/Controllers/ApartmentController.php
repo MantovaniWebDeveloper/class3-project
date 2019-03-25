@@ -81,7 +81,7 @@
 			}
 		}
 		
-		function show(Request $request, $slug) {
+		function show($slug) {
 			$apartment = Apartment::where('slug', $slug)->get()->first();
 			if (count($apartment) === 0 || !$apartment->is_showed) {
 				abort(404);
@@ -90,8 +90,8 @@
 			$this->collectAddress($apartment);
 			//recupero mappa
 			$imgData = $this->getMap($apartment->latitude, $apartment->longitude);
-//			'<img src="data:image/png;base64,' + {!! $imgData !!} + '" />'
-			return view('apartment')->withApartment($apartment)->withImage($imgData);
+//			<img src="data:image/png;charset=binary;base64,{!! $image !!}">
+			return view('emanuele')->withApartment($apartment)->withImage($imgData);
 		}
 		
 	}
