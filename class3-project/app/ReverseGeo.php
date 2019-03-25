@@ -24,7 +24,7 @@
 
 		private function getAddress($latitude, $longitude) {
 			$api = config('app.tomtom_api');
-			$useFake = true;
+			$useFake = false;
 			$address = [
 			  'streetName' => '',
 			  'municipality' => '',

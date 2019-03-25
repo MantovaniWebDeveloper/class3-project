@@ -15268,6 +15268,7 @@ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"
 
 $(document).ready(function () {
   var url = 'http://127.0.0.1:8000/api/cities';
+  var url2 = 'http://127.0.0.1:8000/api/search';
   $.ajax({
     url: url,
     type: 'GET',
@@ -15349,19 +15350,35 @@ $(document).ready(function () {
     }
 
     console.log(data);
-    /*  $.ajax({
-        url: url,
-        type: 'GET',
-        data: {
-         },
-        success: function(data) {
-          var result = JSON.parse(data);
-          console.log(result);
-         },
-        error: function(errore) {
-          console.log(errore);
+    $.ajax({
+      url: url2,
+      type: 'GET',
+      data: data,
+      success: function success(data) {
+        //var result = JSON.parse(data);
+        //console.log(result);
+        if (data == 0) {
+          console.log("non ho trovato niente");
+          $(".wrapResult").html("Mi spiace non ho trovato nessun appartamento..");
+        } else {
+          console.log("sono qua else");
+          renderResultAjax(data);
         }
-      });*/
+      },
+      error: function error(errore) {
+        console.log(errore);
+      }
+    });
+  }
+
+  function renderResultAjax(data) {
+    console.log("sono in render"); //console.log(data)
+
+    var templateBase = $('#resultAjax-template').html();
+    console.log(templateBase);
+    var templateCompilato = handlebars_dist_cjs_handlebars__WEBPACK_IMPORTED_MODULE_0___default.a.compile(templateBase);
+    var html = templateCompilato(data);
+    $('.wrapResult').html(html);
   }
 
   function controllaCitta() {
@@ -15392,7 +15409,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/emanuelemazzante/WorkingDirectory/Esercizi_Boolean/apache_default/project_classe_3/class3-project/resources/js/ricercaInterna.js */"./resources/js/ricercaInterna.js");
+module.exports = __webpack_require__(/*! /Users/dariomantovani/Desktop/progettiLaravel/class3-project/class3-project/resources/js/ricercaInterna.js */"./resources/js/ricercaInterna.js");
 
 
 /***/ })

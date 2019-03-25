@@ -77,6 +77,28 @@
     </div>
 </div>
 
+<!-- ZONA HANDLEBARS!!!-->
+<script id="resultAjax-template" type="text/x-handlebars-template">
+  @{{#each this}}
+  <div class="wrapRisultato">
+    <div class="row">
+    <div class="col-4 wrap-img">
+      <img class="img-fluid pt-2"src="" alt="">
+    </div>
+    <div class="col-8">
+      <h3 class="pt-2">@{{{title}}}</h3>
+      <p><i class="fas fa-map-marker-alt pr-2 "></i></p>
+      <h5>numeri letto: @{{bed_count}}</h5>
+      <p>@{{description}}</p>
+      <h3>@{{price}} €</h3>
+      <div class="wrapBtn">
+        <button class="btn btn-danger text-right"type="button" name="button">Descrizione completa</button>
+      </div>
+    </div>
+  </div>
+  @{{/each}}
+</script>
+
 <script src="{{ asset('js/ricercaInterna.js') }}" defer></script>
 
 @endsection

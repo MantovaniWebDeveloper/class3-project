@@ -3,6 +3,7 @@ import Handlebars from 'handlebars/dist/cjs/handlebars';
 var $ = require("jquery");
 $(document).ready(function () {
     var url = 'http://127.0.0.1:8000/api/cities'
+    var url2 = 'http://127.0.0.1:8000/api/search'
 
     $.ajax({
         url: url,
@@ -86,21 +87,39 @@ $(document).ready(function () {
             data.services = servizi;
         }
         console.log(data);
-        /*  $.ajax({
-            url: url,
-            type: 'GET',
-            data: {
 
-            },
+       $.ajax({
+            url: url2,
+            type: 'GET',
+            data: data,
             success: function(data) {
-              var result = JSON.parse(data);
-              console.log(result);
+              //var result = JSON.parse(data);
+              //console.log(result);
+              if (data == 0) {
+                console.log("non ho trovato niente");
+                $(".wrapResult").html("Mi spiace non ho trovato nessun appartamento..");
+              }
+              else {
+                console.log("sono qua else");
+                renderResultAjax(data);
+              }
 
             },
             error: function(errore) {
               console.log(errore);
             }
-          });*/
+          });
+    }
+
+    function renderResultAjax(data) {
+      console.log("sono in render")
+      //console.log(data)
+      var templateBase = $('#resultAjax-template').html();
+      console.log(templateBase);
+      var templateCompilato = Handlebars.compile(templateBase);
+      var html = templateCompilato(data);
+
+      $('.wrapResult').html(html);
     }
 
     function controllaCitta() {
