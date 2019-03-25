@@ -12975,19 +12975,22 @@ return jQuery;
 /*!********************************!*\
   !*** ./resources/js/common.js ***!
   \********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var flatpickr__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! flatpickr */ "./node_modules/flatpickr/dist/flatpickr.js");
+/* harmony import */ var flatpickr__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(flatpickr__WEBPACK_IMPORTED_MODULE_0__);
 var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
-var flatpickr = __webpack_require__(/*! flatpickr */ "./node_modules/flatpickr/dist/flatpickr.js");
 
 $(document).ready(function () {
   $('#burgher-menu').on('click', function () {
     console.log('click');
     $('#menu').toggleClass('active');
   });
-  flatpickr($('#check-in'), {});
+  flatpickr__WEBPACK_IMPORTED_MODULE_0___default()($('.flatpickr'), {});
 });
 
 /***/ }),

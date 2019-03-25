@@ -1,10 +1,10 @@
 var $ = require("jquery");
-const flatpickr = require("flatpickr");
+import flatpickr from "flatpickr";
 
 $(document).ready(function () {
     $('#burgher-menu').on('click', function () {
         console.log('click');
         $('#menu').toggleClass('active');
     });
-    flatpickr($('#check-in'), {});
+    flatpickr($('.flatpickr'), {});
 });
