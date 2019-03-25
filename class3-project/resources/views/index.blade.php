@@ -76,7 +76,7 @@
             <h3>Località</h3>
             <div class="box-card">
               <div class="card-città">
-                <div class="img-city">
+                <div class="img-city" onclick="location.href='appartamenti/ricerca?bed_count=0&{{city_code=5}}'">
                   <img src="http://lorempixel.com/250/250/nature" alt="camera">
                   <h4>Dubai</h4>
                 </div>
