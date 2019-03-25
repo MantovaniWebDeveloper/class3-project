@@ -10,6 +10,7 @@
 		
 		protected $guarded = ['id', 'created_at', 'updated_at'];
 		protected $hidden = ['id', 'user_id', 'end_promo', 'created_at', 'updated_at'];
+		//		protected $visible = ['price', 'distance'];
 		protected $with = array('services', 'images');
 		
 		public function services() {
@@ -33,18 +34,21 @@
 			];
 		}
 		
-		public function scopeFindInRange($query, $radius, $latitude, $longitude) {
+		public function scopeFindInRange($query, $radius, $latitude, $longitude, $orderByDistance) {
 			$haversine = "(6371 * acos(cos(radians($latitude))
                      * cos(radians(latitude))
                      * cos(radians(longitude)
                      - radians($longitude))
                      + sin(radians($latitude))
                      * sin(radians(latitude))))";
-			return $query
+			$query
 			  ->select('*')
 			  ->selectRaw("{$haversine} AS distance")
-			  ->whereRaw("{$haversine} <= ?", [$radius])
-			  ->orderByRaw('distance');
+			  ->whereRaw("{$haversine} <= ?", [$radius]);
+			if ($orderByDistance) {
+				$query->orderByRaw('distance');
+			}
+			return $query;
 		}
 		
 		public function scopeIsShowed($query) {
