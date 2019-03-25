@@ -1,17 +1,17 @@
 <?php
-	
+
 	namespace App\Http\Controllers;
-	
+
 	use App\Apartment;
 	use App\Service;
 	use Illuminate\Http\Request;
 	use Illuminate\Support\Carbon;
 	use App\Traits\ReverseGeo;
-	
+
 	class ApartmentController extends Controller {
-		
+
 		use ReverseGeo;
-		
+
 		/*
 		 * Ritorna la homepage con un 1 appartamento in offerta,
 		 * n appartamenti in evidenza e
@@ -30,14 +30,14 @@
 				$mainCities = array_filter(
 				  $rawData, function ($city) {
 					return array_key_exists("capoluogo", $city);
-					
+
 				});
 				$filteredMainCities=[];
 				foreach ($mainCities as $key => $mainCity){
 					$filteredMainCities[]=['city_code'=>$key, 'city_name'=>$mainCity['provincia']];
 				}
 				shuffle($filteredMainCities);
-				$mainCitiesToTake = 5;
+				$mainCitiesToTake = 4;
 				$mainCities = array_slice($filteredMainCities, 0, $mainCitiesToTake, false);
 				//recupero indirizzi
 				$this->collectAddress($promoApartments);
@@ -49,7 +49,7 @@
 				return abort(500);
 			}
 		}
-		
+
 		/*
 		 * Questo metodo viene chiamato dal submit del form nella homepage
 		 */
@@ -67,7 +67,7 @@
 			$pagination = 10;
 			$cityId = $request->input('city_code');
 			try {
-				
+
 				$lat = $rawData[$cityId]['lat'];
 				$lng = $rawData[$cityId]['lng'];
 				$bedCount = $request->input('bed_count');
@@ -83,5 +83,5 @@
 				return abort(500);
 			}
 		}
-		
+
 	}

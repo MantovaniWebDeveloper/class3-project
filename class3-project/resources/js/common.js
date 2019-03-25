@@ -2,8 +2,8 @@ var $ = require("jquery");
 
 
 $(document).ready(function(){
-    $('#burgher-menu').click(function(){
+    $('#burgher-menu').on('click', function(){
         console.log('click');
-        $('#menu').toggleClass('block');
+        $('#menu').toggleClass('active');
     })
 })
