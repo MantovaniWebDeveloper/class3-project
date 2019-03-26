@@ -1,17 +1,18 @@
 <?php
-
+	
 	namespace App\Http\Controllers;
-
+	
 	use App\Apartment;
 	use App\Service;
 	use Illuminate\Http\Request;
 	use Illuminate\Support\Carbon;
 	use App\Traits\ReverseGeo;
-
+	use Illuminate\Support\Facades\Auth;
+	
 	class ApartmentController extends Controller {
-
+		
 		use ReverseGeo;
-
+		
 		/*
 		 * Ritorna la homepage con un 1 appartamento in offerta,
 		 * n appartamenti in evidenza e
@@ -30,7 +31,7 @@
 				$mainCities = array_filter(
 				  $rawData, function ($city) {
 					return array_key_exists("capoluogo", $city);
-
+					
 				});
 				$filteredMainCities = [];
 				foreach ($mainCities as $key => $mainCity) {
@@ -49,7 +50,7 @@
 				return abort(500);
 			}
 		}
-
+		
 		/*
 		 * Questo metodo viene chiamato dal submit del form nella homepage
 		 */
@@ -64,7 +65,7 @@
 			$pagination = 10;
 			$cityId = $request->input('city_code');
 			try {
-
+				
 				$lat = $rawData[$cityId]['lat'];
 				$lng = $rawData[$cityId]['lng'];
 				$bedCount = $request->input('bed_count');
@@ -80,7 +81,7 @@
 				return abort(500);
 			}
 		}
-
+		
 		function show($slug) {
 			$apartment = Apartment::where('slug', $slug)->get()->first();
 			if (count($apartment) === 0 || !$apartment->is_showed) {
@@ -90,8 +91,15 @@
 			$this->collectAddress($apartment);
 			//recupero mappa
 			$imgData = $this->getMap($apartment->latitude, $apartment->longitude);
-//			<img src="data:image/png;charset=binary;base64,{!! $image !!}">
+			//todo <img src="data:image/png;charset=binary;base64,{!! $image !!}">
 			return view('emanuele')->withApartment($apartment)->withImage($imgData);
 		}
-
+		
+		public function manageApartments() {
+			if (!Auth::check()){
+				return redirect()->route('login');
+			}
+			$user = Auth::user();
+			return view('emanuele')->withApartments($user->apartments);
+		}
 	}
