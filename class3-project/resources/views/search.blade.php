@@ -16,6 +16,11 @@
         <option value="2">2</option>
       </select>
 
+      <select class="prenotare" name="room_count">
+        <option value="0">numero stanze</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+      </select>
 
       <!--DATE-->
       <input class="flatpickr flatpickr-input active prenotare" id="check-in" type="text" placeholder="Check in" readonly="readonly">

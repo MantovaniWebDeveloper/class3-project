@@ -12,7 +12,12 @@
            <ul>
            @auth
             <li><a href="#">I miei appartamenti</a></li>
-            <li><a href="#">Logout</a></li>
+            <li class="log_item">
+              <form action="{{ route('logout') }}" method="POST">
+                  @csrf
+                  <input class="button nav_button" type="submit" value="Logout">
+              </form>
+            </li>
            @endauth
 
            @guest

@@ -37,7 +37,7 @@
 					$filteredMainCities[]=['city_code'=>$key, 'city_name'=>$mainCity['provincia']];
 				}
 				shuffle($filteredMainCities);
-				$mainCitiesToTake = 3;
+				$mainCitiesToTake = 4;
 				$mainCities = array_slice($filteredMainCities, 0, $mainCitiesToTake, false);
 				//recupero indirizzi
 				$this->collectAddress($promoApartments);

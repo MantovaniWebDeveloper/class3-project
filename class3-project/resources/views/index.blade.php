@@ -2,13 +2,13 @@
 @section('content')
 @include('header')
 
+@include('search')
 <!-- JUMBO-->
   <div class="offerta">
     @include('offerta')
   </div>
 
     <!-- PRENOTAZIONE -->
-    @include('search')
 
 
   <!-- SEZIONE IN EVIDENZA -->
@@ -23,16 +23,17 @@
                   <div class="testo">
                     <small>la promozione termina il : <br>{{$apartment->end_promo}}</small>
                     <p class="descrizione-stanza">{{ str_limit($apartment->title, $limit = 15) }}</p>
-                    <div class="recensione">
-                      <p class="descrizione-stanza">€ 85 a notte</p>
+                    <div class="recensione dettagli">
+                      <i class="fas fa-bed"></i>
+                      <span class="descrizione-stanza">Ospiti:{{$apartment->bed_count}}</span>
                       <div class="valutazione">
                         <span class="descrizione">4.5</span>
                         <i class="fas fa-star-half-alt"></i>
                       </div>
                     </div>
                   </div>
-                    {{--
-                    <div class="dettagli">
+
+                    {{-- <div class="dettagli">
                       <ul>
                         <li>
                           <i class="fas fa-bed"></i>
@@ -50,8 +51,8 @@
     </div>
   </section>
   <!-- SECTION LOCALITA -->
-  <section class="località">
-    <div class="galleria container-località">
+  <section class="localita">
+    <div class="galleria container-localita">
       <h3>Località</h3>
       <div class="box-card-cit">
       @foreach ($mainCities as $city)
