@@ -2,7 +2,7 @@
 @section('content')
 @include('header')
 <div class="wrapSearch">
-    @include('search')
+    @include('searchInterno')
     <div class="wrapAll">
       <div class="container">
         <div class="wrapAllInterno">

@@ -16,6 +16,7 @@
         <option value="2">2</option>
       </select>
 
+
       <!--DATE-->
       <input class="flatpickr flatpickr-input active prenotare" id="check-in" type="text" placeholder="Check in" readonly="readonly">
       <input class="flatpickr flatpickr-input active prenotare" id="check-out" type="text" placeholder="Check out" readonly="readonly">
