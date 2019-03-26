@@ -4,7 +4,7 @@
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
 }
-.jumbo{
+.offerta{
   width: 100%;
   background-image: url('https://besthqwallpapers.com/Uploads/13-8-2017/18370/thumb2-summer-vacation-beach-sand-beach-accessories-sea.jpg');
   height: 500px;
@@ -33,7 +33,7 @@
   justify-content: space-between;
   align-items: center;
 }
-.homepage > .menu > .container > .home_logo > .fa-home{
+.menu > .container > .home_logo > .fa-home{
   font-size: 30px;
   margin-right: 20px;
 }
@@ -48,7 +48,7 @@
   display: flex;
   justify-content: flex-end;
   position: absolute;
-  top: 38px;
+  top: 50px;
   z-index: 1000;
   right: 0%;
   width: 300px;
@@ -82,6 +82,9 @@ a {
   text-decoration: none;
   color: #000;
 }
+
+
+
 
 /*Box offerta*/
 .box-offerta {
@@ -154,6 +157,9 @@ a {
   border:none;
 }
 
+
+
+
 /*section prenotazione*/
 .prenotazione {
   height: 300px;
@@ -198,10 +204,14 @@ a {
 }
 
 
+
+
 /*section in evidenza*/
 .evidenzia{
   width: 100%;
-  margin-top: 5%;
+  background: #ECE9E6;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FFFFFF, #ECE9E6);
 }
 .evidenzia .container-evidenzia{
   width: 90%;
@@ -211,27 +221,86 @@ a {
   width: 100%;
   padding: 5px;
 }
-.box-card{
+.box-card-app{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 .card-appartamento{
   width: 200px;
-  /* height: 300px; */
+  height: 300px;
   margin-bottom: 20px;
+  position: relative;
+  box-shadow:0 -3px 31px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  overflow: hidden;
 }
-.dettagli > i {
+.card-appartamento:hover {
+  cursor: pointer;
+}
+
+.card-appartamento > img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+@media screen and (max-width: 990px) {
+  .card-appartamento {
+    width: 48%;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .card-appartamento {
+    width: 100%;
+  }
+}
+.testo {
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  background: rgba(255, 255, 255, .7);
+}
+
+.recensione {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.valutazione {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.descrizione-stanza {
+  margin-left: 10px;
+  padding: 5px;
+  font-weight: bold;
+}
+
+.descrizione {
+  margin-right: 8px;
+}
+/* .dettagli > i {
   font-size: 15px;
 }
 .img-evidenza img{
   width: 100%;
   height: 200px;
   background-size: cover;
-}
+} */
+
+
+
+
 /*section località*/
 .località{
   width: 100%;
+  background: #ECE9E6;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FFFFFF, #ECE9E6);
 }
 .località .container-località{
   width: 90%;
@@ -241,32 +310,70 @@ a {
   padding: 5px;
   width: 100%;
 }
-.località > .container-località > .box-card{
+.box-card-cit{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 .card-città{
   width: 24%;
   height: 300px;
   margin-bottom: 20px;
+  position: relative;
+  box-shadow:0 -3px 31px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  overflow: hidden;
 }
-.img-city img{
+.card-citta:hover {
+  cursor: pointer;
+}
+@media screen and (max-width: 1000px){
+  .card-citta{
+    width: 48%;
+  }
+}
+@media screen and (max-width: 550px){
+  .card-citta{
+    width:100%;
+  }
+}
+
+.img-city > img{
   width: 100%;
-  height: 250px;
+  height: 300px;
   background-size: cover;
 }
-.galleria div:hover{
+.galleria .card-citta:hover{
   filter: brightness(70%);
+  color: #fff;
 }
-
-
+h4 {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 30px;
+}
+.contenuto {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 
 
 /*Footer*/
+.footer {
+  background: #ECE9E6;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FFFFFF, #ECE9E6);
+}
 .footer h6{
   text-align: center;
   width: 100%;
   padding: 5px;
+
 }
