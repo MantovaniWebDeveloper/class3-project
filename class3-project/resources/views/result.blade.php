@@ -105,5 +105,6 @@
 </script>
 
 <script src="{{ asset('js/ricercaInterna.js') }}" defer></script>
+<script src="{{asset('js/common.js')}}"></script>
 
 @endsection

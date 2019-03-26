@@ -37,7 +37,7 @@
 					$filteredMainCities[]=['city_code'=>$key, 'city_name'=>$mainCity['provincia']];
 				}
 				shuffle($filteredMainCities);
-				$mainCitiesToTake = 5;
+				$mainCitiesToTake = 4;
 				$mainCities = array_slice($filteredMainCities, 0, $mainCitiesToTake, false);
 				//recupero indirizzi
 				$this->collectAddress($promoApartments);
@@ -81,14 +81,6 @@
 				  ->withcityName($rawData[$cityId]['provincia']);
 			} catch (\Exception $e) {
 				return abort(500);
-			}
-		}
-
-		private function collectAddress(&$collection){
-			//recupero indirizzi
-			foreach ($collection as $item) {
-				$reverseAddress = $this->getAddress($item->latitude, $item->longitude);
-				$item->address = $reverseAddress;
 			}
 		}
 

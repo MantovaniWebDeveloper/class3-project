@@ -4,9 +4,9 @@
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
 }
-header{
+.offerta{
   width: 100%;
-  background-image: url('https://fastpasstours.com/166/biglietto-salta-fila-visita-alla-torre-eiffel-e-crociera-sulla-senna.jpg');
+  background-image: url('https://besthqwallpapers.com/Uploads/13-8-2017/18370/thumb2-summer-vacation-beach-sand-beach-accessories-sea.jpg');
   height: 500px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -14,10 +14,12 @@ header{
 }
 .menu{
   width: 100%;
-  background: rgba(255,255,255,.7);
+  background: #ECE9E6;
+  background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);
+  background: linear-gradient(to right, #FFFFFF, #ECE9E6);
   position: sticky;
   top: 0px;
-  z-index: 999;
+  z-index: 1;
 }
 .container{
   max-width: 90%;
@@ -31,7 +33,7 @@ header{
   justify-content: space-between;
   align-items: center;
 }
-.homepage > .menu > .container > .home_logo > .fa-home{
+.menu > .container > .home_logo > .fa-home{
   font-size: 30px;
   margin-right: 20px;
 }
@@ -42,100 +44,174 @@ header{
   cursor: pointer;
 }
 
-#menu{
+.primary-menu {
   display: none;
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  top: 50px;
+  z-index: 1000;
+  right: 0%;
+  width: 300px;
+  transition-duration: .7s;
 }
-ul li{
+.primary-menu.active {
+  display:block;
+  transition-duration: .7s;
+  background: #ECE9E6;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.primary-menu nav {
+  height: 501px;
+  text-align: center;
+  width: 300px;
+  background: #ECE9E6;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+ul li {
   list-style-type: none;
   text-transform: uppercase;
   padding: 10px;
+  width: 90%;
 }
- a{
+
+a {
   text-decoration: none;
   color: #000;
 }
 
 
+
+
 /*Box offerta*/
-.box-offerta{
+.box-offerta {
   position: absolute;
   top: 100px;
   left: 5%;
   width: 300px;
-  height: 300px;
-  background: rgba(255,255,255,.7);
+  height: 360px;
+  background: rgba(255, 255, 255, .7);
+  box-shadow:0 -3px 31px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, .3);
+  border-radius: 5px;
+  overflow: hidden;
 }
-.box-offerta h3{
+
+.box-offerta h3 {
   padding: 10px;
 }
-.img-offerta_prezzo{
+@media screen and (max-width: 550px){
+  .box-offerta{
+    width:90%;
+  }
+}
+
+.img-offerta_prezzo {
   display: flex;
   justify-content: space-between;
   padding: 10px;
 }
-.img-offerta_prezzo img{
-  width: 50%;
-  height: 100px;
-  background-size: cover;
+
+.img-offerta_prezzo img {
+  width: 70%;
+  height: 150px;
+  object-fit: cover;
 }
-.subtitle{
+
+.subtitle {
   font-size: 12px;
 }
-.box-benefit{
+
+.box-benefit {
+  width: 70%;
   display: flex;
-  width: 100%;
-  flex-direction: row;
   flex-wrap: wrap;
 }
-.box-benefit .fas{
+
+.box-icone {
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+}
+
+.box-benefit .fas {
   width: 50%;
   display: flex;
   justify-content: space-between;
   padding: 10px;
 }
-.btn-prenota{
+
+.prenota {
   width: 50%;
   border-radius: 20px;
   background: #3F0D12;
   color: #fff;
-  padding: 2px;
+  padding: 5px;
   margin: auto;
-  text-align: center;
-
+  display: flex;
+  justify-content: center;
+  border:none;
 }
+
+
+
 
 /*section prenotazione*/
-.prenotazione{
+.prenotazione {
   height: 300px;
+  background: #ECE9E6;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
-.prenotazione .title{
-  margin:auto;
+
+.prenotazione .title {
+  margin: auto;
   padding: 20px;
   text-align: center;
 }
-.box-prenotazioni{
+
+.box-prenotazioni {
   max-width: 450px;
   margin: auto;
   padding: 20px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
-.box-prenotazioni input{
-  width: 50%;
+
+.box-prenotazioni .prenotare {
+  width: 45%;
+  margin-bottom: 10px;
 }
-.box-prenotazioni .send{
+
+.box-prenotazioni .send {
   width: 30%;
   margin-top: 20px;
+  padding: 5px;
   border-radius: 20px;
+  background: #3F0D12;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  border:none;
 }
+
+
 
 
 /*section in evidenza*/
 .evidenzia{
   width: 100%;
-  margin-top: 5%;
+  background: #ECE9E6;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FFFFFF, #ECE9E6);
 }
 .evidenzia .container-evidenzia{
   width: 90%;
@@ -145,62 +221,160 @@ ul li{
   width: 100%;
   padding: 5px;
 }
-.box-card{
+.box-card-app{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 .card-appartamento{
   width: 200px;
-  /* height: 300px; */
+  height: 300px;
   margin-bottom: 20px;
+  position: relative;
+  box-shadow:0 -3px 31px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  overflow: hidden;
 }
-.dettagli > i {
+.card-appartamento:hover {
+  cursor: pointer;
+}
+
+.card-appartamento > img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+@media screen and (max-width: 990px) {
+  .card-appartamento {
+    width: 48%;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .card-appartamento {
+    width: 100%;
+  }
+}
+.testo {
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  background: rgba(255, 255, 255, .7);
+}
+
+.recensione {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.valutazione {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.descrizione-stanza {
+  margin-left: 10px;
+  padding: 5px;
+  font-weight: bold;
+}
+
+.descrizione {
+  margin-right: 8px;
+}
+ .dettagli > i {
+  margin-right: 0px;
   font-size: 15px;
 }
-.img-evidenza img{
+/* .img-evidenza img{
   width: 100%;
   height: 200px;
   background-size: cover;
-}
+}  */
+
+
+
+
 /*section località*/
-.località{
+.localita{
   width: 100%;
+  background: #ECE9E6;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FFFFFF, #ECE9E6);
 }
-.località .container-località{
+.localita .container-localita{
   width: 90%;
   margin: auto;
 }
-.località h3{
+.localita h3{
   padding: 5px;
   width: 100%;
 }
-.località > .container-località > .box-card{
+.box-card-cit{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
-.card-città{
+.card-citta{
   width: 24%;
   height: 300px;
   margin-bottom: 20px;
+  position: relative;
+  box-shadow:0 -3px 31px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  overflow: hidden;
 }
-.img-city img{
+.card-citta:hover {
+  cursor: pointer;
+}
+@media screen and (max-width: 1000px){
+  .card-citta{
+    width: 48%;
+  }
+}
+@media screen and (max-width: 550px){
+  .card-citta{
+    width:100%;
+  }
+}
+
+.img-city > img{
   width: 100%;
-  height: 250px;
+  height: 300px;
   background-size: cover;
 }
-.galleria div:hover{
+.galleria .card-citta:hover{
   filter: brightness(70%);
+  color: #fff;
 }
-
-
+h4 {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 30px;
+}
+.contenuto {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 
 
 /*Footer*/
+.footer {
+  background: #ECE9E6;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FFFFFF, #ECE9E6);
+}
 .footer h6{
   text-align: center;
   width: 100%;
   padding: 5px;
+
 }

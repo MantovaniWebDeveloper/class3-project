@@ -1,37 +1,42 @@
-  <div class="formRicerca container d-flex justify-content-center">
-      <div class="row">
-        <div class="col-12">
-          <form id="formInterno" class="" action="{{ route('ricerca_avanzata')}}" method="get">
-            <h2>Inserisci la città ed il numero di ospiti</h2>
-            <div class="form-row d-flex justify-content-center">
-              <div class="form-group col-6 " >
-                <input list="listaCitta" id="listaCitta-input">
-                <datalist id="listaCitta">
-                   {{--questo sarà riempito da handlebars--}}
-                 </datalist>
+<section class="prenotazione">
+    <h3 class="title">Prenota il tuo appartamento <br> ovunque vuoi!</h3>
+    <form id="formInterno" action="{{route('ricerca_avanzata')}}" method="get">
+    <div class="box-prenotazioni">
 
-              </div>
-              <div class="form-group col-6">
-                <select class="selectPersone form-control" name="bed_count">
-                  <option selected value="0">Numero ospiti</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                </select>
-              </div>
-            </div>
-            <input id="inputNascosto" type="hidden" name="city_code" value="">
-            <button type="" id="cercaBtn" class="btn btn-primary">Cerca</button>
-          </form>
+      <!--CITTA-->
+      <input list="listaCitta" id="listaCitta-input" class="prenotare city"  name="cities" placeholder="Località">
+      <datalist id="listaCitta">
+         {{--questo sarà riempito da handlebars--}}
+       </datalist>
 
-        </div>
-      </div>
-  </div>
+       <!--POSTI LETTO-->
+      <select class="prenotare" name="bed_count">
+        <option selected value="0">Numero ospiti</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+      </select>
 
-  <!-- ZONA HANDLEBARS!!!-->
-  <script id="elencoCitta-template" type="text/x-handlebars-template">
-    @{{#each this}}
-          <option class="elemento" data-id="@{{code}}" value="@{{name}}"></option>
-    @{{/each}}
-    </datalist>
+      <select class="prenotare" name="room_count">
+        <option value="0">numero stanze</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+      </select>
 
-  </script>
+      <!--DATE-->
+      <input class="flatpickr flatpickr-input active prenotare" id="check-in" type="text" placeholder="Check in" readonly="readonly">
+      <input class="flatpickr flatpickr-input active prenotare" id="check-out" type="text" placeholder="Check out" readonly="readonly">
+
+      <input id="inputNascosto" type="hidden" name="city_code" value="">
+      <button type="" id="cercaBtn" class="send" value="cerca">Cerca</button>
+    </div>
+    </form>
+</section>
+
+<!-- ZONA HANDLEBARS!!!-->
+<script id="elencoCitta-template" type="text/x-handlebars-template">
+  @{{#each this}}
+        <option class="elemento" data-id="@{{code}}" value="@{{name}}"></option>
+  @{{/each}}
+  </datalist>
+
+</script>
