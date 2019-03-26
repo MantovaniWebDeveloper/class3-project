@@ -15306,7 +15306,11 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 module.exports = __webpack_require__(/*! /Users/dariomantovani/Desktop/progettiLaravel/class3-project/class3-project/resources/js/chiamataApiCitta.js */"./resources/js/chiamataApiCitta.js");
+=======
+module.exports = __webpack_require__(/*! /Users/emanuelemazzante/WorkingDirectory/Esercizi_Boolean/apache_default/project_classe_3/class3-project/resources/js/chiamataApiCitta.js */"./resources/js/chiamataApiCitta.js");
+>>>>>>> emanuele
 
 
 /***/ })

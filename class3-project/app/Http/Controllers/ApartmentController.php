@@ -1,17 +1,18 @@
 <?php
-
+	
 	namespace App\Http\Controllers;
-
+	
 	use App\Apartment;
 	use App\Service;
 	use Illuminate\Http\Request;
 	use Illuminate\Support\Carbon;
 	use App\Traits\ReverseGeo;
-
+	use Illuminate\Support\Facades\Auth;
+	
 	class ApartmentController extends Controller {
-
+		
 		use ReverseGeo;
-
+		
 		/*
 		 * Ritorna la homepage con un 1 appartamento in offerta,
 		 * n appartamenti in evidenza e
@@ -30,17 +31,17 @@
 				$mainCities = array_filter(
 				  $rawData, function ($city) {
 					return array_key_exists("capoluogo", $city);
-
+					
 				});
-				$filteredMainCities=[];
-				foreach ($mainCities as $key => $mainCity){
-					$filteredMainCities[]=['city_code'=>$key, 'city_name'=>$mainCity['provincia']];
+				$filteredMainCities = [];
+				foreach ($mainCities as $key => $mainCity) {
+					$filteredMainCities[] = ['city_code' => $key, 'city_name' => $mainCity['provincia']];
 				}
 				shuffle($filteredMainCities);
 				$mainCitiesToTake = 4;
 				$mainCities = array_slice($filteredMainCities, 0, $mainCitiesToTake, false);
 				//recupero indirizzi
-				$this->collectAddress($promoApartments);
+				$this->collectAddresses($promoApartments);
 				return view('index')
 				  ->withMainCities($mainCities)
 				  ->withSaleApartment($saleApartment)
@@ -49,16 +50,13 @@
 				return abort(500);
 			}
 		}
-
+		
 		/*
 		 * Questo metodo viene chiamato dal submit del form nella homepage
 		 */
 		function simpleSearch(Request $request) {
 			if (!$request->has('city_code') || !$request->has('bed_count')) {
-				//todo
-				// non deve abortire ma tornare la view che a sua volta
-				// verifica la non presenza di dati e rileva la posizione dell'utente
-				abort(404);
+				return redirect()->route('home');
 			}
 			//recupero coordinate della città
 			$rawData = \Config::get('cities');
@@ -67,13 +65,13 @@
 			$pagination = 10;
 			$cityId = $request->input('city_code');
 			try {
-
+				
 				$lat = $rawData[$cityId]['lat'];
 				$lng = $rawData[$cityId]['lng'];
 				$bedCount = $request->input('bed_count');
 				$apartments = Apartment::findInRange($radius, $lat, $lng, true)->isShowed()->where('bed_count', '>=', $bedCount)->get();
 				//recupero indirizzi
-				$this->collectAddress($apartments);
+				$this->collectAddresses($apartments);
 				$services = Service::orderBy('name')->get();
 				return view('result')
 				  ->withApartments($apartments)
@@ -83,5 +81,25 @@
 				return abort(500);
 			}
 		}
-
+		
+		function show($slug) {
+			$apartment = Apartment::where('slug', $slug)->get()->first();
+			if (count($apartment) === 0 || !$apartment->is_showed) {
+				abort(404);
+			}
+			//recupero indirizzo
+			$this->collectAddress($apartment);
+			//recupero mappa
+			$imgData = $this->getMap($apartment->latitude, $apartment->longitude);
+			//todo <img src="data:image/png;charset=binary;base64,{!! $image !!}">
+			return view('emanuele')->withApartment($apartment)->withImage($imgData);
+		}
+		
+		public function manageApartments() {
+			if (!Auth::check()){
+				return redirect()->route('login');
+			}
+			$user = Auth::user();
+			return view('emanuele')->withApartments($user->apartments);
+		}
 	}

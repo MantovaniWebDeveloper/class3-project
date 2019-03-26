@@ -27,4 +27,8 @@
 		  'password', 'remember_token',
 		];
 		
+		public function apartments(){
+			return $this->hasMany(Apartment::class);
+		}
+		
 	}

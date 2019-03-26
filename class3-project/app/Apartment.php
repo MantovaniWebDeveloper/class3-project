@@ -21,6 +21,10 @@
 			return $this->hasMany(Image::class);
 		}
 		
+		public function users(){
+			return $this->belongsTo(User::class);
+		}
+		
 		/**
 		 * Return the sluggable configuration array for this model.
 		 *

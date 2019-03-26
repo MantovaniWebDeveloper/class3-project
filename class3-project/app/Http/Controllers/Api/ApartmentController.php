@@ -108,7 +108,7 @@
 			//ottenimento risultati
 			$apartments = $builder->paginate(100);
 			//recupero indirizzi
-			$this->collectAddress($apartments);
+			$this->collectAddresses($apartments);
 			return $apartments->toJson();
 		}
 	}
