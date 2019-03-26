@@ -18,7 +18,7 @@
       <h3>Appartamenti in evidenza</h3>
         <div class="box-card-app">
             @foreach($promoApartments as $apartment)
-                <div class="card-appartamento">
+                <div class="card-appartamento" onclick="window.location='{{route('appartamento', $apartment->slug)}}'">
                   <img src="http://lorempixel.com/200/200/nature" alt="">
                   <div class="testo">
                     <small>la promozione termina il : <br>{{$apartment->end_promo}}</small>
