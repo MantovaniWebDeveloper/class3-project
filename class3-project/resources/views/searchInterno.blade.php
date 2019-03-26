@@ -20,7 +20,7 @@
                 </select>
               </div>
               <div class="form-group col-4">
-                <select class="selectRoomCount form-control" name="bed_count">
+                <select class="selectRoomCount form-control" name="room_count">
                   <option value="0">numero stanze</option>
                   <option value="1">1</option>
                   <option value="2">2</option>

@@ -1,19 +1,19 @@
 <?php
-	
+
 	namespace App\Http\Controllers\Api;
-	
+
 	use App\Apartment;
 	use Illuminate\Http\Request;
 	use App\Http\Controllers\Controller;
 	use Illuminate\Validation\Rule;
 	use App\Traits\ReverseGeo;
-	
+
 	class ApartmentController extends Controller {
-		
+
 		use ReverseGeo;
-		
+
 		function cities() {
-			
+
 			$rawData = \Config::get('cities');
 			$cities = [];
 			foreach ($rawData as $index => $data) {
@@ -24,7 +24,7 @@
 			}
 			return $cities;
 		}
-		
+
 		function advancedSearch(Request $request) {
 			//validazione
 			$validator = \Validator::make(
@@ -106,7 +106,7 @@
 				$builder->orderBy('price');
 			}
 			//ottenimento risultati
-			$apartments = $builder->paginate(3);
+			$apartments = $builder->paginate(100);
 			//recupero indirizzi
 			$this->collectAddress($apartments);
 			return $apartments->toJson();

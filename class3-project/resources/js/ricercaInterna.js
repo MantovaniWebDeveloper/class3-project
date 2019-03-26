@@ -92,16 +92,21 @@ $(document).ready(function () {
             url: url2,
             type: 'GET',
             data: data,
+            beforeSend: function() {
+            $(".modalLoading").show();
+            },
             success: function(data) {
               //var result = JSON.parse(data);
               //console.log(result);
               if (data == 0) {
+                $(".modalLoading").hide();
                 console.log("non ho trovato niente");
                 $(".wrapResult").html("Mi spiace non ho trovato nessun appartamento..");
               }
               else {
                 console.log("sono qua else");
                 renderResultAjax(data);
+                $(".modalLoading").hide();
               }
 
             },
@@ -112,14 +117,13 @@ $(document).ready(function () {
     }
 
     function renderResultAjax(data) {
-      console.log("sono in render")
-      //console.log(data)
-      var templateBase = $('#resultAjax-template').html();
-      console.log(templateBase);
-      var templateCompilato = Handlebars.compile(templateBase);
-      var html = templateCompilato(data);
+        var result = JSON.parse(data);
+        var templateBase = $('#resultAjax-template').html();
+        var templateCompilato = Handlebars.compile(templateBase);
+        var html = templateCompilato(result.data);
+        console.log(result.data);
 
-      $('.wrapResult').html(html);
+        $('.wrapResult').html(html);
     }
 
     function controllaCitta() {

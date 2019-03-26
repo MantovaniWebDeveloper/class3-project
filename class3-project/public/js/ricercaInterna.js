@@ -15354,15 +15354,20 @@ $(document).ready(function () {
       url: url2,
       type: 'GET',
       data: data,
+      beforeSend: function beforeSend() {
+        $(".modalLoading").show();
+      },
       success: function success(data) {
         //var result = JSON.parse(data);
         //console.log(result);
         if (data == 0) {
+          $(".modalLoading").hide();
           console.log("non ho trovato niente");
           $(".wrapResult").html("Mi spiace non ho trovato nessun appartamento..");
         } else {
           console.log("sono qua else");
           renderResultAjax(data);
+          $(".modalLoading").hide();
         }
       },
       error: function error(errore) {
@@ -15372,12 +15377,11 @@ $(document).ready(function () {
   }
 
   function renderResultAjax(data) {
-    console.log("sono in render"); //console.log(data)
-
+    var result = JSON.parse(data);
     var templateBase = $('#resultAjax-template').html();
-    console.log(templateBase);
     var templateCompilato = handlebars_dist_cjs_handlebars__WEBPACK_IMPORTED_MODULE_0___default.a.compile(templateBase);
-    var html = templateCompilato(data);
+    var html = templateCompilato(result.data);
+    console.log(result.data);
     $('.wrapResult').html(html);
   }
 

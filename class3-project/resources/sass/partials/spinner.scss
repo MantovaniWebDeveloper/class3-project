@@ -1,0 +1,13 @@
+.modalLoading {
+  display:none;
+  background-color: #c1c1c1bf;
+  position:absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  i {
+    font-size: 100px;
+    position: absolute;
+    top: 30%;
+  }
+}
