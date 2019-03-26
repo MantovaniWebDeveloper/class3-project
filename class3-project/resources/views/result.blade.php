@@ -62,13 +62,13 @@
                       <img class="img-fluid pt-2"src="{{asset("img/")}}/{{$appartamento->images()->first()->path}}" alt="">
                     </div>
                     <div class="col-8">
-                      <h3 class="pt-2">{{$appartamento->title}}</h3>
+                      <a></a><h3 class="pt-2">{{$appartamento->title}}</h3>
                       <p><i class="fas fa-map-marker-alt pr-2 "></i>{{$appartamento->address['streetName']}} {{$appartamento->address['postal_code']}} {{$appartamento->address['municipality']}} - {{$appartamento->address['province']}}</p>
                       <h5>numeri letto: {{$appartamento->bed_count}}</h5>
                       <p>{{ $appartamento->description}}</p>
                       <h3>{{ $appartamento->price}} €</h3>
                       <div class="wrapBtn">
-                        <button class="btn btn-danger text-right"type="button" name="button">Descrizione completa</button>
+                        <a href="{{ route("appartamento",$appartamento->slug)}}"><button class="btn btn-danger text-right"type="button" name="button">Descrizione completa</button></a>
                       </div>
                     </div>
                   </div>
@@ -96,8 +96,7 @@
       <p>@{{description}}</p>
       <h3>@{{price}} €</h3>
       <div class="wrapBtn">
-        <button class="btn btn-danger text-right"type="button" name="button">Descrizione completa</button>
-      </div>
+        <a href="{{ route("appartamento",$appartamento->slug)}}"><button class="btn btn-danger text-right"type="button" name="button">Descrizione completa</button></a>
     </div>
   </div>
 </div>
