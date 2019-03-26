@@ -4,6 +4,7 @@
     "/css/index.css": "/css/index.css",
     "/js/chiamataApiCitta.js": "/js/chiamataApiCitta.js",
     "/js/common.js": "/js/common.js",
+    "/js/dashboard.js": "/js/dashboard.js",
     "/js/ricercaInterna.js": "/js/ricercaInterna.js",
     "/css/style.css": "/css/style.css"
 }

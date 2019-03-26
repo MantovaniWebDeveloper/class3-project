@@ -11,5 +11,6 @@
 	  function () {
 		  Route::get('/cities', 'ApartmentController@cities');
 		  Route::get('/search', 'ApartmentController@advancedSearch');
+//		  Route::patch('/visibility','ApartmentController@setVisible');
 	  }
 	);

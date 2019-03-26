@@ -11,7 +11,7 @@
          <nav >
            <ul>
            @auth
-            <li><a href="#">I miei appartamenti</a></li>
+            <li><a href="{{ route('dashboard') }}">I miei appartamenti</a></li>
             <li class="log_item">
               <form action="{{ route('logout') }}" method="POST">
                   @csrf

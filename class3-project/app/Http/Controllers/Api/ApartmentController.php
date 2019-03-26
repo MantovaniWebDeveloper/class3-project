@@ -111,4 +111,11 @@
 			$this->collectAddresses($apartments);
 			return $apartments->toJson();
 		}
+		
+//		function setVisible(Request $request){
+//			if(\Auth::check()){
+//				return 'loggato';
+//			}
+//			return 'non loggato';
+//		}
 	}
