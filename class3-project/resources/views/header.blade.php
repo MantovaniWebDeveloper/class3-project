@@ -1,6 +1,6 @@
 <header>
   <div class="menu">
-     <div class="container">
+     <div class="container-nav">
        <div class="home_logo">
          <i class="fas fa-home"></i>
          <h1>BoolBnb</h1>
