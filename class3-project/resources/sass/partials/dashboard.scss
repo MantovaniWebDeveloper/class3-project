@@ -1,0 +1,60 @@
+.mytoggle {
+	width: 150px;
+	height: 40px;
+	position: relative;
+
+	.mytoggle_state {
+		float: left;
+		width: 33%;
+		height: 100%;
+		line-height: 40px;
+		text-align: center;
+	}
+
+	.on_state {
+		background-color: green;
+		cursor: pointer;
+	}
+
+	.off_state {
+		background-color: blue;
+		cursor: pointer;
+	}
+
+	.standby_state {
+		background-color: grey;
+		cursor: default;
+	}
+
+	.active {
+		color: red;
+	}
+}
+
+.message {
+	height: 40px;
+	line-height: 40px;
+	opacity: 0;
+	margin: 10px;
+	background-color: lightcoral;
+	text-align: center;
+}
+
+.animation_class {
+	animation: error_message 3s ease;
+}
+
+@keyframes error_message {
+	0% {
+		opacity: 0
+	}
+	10% {
+		opacity: 1
+	}
+	90% {
+		opacity: 1
+	}
+	100% {
+		opacity: 0
+	}
+}

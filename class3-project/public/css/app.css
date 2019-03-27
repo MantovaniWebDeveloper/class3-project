@@ -10734,3 +10734,86 @@ a.text-dark:focus {
   top: 30%;
 }
 
+.mytoggle {
+  width: 150px;
+  height: 40px;
+  position: relative;
+}
+
+.mytoggle .mytoggle_state {
+  float: left;
+  width: 33%;
+  height: 100%;
+  line-height: 40px;
+  text-align: center;
+}
+
+.mytoggle .on_state {
+  background-color: green;
+  cursor: pointer;
+}
+
+.mytoggle .off_state {
+  background-color: blue;
+  cursor: pointer;
+}
+
+.mytoggle .standby_state {
+  background-color: grey;
+  cursor: default;
+}
+
+.mytoggle .active {
+  color: red;
+}
+
+.message {
+  height: 40px;
+  line-height: 40px;
+  opacity: 0;
+  margin: 10px;
+  background-color: lightcoral;
+  text-align: center;
+}
+
+.animation_class {
+  -webkit-animation: error_message 3s ease;
+          animation: error_message 3s ease;
+}
+
+@-webkit-keyframes error_message {
+  0% {
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes error_message {
+  0% {
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+

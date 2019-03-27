@@ -15,10 +15,10 @@
 			  'messages', function (Blueprint $table) {
 				$table->increments('id');
 				$table->unsignedInteger('apartment_id');
-				$table->string('from');
-				$table->text('text');
+				$table->string('from',100);
+				$table->longText('body');
 				$table->timestamps();
-				$table->foreign('apartment_id')->references('id')->on('apartments');
+				$table->foreign('apartment_id')->references('id')->on('apartments')->onDelete('cascade');
 			});
 		}
 		

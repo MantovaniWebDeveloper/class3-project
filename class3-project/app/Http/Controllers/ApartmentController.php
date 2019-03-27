@@ -100,6 +100,22 @@
 				return redirect()->route('login');
 			}
 			$user = Auth::user();
-			return view('emanuele')->withApartments($user->apartments);
+			return view('dashboard')->withApartments($user->apartments()->orderBy('apartments.id','asc')->get());
+		}
+		
+		public function newApartment(){
+		
+		}
+		
+		public function promote(){
+		
+		}
+		
+		public function edit(){
+		
+		}
+		
+		public function stats(){
+		
 		}
 	}
