@@ -1,8 +1,5 @@
 <?php
 
-	//ELIMINARE
-	//	Auth::routes();
-
 	Route::namespace('Auth')->group(
 	  function () {
 		  Route::post('/host/crea', 'RegisterController@register');

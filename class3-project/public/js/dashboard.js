@@ -94,31 +94,80 @@
 /***/ (function(module, exports) {
 
 $('.off_state, .on_state').click(function () {
-  if (!$(this).hasClass('active')) {
-    if ($(this).hasClass('off_state')) {
-      //rendo visibile un annuncio nei risultati di ricerca
-      setApartmentVisibility($(this), true);
-    } else if ($(this).hasClass('off_state')) {
-      //rendo invisibile un annuncio nei risultati di ricerca
-      setApartmentVisibility($(this), false);
+  //collego listener
+  manageClick($(this));
+});
+
+function manageClick(element) {
+  //ignoro click su elemento attivo
+  if (!element.hasClass('active')) {
+    if (element.hasClass('off_state')) {
+      //nascondo un annuncio nei risultati di ricerca
+      setApartmentVisibility(element, 0);
+    } else if (element.hasClass('on_state')) {
+      //mostro un annuncio nei risultati di ricerca
+      setApartmentVisibility(element, 1);
     }
   }
-});
+}
 
 function setApartmentVisibility(element, visible) {
   var slug = $(element).data('slug');
-  var url = 'http://127.0.0.1:8000/api/visibility';
+  var url = 'http://127.0.0.1:8000/api/apartment/visibility';
   $.ajax(url, {
-    method: 'PATCH',
-    success: function success(data) {
-      console.log(data);
+    beforeSend: function beforeSend() {
+      standBy(slug);
     },
-    error: function error(a) {
-      console.log(a);
+    method: 'PATCH',
+    headers: {
+      'X-Requested-With': 'XMLHttpRequest',
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
+    success: function success(result) {
+      //cambio stato pulsante
+      if (result) {
+        setState(slug, visible);
+      } else {
+        //qualcosa non ha funzionato
+        setState(slug, !visible);
+      }
+    },
+    error: function error() {
+      //se c'è un errore ripristino lo stato precedente del pulsante
+      setState(slug, !visible);
     },
     data: {
-      visible: visible
+      visible: visible,
+      slug: slug
     }
+  });
+}
+
+function standBy(slug) {
+  //disconnetto listener e mostro standby
+  var elements = $('[data-slug="' + slug + '"]');
+  elements.off();
+  elements.removeClass('active');
+  $('.standby_state[data-slug="' + slug + '"]').addClass('active');
+}
+
+function setState(slug, onState) {
+  //mostro il nuovo stato e riconnetto listener
+  $('[data-slug="' + slug + '"]').removeClass('active');
+  var onStateElement = $('.on_state[data-slug="' + slug + '"]');
+  var offStateElement = $('.off_state[data-slug="' + slug + '"]');
+
+  if (onState) {
+    onStateElement.addClass('active');
+  } else {
+    offStateElement.addClass('active');
+  }
+
+  onStateElement.click(function () {
+    manageClick($(this));
+  });
+  offStateElement.click(function () {
+    manageClick($(this));
   });
 }
 
