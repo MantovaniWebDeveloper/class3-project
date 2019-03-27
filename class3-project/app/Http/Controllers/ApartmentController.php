@@ -1,18 +1,18 @@
 <?php
-	
+
 	namespace App\Http\Controllers;
-	
+
 	use App\Apartment;
 	use App\Service;
 	use Illuminate\Http\Request;
 	use Illuminate\Support\Carbon;
 	use App\Traits\ReverseGeo;
 	use Illuminate\Support\Facades\Auth;
-	
+
 	class ApartmentController extends Controller {
-		
+
 		use ReverseGeo;
-		
+
 		/*
 		 * Ritorna la homepage con un 1 appartamento in offerta,
 		 * n appartamenti in evidenza e
@@ -31,7 +31,7 @@
 				$mainCities = array_filter(
 				  $rawData, function ($city) {
 					return array_key_exists("capoluogo", $city);
-					
+
 				});
 				$filteredMainCities = [];
 				foreach ($mainCities as $key => $mainCity) {
@@ -50,7 +50,7 @@
 				return abort(500);
 			}
 		}
-		
+
 		/*
 		 * Questo metodo viene chiamato dal submit del form nella homepage
 		 */
@@ -65,7 +65,7 @@
 			$pagination = 10;
 			$cityId = $request->input('city_code');
 			try {
-				
+
 				$lat = $rawData[$cityId]['lat'];
 				$lng = $rawData[$cityId]['lng'];
 				$bedCount = $request->input('bed_count');
@@ -81,7 +81,7 @@
 				return abort(500);
 			}
 		}
-		
+
 		function show($slug) {
 			$apartment = Apartment::where('slug', $slug)->get()->first();
 			if (count($apartment) === 0 || !$apartment->is_showed) {
@@ -94,7 +94,7 @@
 			//todo <img src="data:image/png;charset=binary;base64,{!! $image !!}">
 			return view('emanuele')->withApartment($apartment)->withImage($imgData);
 		}
-		
+
 		public function manageApartments() {
 			if (!Auth::check()){
 				return redirect()->route('login');
@@ -102,20 +102,59 @@
 			$user = Auth::user();
 			return view('dashboard')->withApartments($user->apartments()->orderBy('apartments.id','asc')->get());
 		}
-		
+
 		public function newApartment(){
-		
+			$services = Service::all();
+			return view('appartamento.crea', compact('services'));
 		}
-		
+
+		public function store(Request $request){
+			// $data = $request->all();
+
+			$validator = $request->validate([
+				'title' => 'required',
+				'description' => 'required',
+				'square_meters' => 'required',
+				'room_count' => 'required',
+				'bed_count' => 'required',
+				'bathroom_count' => 'required',
+				'latitude' => 'required',
+				'longitude' => 'required',
+				'price' => 'required'
+			]);
+
+			$validator['user_id'] = Auth::id();
+			$apartment = Apartment::create($validator);
+
+			// $apartment = New Apartment;
+			// $data['title'] = $apartment->title;
+			// $data['description'] = $apartment->description;
+			// $data['square_meters'] = $apartment->square_meters;
+			// $data['room_count'] = $apartment->room_count;
+			// $data['bed_count'] = $apartment->bed_count;
+			// $data['bathroom_count'] = $apartment->bathroom_count;
+			// $data['user_id']= $apartment->user_id;
+			// dd($apartment);
+			// $apartment->save();
+
+			$services = $request->input('services');
+
+			foreach ($services as $service){
+			 $apartment->services()->attach($service);
+		 	};
+
+		return redirect()->route('dashboard');
+		}
+
 		public function promote(){
-		
+
 		}
-		
+
 		public function edit(){
-		
+
 		}
-		
+
 		public function stats(){
-		
+
 		}
 	}
