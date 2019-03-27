@@ -14,4 +14,8 @@
 	  }
 	);
 	
-	Route::patch('/apartment/visibility', 'Auth\Api\ApartmentController@setVisibility');
+	Route::namespace('Auth\Api')->middleware('auth:api')->group(
+	  function () {
+		  Route::patch('/apartment/visibility', 'ApartmentController@setVisibility');
+		  Route::delete('/apartment/delete', 'ApartmentController@delete');
+	  });

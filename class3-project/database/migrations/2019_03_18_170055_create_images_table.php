@@ -17,7 +17,7 @@
 				$table->unsignedInteger('apartment_id');
 				$table->string('path');
 				$table->timestamps();
-				$table->foreign('apartment_id')->references('id')->on('apartments');
+				$table->foreign('apartment_id')->references('id')->on('apartments')->onDelete('cascade');
 			});
 		}
 		

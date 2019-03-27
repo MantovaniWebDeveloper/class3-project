@@ -100,6 +100,6 @@
 				return redirect()->route('login');
 			}
 			$user = Auth::user();
-			return view('dashboard')->withApartments($user->apartments);
+			return view('dashboard')->withApartments($user->apartments()->orderBy('apartments.id','asc')->get());
 		}
 	}

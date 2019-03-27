@@ -25,6 +25,10 @@
 			return $this->belongsTo(User::class);
 		}
 		
+		public function messages(){
+			return $this->belongsTo(Message::class);
+		}
+		
 		/**
 		 * Return the sluggable configuration array for this model.
 		 *

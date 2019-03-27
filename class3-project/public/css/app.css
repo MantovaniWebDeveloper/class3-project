@@ -10767,3 +10767,53 @@ a.text-dark:focus {
   color: red;
 }
 
+.message {
+  height: 40px;
+  line-height: 40px;
+  opacity: 0;
+  margin: 10px;
+  background-color: lightcoral;
+  text-align: center;
+}
+
+.animation_class {
+  -webkit-animation: error_message 3s ease;
+          animation: error_message 3s ease;
+}
+
+@-webkit-keyframes error_message {
+  0% {
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes error_message {
+  0% {
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
