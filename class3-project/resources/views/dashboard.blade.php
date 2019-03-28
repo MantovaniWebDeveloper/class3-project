@@ -13,7 +13,7 @@
                 <h3>{{$apartment->title}}</h3>
                 <span>Descrizione</span>
                 <h3>{{$apartment->description}}</h3>
-                <a href="" style="padding: 10px; border: 1px solid black;border-radius: 5px;margin: 10px;display: inline-block;background-color: green">Sponsorizza</a>
+                <a href="{{route('sponsorizza',['appartamento'=> $apartment->slug])}}" style="padding: 10px; border: 1px solid black;border-radius: 5px;margin: 10px;display: inline-block;background-color: green">Sponsorizza</a>
                 <button class="button delete_button" data-slug="{{$apartment->slug}}" style="padding: 10px; border: 1px solid black;border-radius: 5px;margin: 10px;display: inline-block;background-color: red">Elimina</button>
                 <a href="" style="padding: 10px; border: 1px solid black;border-radius: 5px;margin: 10px;display: inline-block;background-color: blue">Modifica</a>
                 <a href="" style="padding: 10px; border: 1px solid black;border-radius: 5px;margin: 10px;display: inline-block;background-color: yellow">Statistiche</a>

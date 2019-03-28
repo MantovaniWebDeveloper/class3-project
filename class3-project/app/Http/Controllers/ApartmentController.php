@@ -3,7 +3,9 @@
 	namespace App\Http\Controllers;
 	
 	use App\Apartment;
+	use App\Customer;
 	use App\Service;
+	use Braintree_Gateway;
 	use Illuminate\Http\Request;
 	use Illuminate\Support\Carbon;
 	use App\Traits\ReverseGeo;
@@ -96,26 +98,39 @@
 		}
 		
 		public function manageApartments() {
-			if (!Auth::check()){
+			if (!Auth::check()) {
 				return redirect()->route('login');
 			}
 			$user = Auth::user();
-			return view('dashboard')->withApartments($user->apartments()->orderBy('apartments.id','asc')->get());
+			return view('dashboard')->withApartments($user->apartments()->orderBy('apartments.id', 'asc')->get());
 		}
 		
-		public function newApartment(){
-		
-		}
-		
-		public function promote(){
+		public function newApartment() {
 		
 		}
 		
-		public function edit(){
+		public function promote(Request $request) {
+			//se l'utente non è loggato lo rimando al login
+			if (!Auth::check()) {
+				return redirect()->route('login');
+			}
+			//se lo slug non è presente, errore
+			if (!$request->has('appartamento')){
+				abort(404);
+			}
+			$user = Auth::user();
+			if (!$user->customer()->exists()) {
+				//l'utente si deve accreditare
+				return view('customer');
+			}
+			return view('payment')->withSlug($request->input('slug'));
+		}
+		
+		public function edit() {
 		
 		}
 		
-		public function stats(){
+		public function stats() {
 		
 		}
 	}

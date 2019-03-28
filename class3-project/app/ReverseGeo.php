@@ -24,7 +24,7 @@
 		}
 		
 		private function getAddress($latitude, $longitude) {
-			$useFake = false;
+			$useFake = true;
 			$address = [
 			  'streetName' => '',
 			  'municipality' => '',

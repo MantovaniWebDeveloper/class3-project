@@ -25,4 +25,10 @@
 	
 	Route::get('/statistiche', 'ApartmentController@stats')->name('statistiche');
 	
+	Route::post('/crea_customer', 'PaymentController@createCustomer')->name('create_customer');
+	
+
+	
+	
+	
 	

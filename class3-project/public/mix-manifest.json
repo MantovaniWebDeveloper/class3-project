@@ -5,6 +5,7 @@
     "/js/chiamataApiCitta.js": "/js/chiamataApiCitta.js",
     "/js/common.js": "/js/common.js",
     "/js/dashboard.js": "/js/dashboard.js",
+    "/js/payment.js": "/js/payment.js",
     "/js/ricercaInterna.js": "/js/ricercaInterna.js",
     "/css/style.css": "/css/style.css"
 }

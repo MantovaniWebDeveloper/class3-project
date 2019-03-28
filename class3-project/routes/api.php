@@ -18,4 +18,7 @@
 	  function () {
 		  Route::patch('/apartment/visibility', 'ApartmentController@setVisibility');
 		  Route::delete('/apartment/delete', 'ApartmentController@delete');
+		  Route::get('/customer/token', 'PaymentController@getCustomerToken');
+		  Route::post('/sponsorizza/checkout', 'PaymentController@checkout');
 	  });
+	

@@ -229,5 +229,12 @@
 	  ],
 	  
 	  'tomtom_api' => env('TOMTOM_API', null),
+	  
+	  'braintree' => [
+		'environment' => env('ENVIRONMENT', null),
+		'merchantId' => env('MERCHANT_ID', null),
+		'publicKey' => env('PUBLIC_KEY', null),
+		'privateKey' => env('PRIVATE_KEY', null)
+	  ]
 	
 	];

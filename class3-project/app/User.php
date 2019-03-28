@@ -27,8 +27,12 @@
 		  'password', 'remember_token',
 		];
 		
-		public function apartments(){
+		public function apartments() {
 			return $this->hasMany(Apartment::class);
+		}
+		
+		public function customer() {
+			return $this->hasOne(Customer::class);
 		}
 		
 	}
