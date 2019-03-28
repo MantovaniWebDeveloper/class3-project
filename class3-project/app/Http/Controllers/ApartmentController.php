@@ -8,6 +8,7 @@
 	use Illuminate\Support\Carbon;
 	use App\Traits\ReverseGeo;
 	use Illuminate\Support\Facades\Auth;
+	use Illuminate\Support\Facades\DB;
 
 	class ApartmentController extends Controller {
 
@@ -105,7 +106,8 @@
 
 		public function newApartment(){
 			$services = Service::all();
-			return view('appartamento.crea', compact('services'));
+			$action = 'new_apartment';
+			return view('appartamento.edit', compact('services', 'action'));
 		}
 
 		public function store(Request $request){
@@ -150,9 +152,21 @@
 
 		}
 
-		public function edit(){
+		public function edit(Request $request){
+			$apartment = Apartment::where('slug', $request->input('slug'))->get()->first();
+			//RIGHT OUTERJOIN
+			$servizi_non_selezionati=DB::table('services')->select('name','id')->whereNOTIn('id',function($query) use($apartment){$query->select('service_id')->from('apartment_service')->where('apartment_id','=',$apartment->id);})->get();
+			$action = 'edit';
 
+			return view('appartamento.edit', compact('servizi_non_selezionati','apartment', 'action'));
 		}
+
+		public function update(Request $request, $id){
+			
+			dd($request->all());
+		}
+
+
 
 		public function stats(){
 

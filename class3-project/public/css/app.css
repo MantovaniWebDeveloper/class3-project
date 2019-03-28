@@ -10825,3 +10825,15 @@ a.text-dark:focus {
   margin-bottom: 50px;
 }
 
+.custom-form .form_item {
+  outline: none;
+}
+
+.custom-form .error {
+  border: 1px solid red;
+}
+
+.custom-form h5 {
+  margin: 20px 0;
+}
+

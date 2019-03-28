@@ -5,6 +5,15 @@
   <div class="container custom-form">
     <div class="row">
       <h3>Crea nuovo appartamento</h3>
+      @if ($errors->any())
+          <div class="alert alert-danger">
+              <ul>
+                  @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                  @endforeach
+              </ul>
+          </div>
+      @endif
       <div class="col-12">
         <form class="form-group row" action="{{route('salva.nuovo')}}" method="post" enctype="multipart/form-data">
           @csrf
@@ -65,15 +74,6 @@
           @endforeach
         </div>
         </form>
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
       </div>
     </div>
   </div>

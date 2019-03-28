@@ -23,5 +23,6 @@
 	Route::get('/sponsorizza', 'ApartmentController@promote')->name('sponsorizza');
 
 	Route::get('/modifica', 'ApartmentController@edit')->name('modifica');
+	Route::put('/modifica/{id}', 'ApartmentController@update')->name('salva.modifica');
 
 	Route::get('/statistiche', 'ApartmentController@stats')->name('statistiche');
