@@ -41,6 +41,10 @@
                 <textarea class="form-control form_item{{($errors->has('description')? ' error':NULL)}}" id="description" name="description" rows="15" cols="80"  required>{{isset($apartment)?$apartment->description:NULL}}</textarea>
               @endif
             </div>
+            <div class="buttons_section">
+                <button type="submit" class="btn btn-success">Salva</button>
+                <a class="btn btn-primary" href="{{route('dashboard')}}">Torna alla dashboard</a>
+            </div>
           </div>
 
 
@@ -60,6 +64,14 @@
                 <input class="form-control col-8 form_item{{($errors->has('room_count')? ' error':NULL)}}" name="room_count" id="room_count" required value="{{old('room_count')}}">
               @else
                 <input class="form-control col-8 form_item{{($errors->has('room_count')? ' error':NULL)}}" name="room_count" id="room_count" required value="{{isset($apartment)?$apartment->room_count:NULL}}">
+              @endif
+            </div>
+            <div class="form-group">
+              <label class="form_item" for="room_count">Quanti letti?</label>
+              @if(old('room_count'))
+                <input class="form-control col-8 form_item{{($errors->has('bed_count')? ' error':NULL)}}" name="bed_count" id="bed_count" required value="{{old('bed_count')}}">
+              @else
+                <input class="form-control col-8 form_item{{($errors->has('bed_count')? ' error':NULL)}}" name="bed_count" id="bed_count" required value="{{isset($apartment)?$apartment->bed_count:NULL}}">
               @endif
             </div>
             <div class="form-group">
@@ -111,17 +123,20 @@
                 <label for="{{$service->name}}">{{$service->name}}</label>
               </div>
             @endforeach
-            <h6>Aggiungi servizio mancante</h6>
-            <input type="checkbox" id="check" value="crea">
-            <div class="inpuServizi" id="insert_new">
-              <input id="user_serv" type="text" placeholder="nome servizio">
-              <button id="add" class="btn btn-primary" type="button" name="button">Aggiungi</button>
+
+            <div class="form-group col-10">
+              <h5>Vuoi aggiungere un servizio non in lista?</h5>
+              <button id="show" class="btn btn-primary" type="button" name="button">Aggiungi</button>
+            </div>
+
+            <div class="hidden" id="insert_new">
+              <div class="form-group">
+                <input id="user_serv" type="text" placeholder="nome servizio">
+              </div>
+              <button id="add" class="btn btn-primary" type="button" name="button">Aggiungi alla lista</button>
             </div>
           </div>
-          <div class="buttons_section">
-              <button type="submit" class="btn btn-success">Salva</button>
-              <a class="btn btn-primary" href="{{route('dashboard')}}">Torna alla dashboard</a>
-          </div>
+
        </form>
       </div>
     </div>

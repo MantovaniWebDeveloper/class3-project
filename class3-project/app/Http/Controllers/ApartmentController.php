@@ -162,8 +162,31 @@
 		}
 
 		public function update(Request $request, $id){
-			
-			dd($request->all());
+			// dd($request->new_services[0]);
+			$validator = $request->validate([
+				'title' => 'required',
+				'description' => 'required',
+				'square_meters' => 'required',
+				'room_count' => 'required',
+				'bed_count' => 'required',
+				'bathroom_count' => 'required',
+				'latitude' => 'required',
+				'longitude' => 'required',
+				'price' => 'required'
+			]);
+
+			$newservices = $request->new_services;
+			$apartment = Apartment::find($id);
+			foreach ($newservices as $key=>$newservice)
+			{
+				$service = new Service;
+				$service->name = $newservice;
+				$service->save();
+				$apartment->services()->attach($service->id);
+			};
+
+
+			return redirect()->route('dashboard');
 		}
 
 

@@ -7,7 +7,7 @@
         <h3>Questi sono i tuoi appartamenti</h3>
         @foreach($apartments as $apartment)
             <div data-slug="{{$apartment->slug}}" class="pappaciccia" style="margin:30px;border:1px solid black;border-radius: 5px;padding: 10px;">
-                <span>Titolo</span>
+                <span>Appartamento ID: {{$apartment->id}}</span>
                 <h3>{{$apartment->title}}</h3>
                 <span>Descrizione</span>
                 <h3>{{$apartment->description}}</h3>
