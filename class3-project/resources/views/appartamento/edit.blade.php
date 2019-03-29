@@ -41,9 +41,20 @@
                 <textarea class="form-control form_item{{($errors->has('description')? ' error':NULL)}}" id="description" name="description" rows="15" cols="80"  required>{{isset($apartment)?$apartment->description:NULL}}</textarea>
               @endif
             </div>
+
+            <div class="form-group">
+              <label for="address">Inserisci l'indirizzo dell'appartamento</label>
+              <input type="text" name="address" placeholder="digita l'indirizzo">
+              <button class="btn btn-secondary" type="button" name="button">Cerca indirizzo</button>
+            </div>
+
+            <div class="form-group">
+              <label class="form-inline" for="file_poster">Carica un'immagine</label>
+              <input type="file" name="file_poster" value="scegli..">
+            </div>
             <div class="buttons_section">
                 <button type="submit" class="btn btn-success">Salva</button>
-                <a class="btn btn-primary" href="{{route('dashboard')}}">Torna alla dashboard</a>
+                <a class="btn btn-warning" href="{{route('dashboard')}}">Torna alla dashboard</a>
             </div>
           </div>
 

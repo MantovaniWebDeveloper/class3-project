@@ -4,6 +4,7 @@
 
 	use App\Apartment;
 	use App\Service;
+	use Illuminate\Support\Facades\Storage;
 	use Illuminate\Http\Request;
 	use Illuminate\Support\Carbon;
 	use App\Traits\ReverseGeo;
@@ -153,6 +154,7 @@
 		}
 
 		public function edit(Request $request){
+
 			$apartment = Apartment::where('slug', $request->input('slug'))->get()->first();
 			//RIGHT OUTERJOIN
 			$servizi_non_selezionati=DB::table('services')->select('name','id')->whereNOTIn('id',function($query) use($apartment){$query->select('service_id')->from('apartment_service')->where('apartment_id','=',$apartment->id);})->get();
@@ -162,7 +164,9 @@
 		}
 
 		public function update(Request $request, $id){
-			// dd($request->new_services[0]);
+
+		 	$request['poster'] = Storage::disk('public')->put('posts_poster', $request['file_poster']);
+
 			$validator = $request->validate([
 				'title' => 'required',
 				'description' => 'required',
@@ -172,7 +176,7 @@
 				'bathroom_count' => 'required',
 				'latitude' => 'required',
 				'longitude' => 'required',
-				'price' => 'required'
+				'price' => 'required',
 			]);
 
 			$newservices = $request->new_services;
