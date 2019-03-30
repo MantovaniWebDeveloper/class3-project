@@ -16,7 +16,7 @@
 			  config('app.braintree'));
 		}
 		
-		public function createCustomer(Request $request) {
+		public function createCustomer(Request $request, $appartamento) {
 			if (!Auth::check()) {
 				return redirect()->route('login');
 			}
@@ -27,7 +27,7 @@
 				'streetAddress' => 'required|max:255',
 				'extendedAddress' => 'nullable|max:255',
 				'locality' => 'required|max:255',
-				'postalCode' => 'required|integer',
+				'postalCode' => 'required|integer'
 			  ]);
 			$userId = Auth::id();
 			$newCustomer = $this->gateway->customer()->create();
@@ -40,12 +40,7 @@
 				$data['customerId'] = $newCustomerId;
 				$data['user_id'] = $userId;
 				Customer::create($data);
-				//se lo slug è presente nella request posso inviare la pagina del pagamento
-				//altrimenti alla gestione
-				if ($request->has('appartamento')) {
-					return view('payment')->withSlug($request->input('appartamento'));
-				}
-				return redirect()->route('dashboard');
+				return redirect()->route('sponsorizza', $appartamento);
 			} else {
 				//errore nella creazione del customer
 				return redirect()->back()->withErrorMessage('Errore durante la creazione ');

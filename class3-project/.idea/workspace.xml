@@ -2,7 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="538eec07-687b-4a2b-9de4-bbfdcd4b8770" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Apartment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Apartment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/class3-project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/class3-project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ApartmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ApartmentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/Api/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/Api/PaymentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/payment.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/payment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/payment.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/payment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/customer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/payment.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/payment.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -11,30 +21,18 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5968543">
+    <splitter split-orientation="horizontal" split-proportion="0.48139256">
       <split-first>
-        <leaf>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/database/seeds/ApartmentsTableSeeder.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="296">
-                  <caret line="388" column="33" lean-forward="true" selection-start-line="388" selection-start-column="22" selection-end-line="388" selection-end-column="33" />
-                  <folding>
-                    <element signature="e#9#40#0#PHP" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ApartmentController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="375">
-                  <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+                <state relative-caret-position="636">
+                  <caret line="125" column="91" selection-start-line="125" selection-start-column="91" selection-end-line="125" selection-end-column="91" />
                   <folding>
                     <element signature="e#44#62#0#PHP" expanded="true" />
                   </folding>
@@ -43,13 +41,19 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/Apartment.php">
+            <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PaymentController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="525">
-                  <caret line="35" column="38" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="38" />
-                  <folding>
-                    <element signature="e#23#62#0#PHP" expanded="true" />
-                  </folding>
+                <state relative-caret-position="345">
+                  <caret line="26" column="54" lean-forward="true" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/Api/PaymentController.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="493">
+                  <caret line="37" column="35" lean-forward="true" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="35" />
                 </state>
               </provider>
             </entry>
@@ -57,7 +61,7 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/database/migrations/2019_03_18_164508_create_apartments_table.php">
               <provider selected="true" editor-type-id="text-editor">
@@ -67,11 +71,33 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/routes/web.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="210">
-                  <caret line="23" column="37" lean-forward="true" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="37" />
+                <state relative-caret-position="510">
+                  <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/resources/views/payment.blade.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="480">
+                  <caret line="32" column="56" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
+                  <folding>
+                    <element signature="e#1348#1374#0#HTML" expanded="true" />
+                    <element signature="e#1583#1667#0#HTML" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/resources/js/payment.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="422">
+                  <caret line="58" column="46" lean-forward="true" selection-start-line="58" selection-start-column="46" selection-end-line="58" selection-end-column="46" />
                 </state>
               </provider>
             </entry>
@@ -144,6 +170,8 @@
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Apartment.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ApartmentController.php" />
+        <option value="$PROJECT_DIR$/resources/js/payment.js" />
+        <option value="$PROJECT_DIR$/resources/views/payment.blade.php" />
       </list>
     </option>
   </component>
@@ -228,12 +256,28 @@
       <path value="$PROJECT_DIR$/vendor/laravel/tinker" />
       <path value="$PROJECT_DIR$/vendor/cviebrock/eloquent-sluggable" />
       <path value="$PROJECT_DIR$/vendor/cocur/slugify" />
+      <path value="$PROJECT_DIR$/vendor/braintree/braintree_php" />
+      <path value="$PROJECT_DIR$/vendor/league/event" />
+      <path value="$PROJECT_DIR$/vendor/defuse/php-encryption" />
+      <path value="$PROJECT_DIR$/vendor/firebase/php-jwt" />
+      <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/vendor/laravel/passport" />
+      <path value="$PROJECT_DIR$/vendor/league/oauth2-server" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/vendor/symfony/psr-http-message-bridge" />
+      <path value="$PROJECT_DIR$/vendor/phpseclib/phpseclib" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-diactoros" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="61" />
+    <option name="x" value="67" />
     <option name="y" value="23" />
-    <option name="width" value="1920" />
+    <option name="width" value="2322" />
     <option name="height" value="1417" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -367,6 +411,12 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner scope="XML" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -378,25 +428,21 @@
       <option name="presentableId" value="Default" />
       <updated>1552926517241</updated>
       <workItem from="1552926519424" duration="15342000" />
+      <workItem from="1553929831907" duration="2175000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15342000" />
+    <option name="totallyTimeSpent" value="17517000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="61" y="23" width="1920" height="1417" extended-state="0" />
+    <frame x="67" y="23" width="2322" height="1417" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="npm" side_tool="true" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.32698676" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26929826" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.32981133" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -404,10 +450,15 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32981133" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -456,52 +507,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coordinate.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="40846" column="26" lean-forward="true" selection-start-line="40846" selection-start-column="26" selection-end-line="40846" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coordinate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="39363" column="22" lean-forward="true" selection-start-line="39363" selection-start-column="22" selection-end-line="39363" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/province.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="775" column="25" lean-forward="true" selection-start-line="775" selection-start-column="25" selection-end-line="775" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/province.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="18" column="31" lean-forward="true" selection-start-line="1" selection-start-column="4" selection-end-line="793" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/coordinate.json" />
+    <entry file="file://$PROJECT_DIR$/coordinate.php" />
+    <entry file="file://$PROJECT_DIR$/province.json" />
+    <entry file="file://$PROJECT_DIR$/province.php" />
     <entry file="file://$PROJECT_DIR$/app/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="30" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_03_18_164508_create_apartments_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="25" column="40" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="23" column="37" lean-forward="true" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -522,33 +535,86 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Apartment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="35" column="11" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_03_18_164508_create_apartments_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="25" column="40" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/database/seeds/ApartmentsTableSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="296">
-          <caret line="388" column="33" lean-forward="true" selection-start-line="388" selection-start-column="22" selection-end-line="388" selection-end-column="33" />
+          <caret line="388" column="33" selection-start-line="388" selection-start-column="22" selection-end-line="388" selection-end-column="33" />
           <folding>
             <element signature="e#9#40#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Apartment.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PaymentController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="38" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="38" />
-          <folding>
-            <element signature="e#23#62#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="345">
+          <caret line="26" column="54" lean-forward="true" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/Api/PaymentController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="37" column="35" lean-forward="true" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ApartmentController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="636">
+          <caret line="125" column="91" selection-start-line="125" selection-start-column="91" selection-end-line="125" selection-end-column="91" />
           <folding>
             <element signature="e#44#62#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/dashboard.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/dashboard.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="66" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/payment.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="56" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
+          <folding>
+            <element signature="e#1348#1374#0#HTML" expanded="true" />
+            <element signature="e#1583#1667#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/payment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="58" column="46" lean-forward="true" selection-start-line="58" selection-start-column="46" selection-end-line="58" selection-end-column="46" />
         </state>
       </provider>
     </entry>

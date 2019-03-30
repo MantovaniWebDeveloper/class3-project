@@ -10485,6 +10485,7 @@ function getToken() {
       loadDropIn(data.token);
     },
     error: function error(e) {
+      console.log("errore");
       console.log(e);
     }
   });
@@ -10510,10 +10511,11 @@ function loadDropIn(token) {
           },
           data: {
             'paymentMethodNonce': payload.nonce,
-            'promotion_type': $('input[name=promotion_type]:checked').val()
+            'promotion_type': $('input[name=promotion_type]:checked').val(),
+            'slug': $('#dropin-container').data()
           },
-          success: function success() {
-            teardown(instance);
+          success: function success(data) {
+            teardown(instance, data);
           },
           error: function error() {
             $('#message').text("pagamento non accettato");
@@ -10525,15 +10527,25 @@ function loadDropIn(token) {
   });
 }
 
-function teardown(instance) {
+function teardown(instance, data) {
   instance.teardown(function (teardownErr) {
     if (teardownErr) {
       $('#dropin-container').remove();
     }
 
-    $('#submit-button').remove();
+    $('.wrapper').remove();
     $('.success').removeAttr('hidden');
+
+    if (data.running_promo) {
+      $('.end_message').text('La promozione su questo appartamento verrà prorogata fino al ' + data.end_promo);
+    } else {
+      $('.end_message').text('La promozione terminerà il ' + data.end_promo);
+    }
   });
+
+  if (!$('.wannabe_wrapper').is(':empty')) {
+    $('.wanna_promote').removeClass('hide');
+  }
 }
 
 function changeSubmitButtonState(enable) {

@@ -109,21 +109,21 @@
 		
 		}
 		
-		public function promote(Request $request) {
+		public function promote($appartamento) {
 			//se l'utente non è loggato lo rimando al login
 			if (!Auth::check()) {
 				return redirect()->route('login');
 			}
-			//se lo slug non è presente, errore
-			if (!$request->has('appartamento')){
-				abort(404);
-			}
 			$user = Auth::user();
 			if (!$user->customer()->exists()) {
 				//l'utente si deve accreditare
-				return view('customer');
+				return view('customer')->withSlug($appartamento);
 			}
-			return view('payment')->withSlug($request->input('slug'));
+			$apartment = Apartment::where('slug', '=', $appartamento)->get()->first();
+			//l'utente è già accreditato
+			//acquisisco altri appartamenti che vorrebbe poter sponsorizzare dopo la transazione
+			$apartments = Apartment::where('id', '<>', $apartment->id)->whereDate('end_promo', '<', now())->orderBy('created_at', 'desc')->take(5)->get();
+			return view('payment')->withApartment($apartment)->withWannaPromote($apartments);
 		}
 		
 		public function edit() {

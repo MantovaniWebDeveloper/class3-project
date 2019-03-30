@@ -19,13 +19,13 @@
 	
 	Route::get('/nuovo_appartamento', 'ApartmentController@newApartment')->name('nuovo');
 	
-	Route::get('/sponsorizza', 'ApartmentController@promote')->name('sponsorizza');
+	Route::get('/sponsorizza/{appartamento}', 'ApartmentController@promote')->name('sponsorizza');
 	
 	Route::get('/modifica', 'ApartmentController@edit')->name('modifica');
 	
 	Route::get('/statistiche', 'ApartmentController@stats')->name('statistiche');
 	
-	Route::post('/crea_customer', 'PaymentController@createCustomer')->name('create_customer');
+	Route::post('/crea_customer/{appartamento}', 'PaymentController@createCustomer')->name('create_customer');
 	
 
 	

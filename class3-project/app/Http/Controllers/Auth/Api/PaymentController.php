@@ -4,6 +4,7 @@
 	
 	use App\Apartment;
 	use Braintree_Gateway;
+	use Carbon\Carbon;
 	use Illuminate\Http\Request;
 	use App\Http\Controllers\Controller;
 	
@@ -35,12 +36,15 @@
 			switch ($validatedData['promotion_type']) {
 				case 0:
 					$amount = 2.99;
+					$hours = 24;
 					break;
 				case 1:
 					$amount = 5.99;
+					$hours = 72;
 					break;
 				default:
 					$amount = 9.99;
+					$hours = 144;
 			}
 			$result = $this->gateway->transaction()->sale(
 			  [
@@ -51,19 +55,39 @@
 				]
 			  ]);
 			if ($result->success) {
-				$this->promoteApartment($validatedData['slug']);
-				return response()->json('Transazione autorizzata', 200);
+				return $this->setEndPromo($hours, $validatedData['slug']);
 			}
 			return response()->json('Transazione non autorizzata', 401);
 		}
 		
-		private function promoteApartment($slug) {
+		private function setEndPromo($hours, $slug) {
 			$apartment = Apartment::where('slug', $slug)->get()->first();
-			$servizi_non_selezionati = DB::table('services')->select('name', 'id')->whereNOTIn(
-			  'id', function ($query) use($apartment) {
-				$query->select('service_id')->from('apartment_service')->where('apartment_id', '=', $apartment->id);
-			})->get();
-			
+			if (is_null($apartment->end_promo)) {
+				//non ci sono promozioni impostate
+				$apartment->end_promo = Carbon::now()->addHours($hours);
+				$apartment->save();
+				return response()->json($this->getJsonResponse(false, $apartment->end_promo),200);
+			} else {
+				$endPromo = Carbon::parse($apartment->end_promo);
+				if ($endPromo->greaterThan(Carbon::now())) {
+					//c'è già una promo in corso per l'appartamento
+					$endPromo->addHours($hours);
+					$apartment->end_promo =$endPromo;
+					$apartment->save();
+					return response()->json($this->getJsonResponse(true, $apartment->end_promo),200);
+				} else {
+					//la promo dell'appartamento è scaduta
+					$apartment->end_promo = Carbon::now()->addHours($hours);
+					$apartment->save();
+					return response()->json($this->getJsonResponse(false, $apartment->end_promo),200);
+				}
+			}
 		}
 		
+		private function getJsonResponse($running_promo, $end_promo) {
+			return [
+			  'running_promo' => $running_promo,
+			  'end_promo' => $end_promo
+			];
+		}
 	}
