@@ -12,12 +12,13 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-   .js('resources/js/chiamataApiCitta.js', 'public/js/chiamataApiCitta.js' )
-   .js('resources/js/ricercaInterna.js', 'public/js/ricercaInterna.js' )
-   .js('resources/js/common.js', 'public/js/common.js' )
-   .js('resources/js/dashboard.js', 'public/js' )
-   .js('resources/js/payment.js', 'public/js' )
-   .sass('resources/sass/app.scss', 'public/css')
-   .sass('resources/sass/index.scss', 'public/css')
-   .styles(['resources/sass/style.css'], 'public/css/style.css')
-   .copyDirectory('resources/img', 'public/img');;
+    .js('resources/js/chiamataApiCitta.js', 'public/js/chiamataApiCitta.js')
+    .js('resources/js/ricercaInterna.js', 'public/js/ricercaInterna.js')
+    .js('resources/js/common.js', 'public/js/common.js')
+    .js('resources/js/dashboard.js', 'public/js')
+    .js('resources/js/new_service.js', 'public/js')
+    .js('resources/js/payment.js', 'public/js')
+    .sass('resources/sass/app.scss', 'public/css')
+    .sass('resources/sass/index.scss', 'public/css')
+    .styles(['resources/sass/style.css'], 'public/css/style.css')
+    .copyDirectory('resources/img', 'public/img');;

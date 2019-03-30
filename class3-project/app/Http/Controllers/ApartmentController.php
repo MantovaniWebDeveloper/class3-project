@@ -5,11 +5,13 @@
 	use App\Apartment;
 	use App\Customer;
 	use App\Service;
+	use Illuminate\Support\Facades\Storage;
 	use Braintree_Gateway;
 	use Illuminate\Http\Request;
 	use Illuminate\Support\Carbon;
 	use App\Traits\ReverseGeo;
 	use Illuminate\Support\Facades\Auth;
+	use Illuminate\Support\Facades\DB;
 
 	class ApartmentController extends Controller {
 
@@ -87,7 +89,7 @@
 		function show($slug) {
 
 			$apartment = Apartment::where('slug', $slug)->get()->first();
-			
+
 			if (count($apartment) === 0 || !$apartment->is_showed) {
 				abort(404);
 			}
@@ -106,11 +108,94 @@
 			$user = Auth::user();
 			return view('dashboard')->withApartments($user->apartments()->orderBy('apartments.id', 'asc')->get());
 		}
-		
-		public function newApartment() {
-		
+
+		public function newApartment(){
+			$services = Service::all();
+			$action = 'new_apartment';
+			return view('appartamento.edit', compact('services', 'action'));
 		}
-		
+
+		public function store(Request $request){
+			// $data = $request->all();
+
+			$validator = $request->validate([
+				'title' => 'required',
+				'description' => 'required',
+				'square_meters' => 'required',
+				'room_count' => 'required',
+				'bed_count' => 'required',
+				'bathroom_count' => 'required',
+				'latitude' => 'required',
+				'longitude' => 'required',
+				'price' => 'required'
+			]);
+
+			$validator['user_id'] = Auth::id();
+			$apartment = Apartment::create($validator);
+
+			// $apartment = New Apartment;
+			// $data['title'] = $apartment->title;
+			// $data['description'] = $apartment->description;
+			// $data['square_meters'] = $apartment->square_meters;
+			// $data['room_count'] = $apartment->room_count;
+			// $data['bed_count'] = $apartment->bed_count;
+			// $data['bathroom_count'] = $apartment->bathroom_count;
+			// $data['user_id']= $apartment->user_id;
+			// dd($apartment);
+			// $apartment->save();
+
+			$services = $request->input('services');
+
+			foreach ($services as $service){
+			 $apartment->services()->attach($service);
+		 	};
+
+		return redirect()->route('dashboard');
+		}
+
+
+		public function edit(Request $request){
+
+			$apartment = Apartment::where('slug', $request->input('slug'))->get()->first();
+			//RIGHT OUTERJOIN
+			$servizi_non_selezionati=DB::table('services')->select('name','id')->whereNOTIn('id',function($query) use($apartment){$query->select('service_id')->from('apartment_service')->where('apartment_id','=',$apartment->id);})->get();
+			$action = 'edit';
+
+			return view('appartamento.edit', compact('servizi_non_selezionati','apartment', 'action'));
+		}
+
+		public function update(Request $request, $id){
+
+		 	$request['poster'] = Storage::disk('public')->put('posts_poster', $request['file_poster']);
+
+			$validator = $request->validate([
+				'title' => 'required',
+				'description' => 'required',
+				'square_meters' => 'required',
+				'room_count' => 'required',
+				'bed_count' => 'required',
+				'bathroom_count' => 'required',
+				'latitude' => 'required',
+				'longitude' => 'required',
+				'price' => 'required',
+			]);
+
+			$newservices = $request->new_services;
+			$apartment = Apartment::find($id);
+			foreach ($newservices as $key=>$newservice)
+			{
+				$service = new Service;
+				$service->name = $newservice;
+				$service->save();
+				$apartment->services()->attach($service->id);
+			};
+
+
+			return redirect()->route('dashboard');
+		}
+
+
+
 		public function promote($appartamento) {
 			//se l'utente non è loggato lo rimando al login
 			if (!Auth::check()) {
@@ -127,12 +212,8 @@
 			$apartments = Apartment::where('id', '<>', $apartment->id)->whereDate('end_promo', '<', now())->orderBy('created_at', 'desc')->take(5)->get();
 			return view('payment')->withApartment($apartment)->withWannaPromote($apartments);
 		}
-		
-		public function edit() {
-		
-		}
-		
+
 		public function stats() {
-		
+
 		}
 	}

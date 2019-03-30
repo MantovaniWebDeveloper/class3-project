@@ -1,0 +1,18 @@
+.custom-form{
+  margin-top: 20px;
+  h3 {
+    margin-bottom: 50px;
+  }
+  .form_item{
+    outline: none;
+  }
+  .error{
+    border: 1px solid red;
+  }
+  h5 {
+    margin: 20px 0;
+  }
+  .hidden{
+    display: none;
+  }
+}

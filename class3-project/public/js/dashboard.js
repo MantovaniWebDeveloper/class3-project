@@ -10602,7 +10602,7 @@ function deleteApartment(element) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/emanuelemazzante/WorkingDirectory/Esercizi_Boolean/apache_default/project_classe_3/class3-project/resources/js/dashboard.js */"./resources/js/dashboard.js");
+module.exports = __webpack_require__(/*! /home/parallels/Desktop/Boolean/sites/progetto-finale/class3-project/resources/js/dashboard.js */"./resources/js/dashboard.js");
 
 
 /***/ })

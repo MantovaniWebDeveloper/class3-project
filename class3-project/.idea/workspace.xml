@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="538eec07-687b-4a2b-9de4-bbfdcd4b8770" name="Default Changelist" comment="" />
+    <list default="true" id="538eec07-687b-4a2b-9de4-bbfdcd4b8770" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/js/new_service.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/new_service.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/partials/crud_appart.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/appartamento/crea.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/appartamento/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ApartmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ApartmentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/chiamataApiCitta.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/chiamataApiCitta.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/ricercaInterna.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/ricercaInterna.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layout/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/main.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +40,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ApartmentController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="797">
-                  <caret line="99" column="9" selection-start-line="99" selection-start-column="9" selection-end-line="99" selection-end-column="9" />
+                <state relative-caret-position="917">
+                  <caret line="107" column="9" selection-start-line="107" selection-start-column="9" selection-end-line="107" selection-end-column="9" />
                   <folding>
                     <element signature="e#42#60#0#PHP" expanded="true" />
                   </folding>
@@ -43,8 +65,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/routes/web.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="510">
-                  <caret line="34" selection-start-line="34" selection-end-line="34" />
+                <state relative-caret-position="675">
+                  <caret line="45" selection-start-line="45" selection-end-line="45" />
                 </state>
               </provider>
             </entry>
@@ -330,7 +352,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17618000" />
+    <option name="totallyTimeSpent" value="17622000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="23" width="2322" height="1417" extended-state="0" />
@@ -471,8 +493,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ApartmentController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="797">
-          <caret line="99" column="9" selection-start-line="99" selection-start-column="9" selection-end-line="99" selection-end-column="9" />
+        <state relative-caret-position="917">
+          <caret line="107" column="9" selection-start-line="107" selection-start-column="9" selection-end-line="107" selection-end-column="9" />
           <folding>
             <element signature="e#42#60#0#PHP" expanded="true" />
           </folding>
@@ -481,8 +503,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        <state relative-caret-position="675">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
         </state>
       </provider>
     </entry>

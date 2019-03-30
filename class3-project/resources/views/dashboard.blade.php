@@ -1,7 +1,7 @@
 @extends('layout.main')
 @section('content')
     @include('header')
-    <a href="" style="padding: 10px; border: 1px solid black;border-radius: 5px;margin: 10px;display: inline-block;background-color: red">Crea nuovo appartamento</a>
+    <a href="{{route('nuovo')}}" style="padding: 10px; border: 1px solid black;border-radius: 5px;margin: 10px;display: inline-block;background-color: red">Crea nuovo appartamento</a>
     <div id="message_label" class="message"></div>
     @if(!$apartments->isEmpty())
         <h3>Questi sono i tuoi appartamenti</h3>
@@ -21,7 +21,7 @@
                 @endif
                 <a href="{{route('sponsorizza',$apartment->slug)}}" style="padding: 10px; border: 1px solid black;border-radius: 5px;margin: 10px;display: inline-block;background-color: green">Sponsorizza</a>
                 <button class="button delete_button" data-slug="{{$apartment->slug}}" style="padding: 10px; border: 1px solid black;border-radius: 5px;margin: 10px;display: inline-block;background-color: red">Elimina</button>
-                <a href="" style="padding: 10px; border: 1px solid black;border-radius: 5px;margin: 10px;display: inline-block;background-color: blue">Modifica</a>
+                <a href="{{route('modifica', ['slug'=>$apartment->slug])}}" style="padding: 10px; border: 1px solid black;border-radius: 5px;margin: 10px;display: inline-block;background-color: blue">Modifica</a>
                 <a href="" style="padding: 10px; border: 1px solid black;border-radius: 5px;margin: 10px;display: inline-block;background-color: yellow">Statistiche</a>
                 <p>Modifica visibilità annuncio</p>
                 <div class="mytoggle">
@@ -35,4 +35,5 @@
         <h3>non hai un cavolo di appartamento, morto di fame</h3>
     @endif
     <script src="js/dashboard.js"></script>
+    <script src="js/common.js"></script>
 @endsection
