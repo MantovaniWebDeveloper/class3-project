@@ -87,7 +87,7 @@
 
 		function show($slug) {
 			$apartment = Apartment::where('slug', $slug)->get()->first();
-			if (count($apartment) === 0 || !$apartment->is_showed) {
+			if (is_null($apartment)|| !$apartment->is_showed) {
 				abort(404);
 			}
 			//recupero indirizzo

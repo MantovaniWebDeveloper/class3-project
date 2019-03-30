@@ -108,7 +108,7 @@
 				}
 				return response()->json($response, 200);
 			} catch (\Exception $e) {
-				return response()->json(['Errore'], 404);
+				return response()->json(['status' => 'Errore del server', 'error_message' => $e->getMessage()], 404);
 			}
 		}
 		
