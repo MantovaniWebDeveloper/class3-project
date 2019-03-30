@@ -3,10 +3,8 @@
 	namespace App\Http\Controllers;
 
 	use App\Apartment;
-	use App\Customer;
 	use App\Service;
 	use Illuminate\Support\Facades\Storage;
-	use Braintree_Gateway;
 	use Illuminate\Http\Request;
 	use Illuminate\Support\Carbon;
 	use App\Traits\ReverseGeo;
@@ -87,9 +85,7 @@
 		}
 
 		function show($slug) {
-
 			$apartment = Apartment::where('slug', $slug)->get()->first();
-
 			if (count($apartment) === 0 || !$apartment->is_showed) {
 				abort(404);
 			}
