@@ -7,8 +7,11 @@
 	use App\Http\Controllers\Controller;
 	use Illuminate\Support\Facades\DB;
 	use Illuminate\Validation\Rule;
+	use App\Traits\ReverseGeo;
 	
 	class ApartmentController extends Controller {
+		
+		use ReverseGeo;
 		
 		function setVisibility(Request $request) {
 			try {

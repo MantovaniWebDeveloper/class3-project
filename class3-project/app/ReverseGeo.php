@@ -2,6 +2,7 @@
 	namespace App\Traits;
 	
 	use GuzzleHttp\Client;
+	use Illuminate\Http\Request;
 	
 	trait ReverseGeo {
 		private $client;
@@ -44,7 +45,7 @@
 				  'GET',
 				  $uri, [
 					'query' => [
-					  'key' => 'rUTrqh7oaVBjDuzbkoBbTeQleSlTjRGj'
+					  'key' => config('app.tomtom_api')
 					],
 					'headers' => [
 					  'Accept' => '*/*'
@@ -66,6 +67,48 @@
 				return $address;
 			} catch (\Exception $e) {
 				return $address;
+			}
+		}
+		
+		function getAddressesFromUserSearch(Request $request) {
+			try {
+				if (!$request->has('user_address')) {
+					return response()->json('Dati non validi', 404);
+				}
+				$userData = $request->input('user_address');
+				$encodeAddress = rawurlencode($userData);
+				$uri = '/search/2/search/' . $encodeAddress . '.json';
+				$client = new Client(
+				  [
+					'base_uri' => 'https://api.tomtom.com'
+				  ]);
+				$response = $client->request(
+				  'GET',
+				  $uri, [
+					'query' => [
+					  'extendedPostalCodesFor' => 'Str',
+					  'idxSet' => 'Str',
+					  'key' => config('app.tomtom_api')
+					],
+					'headers' => [
+					  'Accept' => '*/*'
+					]
+				  ]);
+				$result = json_decode($response->getBody()->getContents());
+				$response = [
+				  'result_count' => $result->summary->numResults,
+				  'results' => []
+				];
+				foreach ($result->results as $address) {
+					$response['results'][] = [
+					  'address_name' => $address->address->freeformAddress,
+					  'lat' => $address->position->lat,
+					  'lng' => $address->position->lon
+					];
+				}
+				return response()->json($response, 200);
+			} catch (\Exception $e) {
+				return response()->json(['Errore'], 404);
 			}
 		}
 		

@@ -7,5 +7,6 @@
     "/js/new_service.js": "/js/new_service.js",
     "/js/payment.js": "/js/payment.js",
     "/js/ricercaInterna.js": "/js/ricercaInterna.js",
+    "/js/search_address.js": "/js/search_address.js",
     "/css/style.css": "/css/style.css"
 }
