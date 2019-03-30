@@ -11,29 +11,25 @@
     <!-- PRENOTAZIONE -->
 
 
-    <!-- SEZIONE IN EVIDENZA -->
-    {{-- @dd($promoApartments); --}}
-    <section class="evidenzia">
-        <div class="container-evidenzia">
-            <h3>Appartamenti in evidenza</h3>
-            <div class="box-card-app">
-                @foreach($promoApartments as $apartment)
-                    <div class="card-appartamento" onclick="window.location='{{route('appartamento', $apartment->slug)}}'">
-                        <img src="http://lorempixel.com/200/200/nature" alt="">
-                        <div class="testo">
-                            <small>la promozione termina il :
-                                <br>{{$apartment->end_promo}}
-                            </small>
-                            <p class="descrizione-stanza">{{ str_limit($apartment->title, $limit = 15) }}</p>
-                            <div class="recensione dettagli">
-                                <i class="fas fa-bed"></i>
-                                <span class="descrizione-stanza">Ospiti:{{$apartment->bed_count}}</span>
-                                <div class="valutazione">
-                                    <span class="descrizione">4.5</span>
-                                    <i class="fas fa-star-half-alt"></i>
-                                </div>
-                            </div>
-                        </div>
+  <!-- SEZIONE IN EVIDENZA -->
+  {{-- @dd($promoApartments); --}}
+  <section class="evidenzia">
+    <div class="container-evidenzia">
+      <h3>Appartamenti in evidenza</h3>
+        <div class="box-card-app">
+            @foreach($promoApartments as $apartment)
+                <div class="card-appartamento" onclick="window.location='{{route('appartamento', $apartment->slug)}}'">
+                  <img src="http://lorempixel.com/200/200/nature" alt="">
+                  <div class="testo">
+                    <small>la promozione termina il : <br>{{$apartment->end_promo}}</small>
+                    <p class="descrizione-stanza">{{ str_limit($apartment->title, $limit = 15) }}</p>
+                    <div class="recensione dettagli">
+                      <i class="fas fa-bed"></i>
+                      <span class="descrizione-stanza">Ospiti:{{$apartment->bed_count}}</span>
+                      <div class="valutazione">
+                        <span class="descrizione">4.5</span>
+                        <i class="fas fa-star-half-alt"></i>
+                      </div>
                     </div>
                 @endforeach
             </div>
