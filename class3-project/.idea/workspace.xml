@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="538eec07-687b-4a2b-9de4-bbfdcd4b8770" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/Api/ApartmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/Api/ApartmentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ReverseGeo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ReverseGeo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Apartment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Apartment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ApartmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ApartmentController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/appartamento/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/appartamento/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,19 +20,10 @@
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/resources/js/search_address.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="300">
-                  <caret line="20" column="36" lean-forward="true" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/ReverseGeo.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-58">
-                  <caret line="92" column="34" lean-forward="true" selection-start-line="92" selection-start-column="34" selection-end-line="92" selection-end-column="34" />
+                <state relative-caret-position="588">
+                  <caret line="122" column="3578" selection-start-line="122" selection-start-column="3578" selection-end-line="122" selection-end-column="3578" />
                   <folding>
                     <element signature="e#32#54#0#PHP" expanded="true" />
                   </folding>
@@ -51,13 +38,13 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="345">
-                  <caret line="23" selection-start-line="23" selection-end-line="23" />
+                <state relative-caret-position="300">
+                  <caret line="21" selection-start-line="21" selection-end-line="21" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/routes/web.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="510">
@@ -67,27 +54,9 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/resources/views/mail/new_message_mail.blade.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="165">
-                  <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/resources/views/appartamento/edit.blade.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="697">
-                  <caret line="154" column="55" lean-forward="true" selection-start-line="154" selection-start-column="55" selection-end-line="154" selection-end-column="55" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/routes/api.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="375">
+                <state relative-caret-position="225">
                   <caret line="25" selection-start-line="25" selection-end-line="25" />
                 </state>
               </provider>
@@ -336,21 +305,6 @@
             <path>
               <item name="class3-project" type="b2602c69:ProjectViewProjectNode" />
               <item name="class3-project" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="Auth" type="462c0819:PsiDirectoryNode" />
-              <item name="Api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="class3-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="class3-project" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Mail" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="class3-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="class3-project" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -380,13 +334,6 @@
               <item name="class3-project" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="class3-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="class3-project" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="mail" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="class3-project" type="b2602c69:ProjectViewProjectNode" />
@@ -452,11 +399,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31437000" />
+    <option name="totallyTimeSpent" value="31659000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="23" width="2322" height="1417" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26929826" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -606,8 +552,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="300">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
     </entry>
@@ -655,13 +601,7 @@
     <entry file="file://$PROJECT_DIR$/database/seeds/ImagesTableSeeder.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/email/info.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/email/info.blade.php" />
     <entry file="file://$PROJECT_DIR$/app/Mail/InfoMail.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -742,7 +682,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/api.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
+        <state relative-caret-position="225">
           <caret line="25" selection-start-line="25" selection-end-line="25" />
         </state>
       </provider>
@@ -782,8 +722,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/ReverseGeo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-58">
-          <caret line="92" column="34" lean-forward="true" selection-start-line="92" selection-start-column="34" selection-end-line="92" selection-end-column="34" />
+        <state relative-caret-position="588">
+          <caret line="122" column="3578" selection-start-line="122" selection-start-column="3578" selection-end-line="122" selection-end-column="3578" />
           <folding>
             <element signature="e#32#54#0#PHP" expanded="true" />
           </folding>

@@ -23,40 +23,22 @@
                 @else
                     @method('put')
                 @endif
-                <div class="col-7">
+                < class="col-7">
                     <div class="form-group">
 
-                        <label class="form_item" for="title">Nome Appartamento</label>
-                        @if( old('title') )
-                            <input class="form-control col-8 form_item{{($errors->has('title')? ' error':NULL)}}" type="text" id="title" name="title" required autofocus value="{{old('title')}}">
-                        @else
-                            <input class="form-control col-8 form_item{{($errors->has('title')? ' error':NULL)}}" type="text" id="title" name="title" required autofocus value="{{isset($apartment)?$apartment->title:NULL}}">
-                        @endif
-                    </div>
-                    <div class="form-group">
-                        <label class="form_item" for="description">Descrizione</label>
-                        @if( old('description') )
-                            <textarea class="form-control form_item{{($errors->has('description')? ' error':NULL)}}" id="description" rows="15" cols="80" name="description" required>{{old('description')}}</textarea>
-                        @else
-                            <textarea class="form-control form_item{{($errors->has('description')? ' error':NULL)}}" id="description" name="description" rows="15" cols="80" required>{{isset($apartment)?$apartment->description:NULL}}</textarea>
-                        @endif
-                    </div>
 
-                    <div class="form-group">
-                        <label for="address">Inserisci l'indirizzo dell'appartamento</label>
-                        <input id="user_address" type="text" name="address" placeholder="digita l'indirizzo">
-                        <button id="search_address" class="btn btn-secondary" type="button" name="button">Cerca indirizzo</button>
-                    </div>
 
-                    <div class="form-group">
-                        <label class="form-inline" for="file_poster">Carica un'immagine</label>
-                        <input type="file" name="file_poster" value="scegli..">
-                    </div>
-                    <div class="buttons_section">
-                        <button type="submit" class="btn btn-success">Salva</button>
-                        <a class="btn btn-warning" href="{{route('dashboard')}}">Torna alla dashboard</a>
-                    </div>
-                </div>
+            <div class="form-group">
+              <label class="form-inline" for="file_poster">Carica un'immagine</label>
+              <input type="file" name="file_posters[]" value="scegli.." multiple>
+            </div>
+            <div class="buttons_section">
+                <button type="submit" class="btn btn-success">Salva</button>
+                <a class="btn btn-warning" href="{{route('dashboard')}}">Torna alla dashboard</a>
+            </div>
+          </div>
+
+
 
                 <div class="col-2">
                     <div class="form-group">
