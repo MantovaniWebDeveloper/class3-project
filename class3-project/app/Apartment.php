@@ -21,12 +21,12 @@
 			return $this->hasMany(Image::class);
 		}
 		
-		public function users(){
+		public function user(){
 			return $this->belongsTo(User::class);
 		}
 		
 		public function messages(){
-			return $this->belongsTo(Message::class);
+			return $this->hasMany(Message::class);
 		}
 		
 		/**

@@ -17,6 +17,7 @@
 				$table->unsignedInteger('apartment_id');
 				$table->string('from',100);
 				$table->longText('body');
+				$table->tinyInteger('is_unread')->default(1);
 				$table->timestamps();
 				$table->foreign('apartment_id')->references('id')->on('apartments')->onDelete('cascade');
 			});

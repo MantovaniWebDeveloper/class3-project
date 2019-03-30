@@ -12,9 +12,13 @@
     <p>
         <i class="fas fa-map-marker-alt pr-2 "></i>{{$apartment->address['streetName']}} {{$apartment->address['postal_code']}} {{$apartment->address['municipality']}} - {{$apartment->address['province']}}
     </p>
-    <form action="">
-        <input type="email" placeholder="email" required>
+    @if (\Session::has('message'))
+        <div class="alert alert-success">{!! \Session::get('message') !!}</div>
+    @endif
+    <form action="{{route('send_message',$apartment->slug)}}" method="POST">
+        @csrf
+        <input type="email" name="email" placeholder="email" required>
         <input type="submit" value="INVIA MESSAGGIO">
-        <textarea name="body" id="" cols="30" rows="10" placeholder="Scrivi il tuo messaggio qui" required></textarea>
+        <textarea name="message" id="" cols="30" rows="10" placeholder="Scrivi il tuo messaggio qui" required></textarea>
     </form>
 @endsection

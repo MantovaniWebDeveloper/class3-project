@@ -30,3 +30,5 @@
 	Route::get('/statistiche', 'ApartmentController@stats')->name('statistiche');
 
 	Route::post('/crea_customer/{appartamento}', 'PaymentController@createCustomer')->name('create_customer');
+	
+	Route::post('/appartament/{slug}/messaggio', 'MessageController@sendMessage')->name('send_message');
