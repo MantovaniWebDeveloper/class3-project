@@ -165,7 +165,7 @@
 
 		public function update(Request $request, $id){
 
-		 	$request['poster'] = Storage::disk('public')->put('posts_poster', $request['file_poster']);
+		 	$request['poster'] = Storage::disk('public')->put('posts_poster', $request['file_posters']);
 
 			$validator = $request->validate([
 				'title' => 'required',
@@ -176,18 +176,25 @@
 				'bathroom_count' => 'required',
 				'latitude' => 'required',
 				'longitude' => 'required',
-				'price' => 'required',
+				'price' => 'required'
 			]);
 
-			$newservices = $request->new_services;
-			$apartment = Apartment::find($id);
-			foreach ($newservices as $key=>$newservice)
+			if( isset($request->new_services))
 			{
-				$service = new Service;
-				$service->name = $newservice;
-				$service->save();
-				$apartment->services()->attach($service->id);
+				$newservices = $request->new_services;
+				$apartment = Apartment::find($id);
+				foreach ($newservices as $key=>$newservice)
+				{
+					$service = new Service;
+					$service->name = $newservice;
+					$service->save();
+					$apartment->services()->attach($service->id);
+				};
+			} else {
+				$apartment = Apartment::find($id);
 			};
+
+			$apartment->update($validator);
 
 
 			return redirect()->route('dashboard');

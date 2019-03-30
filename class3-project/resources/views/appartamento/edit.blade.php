@@ -42,15 +42,11 @@
               @endif
             </div>
 
-            <div class="form-group">
-              <label for="address">Inserisci l'indirizzo dell'appartamento</label>
-              <input type="text" name="address" placeholder="digita l'indirizzo">
-              <button class="btn btn-secondary" type="button" name="button">Cerca indirizzo</button>
-            </div>
+
 
             <div class="form-group">
               <label class="form-inline" for="file_poster">Carica un'immagine</label>
-              <input type="file" name="file_poster" value="scegli..">
+              <input type="file" name="file_posters[]" value="scegli.." multiple>
             </div>
             <div class="buttons_section">
                 <button type="submit" class="btn btn-success">Salva</button>
