@@ -21,4 +21,6 @@
         <input type="submit" value="INVIA MESSAGGIO">
         <textarea name="message" id="" cols="30" rows="10" placeholder="Scrivi il tuo messaggio qui" required></textarea>
     </form>
+
+    <script src="{{asset('js/common.js')}}"></script>
 @endsection

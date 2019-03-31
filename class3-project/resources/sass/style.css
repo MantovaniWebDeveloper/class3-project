@@ -33,7 +33,7 @@
   justify-content: space-between;
   align-items: center;
 }
-.menu > .container-nav > .home_logo > .fa-home{
+.menu > .container-nav > .home_logo > a >.fa-home{
   font-size: 30px;
   margin-right: 20px;
 }

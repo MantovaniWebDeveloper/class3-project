@@ -5,6 +5,7 @@
 	use App\Apartment;
 	use App\Message;
 	use App\Service;
+	use App\Image;
 	use Illuminate\Support\Facades\Storage;
 	use Illuminate\Http\Request;
 	use Illuminate\Support\Carbon;
@@ -86,8 +87,9 @@
 		}
 
 		function show($slug) {
+
 			$apartment = Apartment::where('slug', $slug)->get()->first();
-			if (count($apartment) === 0 || !$apartment->is_showed) {
+			if (is_null($apartment) || !$apartment->is_showed) {
 				abort(404);
 			}
 			//recupero indirizzo
@@ -148,6 +150,16 @@
 				$apartment->services()->attach($service);
 			};
 
+			foreach ($request['apartment_img'] as $img){
+		 	 Storage::disk('public')->put('apartment_img', $img);
+			 	$image = new Image;
+				$image->path = $img;
+				$image->apartment_id = $apartment->id;
+				$image->save();
+	
+		 	}
+
+
 			return redirect()->route('dashboard');
 		}
 
@@ -159,14 +171,21 @@
 			  'id', function ($query) use ($apartment) {
 				$query->select('service_id')->from('apartment_service')->where('apartment_id', '=', $apartment->id);
 			})->get();
+
 			$action = 'edit';
 
-			return view('appartamento.edit', compact('servizi_non_selezionati', 'apartment', 'action'));
+			$this->collectAddress($apartment);
+
+			$imgData = $this->getMap($apartment->latitude, $apartment->longitude);
+
+			return view('appartamento.edit', compact('servizi_non_selezionati','action'))->withApartment($apartment)->withImage($imgData);
 		}
 
 		public function update(Request $request, $id){
-
-		 	$request['poster'] = Storage::disk('public')->put('posts_poster', $request['file_posters']);
+			// dd($request->all());
+			foreach ($request['apartment_img'] as $img){
+		 	 Storage::disk('public')->put('apartment_img', $img);
+		 	}
 
 			$validator = $request->validate([
 				'title' => 'required',
@@ -222,4 +241,7 @@
 
 		}
 
+		public static function test(){
+			return function_exists('curl_version');
+		}
 	}
