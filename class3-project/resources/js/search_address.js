@@ -19,7 +19,7 @@ function searchAddress(element, user_input) {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         success: function (result) {
-            console.log(result);
+            showVie(result);
         },
         error: function (error) {
             console.log(error);
@@ -31,4 +31,12 @@ function searchAddress(element, user_input) {
             element.prop('disabled', false);
         }
     });
+}
+
+function showVie(result){
+    let element = $('#elencovie');
+    let elenco = element.empty();
+    for(let address of result.results){
+        elenco.append('<li>' + address.address_name + '</li>');
+    }
 }

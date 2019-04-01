@@ -10491,7 +10491,7 @@ function searchAddress(element, user_input) {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     },
     success: function success(result) {
-      console.log(result);
+      showVie(result);
     },
     error: function error(_error) {
       console.log(_error);
@@ -10505,6 +10505,34 @@ function searchAddress(element, user_input) {
   });
 }
 
+function showVie(result) {
+  var element = $('#elencovie');
+  var elenco = element.empty();
+  var _iteratorNormalCompletion = true;
+  var _didIteratorError = false;
+  var _iteratorError = undefined;
+
+  try {
+    for (var _iterator = result.results[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      var address = _step.value;
+      elenco.append('<li>' + address.address_name + '</li>');
+    }
+  } catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion && _iterator.return != null) {
+        _iterator.return();
+      }
+    } finally {
+      if (_didIteratorError) {
+        throw _iteratorError;
+      }
+    }
+  }
+}
+
 /***/ }),
 
 /***/ 7:
@@ -10514,7 +10542,7 @@ function searchAddress(element, user_input) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/parallels/Desktop/Boolean/sites/progetto-finale/class3-project/resources/js/search_address.js */"./resources/js/search_address.js");
+module.exports = __webpack_require__(/*! /Users/emanuelemazzante/WorkingDirectory/Esercizi_Boolean/apache_default/project_classe_3/class3-project/resources/js/search_address.js */"./resources/js/search_address.js");
 
 
 /***/ })
