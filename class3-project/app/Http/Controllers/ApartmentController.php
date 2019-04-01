@@ -156,7 +156,7 @@
 				$image->path = $img;
 				$image->apartment_id = $apartment->id;
 				$image->save();
-	
+
 		 	}
 
 

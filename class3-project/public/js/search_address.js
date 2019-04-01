@@ -10491,7 +10491,8 @@ function searchAddress(element, user_input) {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     },
     success: function success(result) {
-      console.log(result);
+      // console.log(result);
+      showVie(result);
     },
     error: function error(_error) {
       console.log(_error);
@@ -10501,6 +10502,65 @@ function searchAddress(element, user_input) {
     },
     complete: function complete() {
       element.prop('disabled', false);
+    }
+  });
+}
+
+function showVie(data) {
+  var vie = data.results;
+  var elenco = $('#elencovie');
+  elenco.empty();
+  var _iteratorNormalCompletion = true;
+  var _didIteratorError = false;
+  var _iteratorError = undefined;
+
+  try {
+    for (var _iterator = vie[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      var via = _step.value;
+      console.log(via);
+      elenco.append('<li class="via" data-lat="' + via.lat + '" data-long="' + via.lng + '">' + via.address_name + '</li>');
+    }
+  } catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion && _iterator.return != null) {
+        _iterator.return();
+      }
+    } finally {
+      if (_didIteratorError) {
+        throw _iteratorError;
+      }
+    }
+  }
+
+  $('.via').click(function () {
+    showMap($(this).data('lat'), $(this).data('long'));
+    $('.via').removeClass('bg-secondary');
+    $(this).addClass('bg-secondary');
+  });
+}
+
+function showMap(lat, long) {
+  var url = 'http://127.0.0.1:8000/api/address/search/map';
+  $.ajax(url, {
+    method: 'GET',
+    headers: {
+      'X-Requested-With': 'XMLHttpRequest',
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
+    success: function success(result) {
+      console.log(result); // showVie(result);
+    },
+    error: function error(_error2) {
+      console.log(_error2);
+    },
+    data: {
+      'lat': lat,
+      'long': long
+    },
+    complete: function complete() {// element.prop('disabled', false);
     }
   });
 }

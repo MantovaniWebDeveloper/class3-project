@@ -25,7 +25,7 @@
           @endif
           <div class="col-7">
             <div class="form-group">
-              
+
               <label class="form_item" for="title">Nome Appartamento</label>
               @if( old('title') )
                 <input class="form-control col-8 form_item{{($errors->has('title')? ' error':NULL)}}" type="text" id="title" name="title" required autofocus value="{{old('title')}}">
@@ -47,6 +47,11 @@
                 <label for="address">Inserisci l'indirizzo dell'appartamento</label>
                 <input id="user_address" type="text" name="address" placeholder="digita l'indirizzo">
                 <button id="search_address" class="btn btn-secondary" type="button" name="button">Cerca indirizzo</button>
+                <div class="form-group col-8">
+                    <ul id="elencovie">
+                      
+                    </ul>
+                </div>
               </div>
             @else
               <div class="apartment_map" style="position: relative; display: inline-block">
