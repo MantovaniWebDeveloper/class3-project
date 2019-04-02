@@ -8,7 +8,7 @@
 		
 		protected $guarded = ['id', 'created_at', 'updated_at'];
 		
-		public function apartments() {
+		public function apartment() {
 			return $this->belongsTo(Apartment::class);
 		}
 	}

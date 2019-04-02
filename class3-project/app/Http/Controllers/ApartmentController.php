@@ -1,7 +1,7 @@
 <?php
-
+	
 	namespace App\Http\Controllers;
-
+	
 	use App\Apartment;
 	use App\Message;
 	use App\Service;
@@ -12,11 +12,11 @@
 	use App\Traits\ReverseGeo;
 	use Illuminate\Support\Facades\Auth;
 	use Illuminate\Support\Facades\DB;
-
+	
 	class ApartmentController extends Controller {
-
+		
 		use ReverseGeo;
-
+		
 		/*
 		 * Ritorna la homepage con un 1 appartamento in offerta,
 		 * n appartamenti in evidenza e
@@ -35,7 +35,7 @@
 				$mainCities = array_filter(
 				  $rawData, function ($city) {
 					return array_key_exists("capoluogo", $city);
-
+					
 				});
 				$filteredMainCities = [];
 				foreach ($mainCities as $key => $mainCity) {
@@ -54,7 +54,7 @@
 				return abort(500);
 			}
 		}
-
+		
 		/*
 		 * Questo metodo viene chiamato dal submit del form nella homepage
 		 */
@@ -69,7 +69,7 @@
 			$pagination = 10;
 			$cityId = $request->input('city_code');
 			try {
-
+				
 				$lat = $rawData[$cityId]['lat'];
 				$lng = $rawData[$cityId]['lng'];
 				$bedCount = $request->input('bed_count');
@@ -85,9 +85,9 @@
 				return abort(500);
 			}
 		}
-
+		
 		function show($slug) {
-
+			
 			$apartment = Apartment::where('slug', $slug)->get()->first();
 			if (is_null($apartment) || !$apartment->is_showed) {
 				abort(404);
@@ -99,7 +99,7 @@
 			//todo <img src="data:image/png;charset=binary;base64,{!! $image !!}">
 			return view('showAppartamento')->withApartment($apartment)->withImage($imgData);
 		}
-
+		
 		public function manageApartments() {
 			if (!Auth::check()) {
 				return redirect()->route('login');
@@ -107,16 +107,16 @@
 			$user = Auth::user();
 			return view('dashboard')->withApartments($user->apartments()->orderBy('apartments.id', 'asc')->get());
 		}
-
+		
 		public function newApartment() {
 			$services = Service::all();
 			$action = 'new_apartment';
 			return view('appartamento.edit', compact('services', 'action'));
 		}
-
+		
 		public function store(Request $request) {
 			// $data = $request->all();
-
+			
 			$validator = $request->validate(
 			  [
 				'title' => 'required',
@@ -129,10 +129,10 @@
 				'longitude' => 'required',
 				'price' => 'required'
 			  ]);
-
+			
 			$validator['user_id'] = Auth::id();
 			$apartment = Apartment::create($validator);
-
+			
 			// $apartment = New Apartment;
 			// $data['title'] = $apartment->title;
 			// $data['description'] = $apartment->description;
@@ -143,51 +143,51 @@
 			// $data['user_id']= $apartment->user_id;
 			// dd($apartment);
 			// $apartment->save();
-
+			
 			$services = $request->input('services');
-
+			
 			foreach ($services as $service) {
 				$apartment->services()->attach($service);
 			};
-
-			foreach ($request['apartment_img'] as $img){
-		 	 Storage::disk('public')->put('apartment_img', $img);
-			 	$image = new Image;
+			
+			foreach ($request['apartment_img'] as $img) {
+				Storage::disk('public')->put('apartment_img', $img);
+				$image = new Image;
 				$image->path = $img;
 				$image->apartment_id = $apartment->id;
 				$image->save();
-
-		 	}
-
-
+				
+			}
+			
 			return redirect()->route('dashboard');
 		}
-
+		
 		public function edit(Request $request) {
-
+			
 			$apartment = Apartment::where('slug', $request->input('slug'))->get()->first();
 			//RIGHT OUTERJOIN
 			$servizi_non_selezionati = DB::table('services')->select('name', 'id')->whereNOTIn(
 			  'id', function ($query) use ($apartment) {
 				$query->select('service_id')->from('apartment_service')->where('apartment_id', '=', $apartment->id);
 			})->get();
-
+			
 			$action = 'edit';
-
+			
 			$this->collectAddress($apartment);
-
+			
 			$imgData = $this->getMap($apartment->latitude, $apartment->longitude);
-
-			return view('appartamento.edit', compact('servizi_non_selezionati','action'))->withApartment($apartment)->withImage($imgData);
+			
+			return view('appartamento.edit', compact('servizi_non_selezionati', 'action'))->withApartment($apartment)->withImage($imgData);
 		}
-
-		public function update(Request $request, $id){
+		
+		public function update(Request $request, $id) {
 			// dd($request->all());
-			foreach ($request['apartment_img'] as $img){
-		 	 Storage::disk('public')->put('apartment_img', $img);
-		 	}
-
-			$validator = $request->validate([
+			foreach ($request['apartment_img'] as $img) {
+				Storage::disk('public')->put('apartment_img', $img);
+			}
+			
+			$validator = $request->validate(
+			  [
 				'title' => 'required',
 				'description' => 'required',
 				'square_meters' => 'required',
@@ -197,14 +197,12 @@
 				'latitude' => 'required',
 				'longitude' => 'required',
 				'price' => 'required'
-			]);
-
-			if( isset($request->new_services))
-			{
+			  ]);
+			
+			if (isset($request->new_services)) {
 				$newservices = $request->new_services;
 				$apartment = Apartment::find($id);
-				foreach ($newservices as $key=>$newservice)
-				{
+				foreach ($newservices as $key => $newservice) {
 					$service = new Service;
 					$service->name = $newservice;
 					$service->save();
@@ -213,13 +211,12 @@
 			} else {
 				$apartment = Apartment::find($id);
 			};
-
+			
 			$apartment->update($validator);
-
-
+			
 			return redirect()->route('dashboard');
 		}
-
+		
 		public function promote($appartamento) {
 			//se l'utente non è loggato lo rimando al login
 			if (!Auth::check()) {
@@ -236,12 +233,45 @@
 			$apartments = Apartment::where('id', '<>', $apartment->id)->whereDate('end_promo', '<', now())->orderBy('created_at', 'desc')->take(5)->get();
 			return view('payment')->withApartment($apartment)->withWannaPromote($apartments);
 		}
-
+		
 		public function stats() {
-
+		
 		}
-
-		public static function test(){
-			return function_exists('curl_version');
+		
+		public static function test() {
+			$date = \Carbon\Carbon::now();
+			$date->subYear();
+			$date->addMonth();
+			$messages_data = [];
+			$visits_data = [];
+			$startDate = \Carbon\Carbon::now();
+			$startDate->subYear();
+			$startDate->addMonth();
+			$startDate->day = 1;
+			for ($i = 0; $i < 12; $i++) {
+				$messages_data[$date->month . '-' . $date->year] = 0;
+				$visits_data[$date->month . '-' . $date->year] = 0;
+				$date->addMonth();
+			}
+			$slug = 'alias-dicta-magni-qui';
+			$messagesStats = DB::table('messages')->select(DB::raw('count(messages.id) as "somma"'), DB::raw("CONCAT_WS('-',MONTH(messages.created_at),YEAR(messages.created_at)) as monthyear"))
+			  ->join('apartments', 'apartments.id', '=', 'messages.apartment_id')
+			  ->where('apartments.slug', '=', $slug)
+			  ->groupby('monthyear')
+			  ->where('messages.created_at', '>=', $startDate)
+			  ->get();
+			$clickStats = DB::table('visits')->select(DB::raw('sum(visits.click) as "somma"'), DB::raw("CONCAT_WS('-',MONTH(visits.visited_at),YEAR(visits.visited_at)) as monthyear"))
+			  ->join('apartments', 'apartments.id', '=', 'visits.apartment_id')
+			  ->where('apartments.slug', '=', $slug)
+			  ->groupby('monthyear')
+			  ->where('visits.visited_at', '>=', $startDate)
+			  ->get();
+			foreach ($messagesStats as $messageStat) {
+				$messages_data[$messageStat->monthyear] = $messageStat->somma;
+			}
+			foreach ($clickStats as $clickStat) {
+				$visits_data[$clickStat->monthyear] = $clickStat->somma;
+			}
+			return $messages_data;
 		}
 	}

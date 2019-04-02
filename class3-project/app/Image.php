@@ -9,7 +9,7 @@
 		protected $guarded = ['id', 'created_at', 'updated_at'];
 		protected $hidden = ['id', 'apartment_id', 'created_at', 'updated_at'];
 		
-		public function apartments() {
+		public function apartment() {
 			return $this->belongsTo(Apartment::class);
 		}
 	}

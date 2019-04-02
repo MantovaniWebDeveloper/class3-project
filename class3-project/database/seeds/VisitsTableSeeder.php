@@ -3,7 +3,7 @@
 	use Illuminate\Database\Seeder;
 	use Faker\Generator as Faker;
 	
-	class MessagesTableSeeder extends Seeder {
+	class VisitsTableSeeder extends Seeder {
 		/**
 		 * Run the database seeds.
 		 *
@@ -12,13 +12,12 @@
 		public function run(Faker $faker) {
 			$apartments = \App\Apartment::get();
 			foreach ($apartments as $apartment) {
-				for ($i = 0; $i < 20; $i++) {
-					\App\Message::create(
+				for ($i = 0; $i < 60; $i++) {
+					\App\Visit::create(
 					  [
-						'from' => $faker->email,
-						'body' => $faker->text(200),
-						'apartment_id' => $apartment->id,
-						'created_at' => $faker->dateTimeInInterval('-2 days', '-360 days')
+						'visited_at' => $faker->dateTimeInInterval('-2 days', '-360 days'),
+						'click' => rand(1, 10),
+						'apartment_id' => $apartment->id
 					  ]
 					);
 				}

@@ -805,7 +805,7 @@
 		];
 		
 		public function run(Faker $faker) {
-			$apartmentsPerAxis = 5;
+			$apartmentsPerAxis = 1;
 			$kmToAdd = 5;
 			for ($i = 0; $i < count($this->province); $i++) {
 				//inserisco appartamento nella città
