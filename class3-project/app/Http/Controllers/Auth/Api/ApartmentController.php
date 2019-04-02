@@ -1,18 +1,18 @@
 <?php
-	
+
 	namespace App\Http\Controllers\Auth\Api;
-	
+
 	use App\Apartment;
 	use Illuminate\Http\Request;
 	use App\Http\Controllers\Controller;
 	use Illuminate\Support\Facades\DB;
 	use Illuminate\Validation\Rule;
 	use App\Traits\ReverseGeo;
-	
+
 	class ApartmentController extends Controller {
-		
+
 		use ReverseGeo;
-		
+
 		public function setVisibility(Request $request) {
 			try {
 				$userId = \Auth::id();
@@ -39,7 +39,7 @@
 				return false;
 			}
 		}
-		
+
 		public function delete(Request $request) {
 			try {
 				$userId = \Auth::id();
@@ -73,14 +73,14 @@
 				return response()->json('Errore nel server', 500);
 			}
 		}
-		
-		public function getMapFromCoordinates(Request $request) {
-			if (!$request->has('lat') || !$request->has('long')) {
-				return response()->json('Dati mancanti', 419);
+
+		public function getMapFromCoordinates(Request $request){
+			if (!$request->has('lat') || !$request->has('long') ) {
+					return response()->json('Dati mancanti', 419);
 			}
 			return $this->getMap($request->input('lat'), $request->input('long'));
 		}
-		
+
 		public function getStats(Request $request) {
 			if (!$request->has('slug') || !$request->has('group_by')) {
 				return response()->json('Dati mancanti', 419);
@@ -120,5 +120,4 @@
 			}
 			return response()->json(['messages' => $messages_data, 'visits' => $visits_data], 200);
 		}
-		
 	}

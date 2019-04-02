@@ -5,13 +5,66 @@
     <div class="container custom-form">
         <div class="row">
 
-            <h3>Form appartamento</h3>
-            @if($errors->any())
-                <ul class="errors_container">
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
+      <h3>Form appartamento</h3>
+      @if($errors->any())
+        <ul class="errors_container">
+          @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+          @endforeach
+        </ul>
+      @endif
+    </div>
+    <div class="col-12">
+
+      <form class="form-group row" action="{{$action=='new_apartment'? route('salva.nuovo') : route('salva.modifica', $apartment->id)}}" method="post" enctype="multipart/form-data">
+          @csrf
+          @if($action=='new_apartment')
+              @method('post')
+          @else
+              @method('put')
+          @endif
+          <div class="col-7">
+            <div class="form-group">
+
+              <label class="form_item" for="title">Nome Appartamento</label>
+              @if( old('title') )
+                <input class="form-control col-8 form_item{{($errors->has('title')? ' error':NULL)}}" type="text" id="title" name="title" required autofocus value="{{old('title')}}">
+              @else
+                <input class="form-control col-8 form_item{{($errors->has('title')? ' error':NULL)}}" type="text" id="title" name="title" required autofocus value="{{isset($apartment)?$apartment->title:NULL}}">
+              @endif
+            </div>
+            <div class="form-group">
+              <label class="form_item" for="description">Descrizione</label>
+              @if( old('description') )
+                <textarea class="form-control form_item{{($errors->has('description')? ' error':NULL)}}" id="description" rows="15" cols="80" name="description" required>{{old('description')}}</textarea>
+              @else
+                <textarea class="form-control form_item{{($errors->has('description')? ' error':NULL)}}" id="description" name="description" rows="15" cols="80"  required>{{isset($apartment)?$apartment->description:NULL}}</textarea>
+              @endif
+            </div>
+
+            @if ( $action == 'new_apartment')
+              <div class="apartment_map hidden" style="position: relative; display: inline-block">
+                <img id="mappa" src="data:image/png;charset=binary;base64,">
+                <i class="fas fa-map-marker-alt" style="position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);color: red;font-size: 40px"></i>
+              </div>
+              <div class="form-group">
+                <label for="address">Inserisci l'indirizzo dell'appartamento</label>
+                <input id="user_address" type="text" name="address" placeholder="digita l'indirizzo">
+                <button id="search_address" class="btn btn-secondary" type="button" name="button">Cerca indirizzo</button>
+                <div class="form-group col-8">
+                    <ul id="elencovie">
+
+                    </ul>
+                </div>
+              </div>
+            @else
+              <div class="apartment_map" style="position: relative; display: inline-block">
+                <img src="data:image/png;charset=binary;base64,{!! $image !!}">
+                <i class="fas fa-map-marker-alt" style="position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);color: red;font-size: 40px"></i>
+              </div>
+              <p>
+                <i class="fas fa-map-marker-alt pr-2 "></i>{{$apartment->address['streetName']}} {{$apartment->address['postal_code']}} {{$apartment->address['municipality']}} - {{$apartment->address['province']}}
+              </p>
             @endif
         </div>
         <div class="col-12">

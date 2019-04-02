@@ -111,4 +111,5 @@
 			$this->collectAddresses($apartments);
 			return $apartments->toJson();
 		}
+
 	}

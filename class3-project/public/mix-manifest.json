@@ -8,5 +8,6 @@
     "/js/payment.js": "/js/payment.js",
     "/js/ricercaInterna.js": "/js/ricercaInterna.js",
     "/js/search_address.js": "/js/search_address.js",
+    "/js/stats.js": "/js/stats.js",
     "/css/style.css": "/css/style.css"
 }

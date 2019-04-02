@@ -62,8 +62,9 @@ function showMap(lat, long) {
         },
         success: function(result) {
             // console.log(result);
+            // <img id="mappa" src="data:image/png;charset=binary;base64,">
+            $('#mappa').attr('src', "data:image/png;charset=binary;base64," + result);
             // showVie(result);
-            $('#mappa').attr('src','data:image/png;charset=binary;base64,'+result);
         },
         error: function(error) {
             console.log(error);
