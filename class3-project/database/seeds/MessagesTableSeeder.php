@@ -19,7 +19,7 @@
 							'from' => $faker->email,
 							'body' => $faker->text(50),
 							'apartment_id' => $apartment->id,
-							'created_at' => $faker->dateTimeinInterval('-2 days', '-360 days')
+							'created_at' => $faker->dateTimeInInterval('-2 days', '-360 days')
 						]
 					);
 				}

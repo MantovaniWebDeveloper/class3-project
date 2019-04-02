@@ -10552,13 +10552,8 @@ function showMap(lat, long) {
     },
     success: function success(result) {
       // console.log(result);
-<<<<<<< HEAD
-      // showVie(result);
-      $('#mappa').attr('src', 'data:image/png;charset=binary;base64,' + result);
-=======
       // <img id="mappa" src="data:image/png;charset=binary;base64,">
       $('#mappa').attr('src', "data:image/png;charset=binary;base64," + result); // showVie(result);
->>>>>>> davide
     },
     error: function error(_error2) {
       console.log(_error2);
