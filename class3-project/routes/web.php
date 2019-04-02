@@ -27,8 +27,8 @@
 	Route::get('/modifica', 'ApartmentController@edit')->name('modifica');
 	Route::put('/modifica/{id}', 'ApartmentController@update')->name('salva.modifica');
 
-	Route::get('/statistiche', 'ApartmentController@stats')->name('statistiche');
+	Route::get('/statistiche/{slug}', 'ApartmentController@stats')->name('statistiche');
 
 	Route::post('/crea_customer/{appartamento}', 'PaymentController@createCustomer')->name('create_customer');
-	
+
 	Route::post('/appartament/{slug}/messaggio', 'MessageController@sendMessage')->name('send_message');

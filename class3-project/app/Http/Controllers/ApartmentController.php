@@ -237,8 +237,12 @@
 			return view('payment')->withApartment($apartment)->withWannaPromote($apartments);
 		}
 
-		public function stats() {
-
+		public function stats($slug) {
+			if (!Auth::check()) {
+				return redirect()->route('login');
+			}
+			$apartment = Apartment::where('slug', '=', $slug)->get()->first();
+			return view('appartamento.stats')->withApartment($apartment);
 		}
 
 		public static function test(){

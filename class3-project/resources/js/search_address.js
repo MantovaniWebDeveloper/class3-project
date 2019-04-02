@@ -61,7 +61,9 @@ function showMap(lat, long){
           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
       },
       success: function (result) {
-          console.log(result);
+          // console.log(result);
+          // <img id="mappa" src="data:image/png;charset=binary;base64,">
+          $('#mappa').attr('src', "data:image/png;charset=binary;base64," + result);
           // showVie(result);
       },
       error: function (error) {

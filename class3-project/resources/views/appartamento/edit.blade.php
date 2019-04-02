@@ -43,13 +43,17 @@
             </div>
 
             @if ( $action == 'new_apartment')
+              <div class="apartment_map hidden" style="position: relative; display: inline-block">
+                <img id="mappa" src="data:image/png;charset=binary;base64,">
+                <i class="fas fa-map-marker-alt" style="position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);color: red;font-size: 40px"></i>
+              </div>
               <div class="form-group">
                 <label for="address">Inserisci l'indirizzo dell'appartamento</label>
                 <input id="user_address" type="text" name="address" placeholder="digita l'indirizzo">
                 <button id="search_address" class="btn btn-secondary" type="button" name="button">Cerca indirizzo</button>
                 <div class="form-group col-8">
                     <ul id="elencovie">
-                      
+
                     </ul>
                 </div>
               </div>

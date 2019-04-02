@@ -22,7 +22,7 @@
                 <a href="{{route('sponsorizza',$apartment->slug)}}" style="padding: 10px; border: 1px solid black;border-radius: 5px;margin: 10px;display: inline-block;background-color: green">Sponsorizza</a>
                 <button class="button delete_button" data-slug="{{$apartment->slug}}" style="padding: 10px; border: 1px solid black;border-radius: 5px;margin: 10px;display: inline-block;background-color: red">Elimina</button>
                 <a href="{{route('modifica', ['slug'=>$apartment->slug])}}" style="padding: 10px; border: 1px solid black;border-radius: 5px;margin: 10px;display: inline-block;background-color: blue">Modifica</a>
-                <a href="" style="padding: 10px; border: 1px solid black;border-radius: 5px;margin: 10px;display: inline-block;background-color: yellow">Statistiche</a>
+                <a href="{{route('statistiche', ['slug'=>$apartment->slug])}}" style="padding: 10px; border: 1px solid black;border-radius: 5px;margin: 10px;display: inline-block;background-color: yellow">Statistiche</a>
                 <p>Modifica visibilità annuncio</p>
                 <div class="mytoggle">
                     <div class="mytoggle_state off_state{{(!$apartment->is_showed)?' active':null}}">OFF</div>

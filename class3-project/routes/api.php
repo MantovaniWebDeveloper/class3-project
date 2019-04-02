@@ -22,4 +22,5 @@
 		  Route::get('/address/search', 'ApartmentController@getAddressesFromUserSearch');
 			Route::get('/address/search/map', 'ApartmentController@getMapFromCoordinates');
 		  Route::post('/sponsorizza/checkout', 'PaymentController@checkout');
+			Route::get('/apartment/stats', 'ApartmentController@getStats');
 	  });

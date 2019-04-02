@@ -30,6 +30,10 @@
 			return $this->hasMany(Message::class);
 		}
 
+		public function visits(){
+			return $this->hasMany(Visit::class);
+		}
+
 		/**
 		 * Return the sluggable configuration array for this model.
 		 *

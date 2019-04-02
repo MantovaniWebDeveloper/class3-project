@@ -1,15 +1,15 @@
 <?php
-	
+
 	use Illuminate\Database\Seeder;
 	use Faker\Generator as Faker;
-	
+
 	class ApartmentsTableSeeder extends Seeder {
 		/**
 		 * Run the database seeds.
 		 *
 		 * @return void
 		 */
-		
+
 		private $province = [
 		  [
 			"sigla" => "AG",
@@ -803,9 +803,9 @@
 			"id_regione" => "3"
 		  ]
 		];
-		
+
 		public function run(Faker $faker) {
-			$apartmentsPerAxis = 5;
+			$apartmentsPerAxis = 1;
 			$kmToAdd = 5;
 			for ($i = 0; $i < count($this->province); $i++) {
 				//inserisco appartamento nella città
@@ -842,7 +842,7 @@
 				}
 			}
 		}
-		
+
 		private function getRandomData(Faker $faker, $lat, $lng) {
 			return [
 			  'user_id' => DB::table('users')->inRandomOrder()->first()->id,
@@ -859,12 +859,12 @@
 			  'longitude' => $lng
 			];
 		}
-		
+
 		private function getNewLatitude($latitude, $kmToAdd) {
 			$decimal_round = 5;
 			return round($latitude + ($kmToAdd / 6371) * (180 / pi()), $decimal_round);
 		}
-		
+
 		private function getNewLongitude($latitude, $longitude, $kmToAdd) {
 			$decimal_round = 5;
 			return round($longitude + ($kmToAdd / 6371) * (180 / pi()) / cos($latitude * pi() / 180), $decimal_round);
