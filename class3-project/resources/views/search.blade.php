@@ -4,12 +4,17 @@
       <div class="box-prenotazioni">
 
         <!--CITTA-->
-        <input list="listaCitta" id="listaCitta-input" class="form-control"  name="cities" placeholder="Località">
-        <datalist id="listaCitta">
-           {{--questo sarà riempito da handlebars--}}
-         </datalist>
+            @if(isset($cityName))
+                <input list="listaCitta" id="listaCitta-input" class="form-control" name="city_name" value="{{$cityName}}">
+            @else
+                <input list="listaCitta" id="listaCitta-input" class="form-control" name="city_name" placeholder="Località">
+            @endif
+            <datalist id="listaCitta">
+                {{--questo sarà riempito da handlebars--}}
+            </datalist>
 
       </div>
+
       <div class="box-prenotazioni">
 
         <!--POSTI LETTO-->
@@ -17,10 +22,16 @@
           <div>
             {{-- <label class="col-form-label" for="bed_count">N° ospiti</label> --}}
             <div>
-              <select class="prenotare" name="bed_count">
-                <option selected value="0">Numero ospiti</option>
-                <option value="1">1 Ospite</option>
-                <option value="2">2 Ospiti</option>
+              <select class="prenotare" id="bed_count" name="bed_count">
+                  @if(isset($bedCount))
+                      <option {{($bedCount==0)?'selected':NULL}} value="0">Numero ospiti</option>
+                      <option {{($bedCount==1)?'selected':NULL}} value="1">1</option>
+                      <option {{($bedCount==2)?'selected':NULL}} value="2">2</option>
+                  @else
+                      <option selected value="0">Numero ospiti</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                  @endif
               </select>
             </div>
             <div>
@@ -30,10 +41,16 @@
           <!--STANZE-->
           <div>
             <div>
-              <select class="prenotare" name="room_count">
-                <option value="0">Numero stanze</option>
-                <option value="1">Stanza singola</option>
-                <option value="2">Stanza doppia</option>
+              <select class="prenotare" id="room_count" name="room_count">
+                  @if(isset($roomCount))
+                      <option {{($roomCount==0)?'selected':NULL}} value="0">Numero stanze</option>
+                      <option {{($roomCount==1)?'selected':NULL}} value="1">1</option>
+                      <option {{($roomCount==2)?'selected':NULL}} value="2">2</option>
+                  @else
+                      <option selected value="0">Numero stanze</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                  @endif
               </select>
             </div>
             <div>
