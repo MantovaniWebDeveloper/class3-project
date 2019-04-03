@@ -9,6 +9,7 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+
 ### macOS ###
 # General
 .DS_Store
@@ -46,6 +47,7 @@ package-lock.json
 
 ### WebStorm ###
 /.idea
+/.idea/*
 /_ide_helper.php
 
 ### Linux ###
