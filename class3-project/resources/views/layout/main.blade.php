@@ -11,6 +11,9 @@
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
       <link rel="stylesheet" href="{{asset('css/app.css')}}">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.0/css/all.css" integrity="sha384-Mmxa0mLqhmOeaE8vgOSbKacftZcsNYDjQzuCOm6D02luYSzBG8vpaOykv9lFQ51Y" crossorigin="anonymous">
+      <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+      
+      <script src="owlcarousel/owl.carousel.min.js"></script>
       <title>BoolBnb</title>
   </head>
   <body>
