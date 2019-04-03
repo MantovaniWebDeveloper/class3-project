@@ -12,6 +12,7 @@
 	use App\Traits\ReverseGeo;
 	use Illuminate\Support\Facades\Auth;
 	use Illuminate\Support\Facades\DB;
+	use Validator;
 	
 	class ApartmentController extends Controller {
 		
@@ -55,22 +56,30 @@
 			}
 		}
 		
-		/*
-		 * Questo metodo viene chiamato dal submit del form nella homepage
-		 */
 		function simpleSearch(Request $request) {
-			if (!$request->has('city_code') || !$request->has('bed_count') || !$request->has('room_count') || !$request->has('city_name')) {
+			$validator = Validator::make(
+			  $request->all(), [
+			  'city_code' => ['integer', 'required'],
+			  'city_name' => ['string', 'required'],
+			  'bed_count' => ['integer', 'required'],
+			  'room_count' => ['integer', 'required'],
+			]);
+			if ($validator->fails()) {
 				return redirect()->route('home');
 			}
-			$defaultRadius = 20;
-			$services = Service::orderBy('name')->get();
-			return view('result')
-			  ->withBedCount($request->bed_count)
-			  ->withRoomCount($request->room_count)
-			  ->withCityId($request->city_code)
-			  ->withCityName($request->city_name)
-			  ->withServices($services)
-			  ->withRadius($defaultRadius);
+			try {
+				$defaultRadius = 20;
+				$services = Service::orderBy('name')->get();
+				return view('result')
+				  ->withBedCount($request->bed_count)
+				  ->withRoomCount($request->room_count)
+				  ->withCityId($request->city_code)
+				  ->withCityName($request->city_name)
+				  ->withServices($services)
+				  ->withRadius($defaultRadius);
+			} catch (\Exception $e) {
+				return abort(500);
+			}
 		}
 		
 		function show($slug) {
@@ -82,7 +91,6 @@
 			$this->collectAddress($apartment);
 			//recupero mappa
 			$imgData = $this->getMap($apartment->latitude, $apartment->longitude);
-			//todo <img src="data:image/png;charset=binary;base64,{!! $image !!}">
 			return view('showAppartamento')->withApartment($apartment)->withImage($imgData);
 		}
 		

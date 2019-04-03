@@ -1,16 +1,16 @@
 @extends('layout.main')
 @section('content')
-@include('header')
-<div class="wrapSearch">
-    @include('search')
-    <div class="modalLoading text-center">
-      <i class="fas fa-circle-notch fa-spin"></i>
-    </div>
-      <div class="wrapAll">
-        <div class="container">
-          <div class="wrapAllInterno">
-            <aside>
-              <h4 class="pt-2 pl-2">Filtri per servizi clienti:</h4>
+    @include('header')
+    <div class="wrapSearch">
+        @include('search')
+        <div class="modalLoading text-center">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </div>
+        <div class="wrapAll">
+            <div class="container">
+                <div class="wrapAllInterno">
+                    <aside>
+                        <h4 class="pt-2 pl-2">Filtri per servizi clienti:</h4>
 
                         <hr>
                         <div class="wrapServizi pt-2 pl-2">
@@ -64,7 +64,7 @@
         </div>
     </div>
 
-    <!-- ZONA HANDLEBARS!!!-->
+    <!-- HANDLEBARS TEMPLATES-->
     <script id="resultAjax-template" type="text/x-handlebars-template">
         @{{#each this}}
         <div class="wrapRisultato">
@@ -81,9 +81,9 @@
                     <p>@{{description}}</p>
                     <h3>@{{price}} €</h3>
                     <div class="wrapBtn">
-                        {{--<a href="{{ route("appartamento",$appartamento->slug)}}">--}}
-                        <button class="btn btn-danger text-right" type="button" name="button">Descrizione completa</button>
-                        {{--</a>--}}
+                        <a href="http://127.0.0.1:8000/appartamenti/@{{slug}}">
+                            <button class="btn btn-danger text-right" type="button" name="button">Descrizione completa</button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -100,6 +100,6 @@
     </script>
 
     <script src="{{asset('js/common.js')}}"></script>
-    <script src="{{ asset('js/ricercaInterna.js') }}"></script>
+    <script src="{{asset('js/ricercaInterna.js')}}"></script>
 
 @endsection
