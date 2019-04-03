@@ -2,7 +2,7 @@
 @section('content')
 @include('header')
 <div class="wrapSearch">
-    @include('searchInterno')
+    @include('search')
     <div class="modalLoading text-center">
       <i class="fas fa-circle-notch fa-spin"></i>
     </div>

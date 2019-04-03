@@ -4,10 +4,10 @@
     "/js/chiamataApiCitta.js": "/js/chiamataApiCitta.js",
     "/js/common.js": "/js/common.js",
     "/js/dashboard.js": "/js/dashboard.js",
+    "/js/display.js": "/js/display.js",
     "/js/new_service.js": "/js/new_service.js",
     "/js/payment.js": "/js/payment.js",
     "/js/ricercaInterna.js": "/js/ricercaInterna.js",
     "/js/search_address.js": "/js/search_address.js",
-    "/js/stats.js": "/js/stats.js",
-    "/css/style.css": "/css/style.css"
+    "/js/stats.js": "/js/stats.js"
 }

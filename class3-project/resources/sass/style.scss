@@ -32,11 +32,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  a {
+    .fa-home{
+      font-size: 30px;
+      margin-right: 20px;
+    }
+  }
 }
-.menu > .container-nav > .home_logo > a >.fa-home{
-  font-size: 30px;
-  margin-right: 20px;
-}
+
 .menu .fa-bars{
   font-size: 20px;
 }
@@ -53,6 +56,7 @@
   transition-duration: .7s;
 }
 .primary-menu.active {
+  height: inherit;
   display: block;
   transition-duration: .7s;
   background: #ECE9E6;  /* fallback for old browsers */
@@ -61,7 +65,6 @@
 }
 
 .primary-menu nav {
-  height: 501px;
   text-align: center;
   width: 300px;
   background: #ECE9E6;  /* fallback for old browsers */
@@ -94,11 +97,11 @@ a {
   box-shadow:0 -3px 31px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, .3);
   border-radius: 5px;
   overflow: hidden;
+  h3 {
+    padding: 10px;
+  }
 }
 
-.box-offerta h3 {
-  padding: 10px;
-}
 @media screen and (max-width: 550px){
   .box-offerta{
     width:90%;
@@ -111,12 +114,13 @@ a {
   padding: 10px;
 }
 
-.img-offerta_prezzo img {
-  width: 70%;
-  height: 150px;
-  object-fit: cover;
+.img-offerta_prezzo {
+  img {
+    width: 70%;
+    height: 150px;
+    object-fit: cover;
+  }
 }
-
 .subtitle {
   font-size: 12px;
 }
@@ -156,16 +160,17 @@ a {
 
 
 
-
 /*section prenotazione*/
 .prenotazione {
-  height: 300px;
+  height: 380px;
   background: #ECE9E6;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
 }
-
+#wrap_form{
+  width: 60%;
+  margin: 5px auto;
+}
 .prenotazione .title {
   margin: auto;
   padding: 20px;
@@ -173,33 +178,84 @@ a {
 }
 
 .box-prenotazioni {
-  max-width: 450px;
+  max-width: 60%;
   margin: auto;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  padding: 10px;
 }
 
-.box-prenotazioni .prenotare {
-  width: 45%;
+select::-ms-expand {	display: none; }
+select{
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.prenotare, .flatpickr {
+  width: 100%;
+  height: 40px;
+  padding: 5px;
   margin-bottom: 10px;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  color: black;
+  text-align: center;
 }
 
-.box-prenotazioni .send {
-  width: 30%;
-  margin-top: 20px;
+
+.send {
+  width: 80px;
+  margin: 20px auto;
   padding: 5px;
   border-radius: 20px;
+  border-color: #3F0D12;
   background: #3F0D12;
   color: #fff;
   cursor: pointer;
-  display: flex;
-  justify-content: center;
-  margin: auto;
-  border:none;
 }
 
+@media screen and (max-width: 1100px) {
+  #wrap_form {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 850px) {
+  #wrap_form {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 750px) {
+  #wrap_form {
+    width: 100%;
+  }
+  .box-prenotazioni {
+    max-width: 80%;
+  }
+
+}
+@media screen and (max-width: 550px) {
+
+  .box-prenotazioni {
+    max-width: 90%;
+  }
+  .prenotazione {
+    height: 600px;
+  }
+  .prenotazione .title{
+    padding: 70px 10px;
+  }
+  .prenotare, .flatpickr{
+    max-width: 90%;
+    margin: 5% 5%;
+  }
+
+
+
+ // .prenotare{
+ //   max-width: 70%;
+ //   margin: 10px auto;
+ // }
+
+}
 
 
 
@@ -235,16 +291,18 @@ a {
   box-shadow:0 -3px 31px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
   border-radius: 3px;
   overflow: hidden;
+  .card-appartamento:hover {
+    cursor: pointer;
+  }
 }
 
-.card-appartamento:hover {
-  cursor: pointer;
-}
 
-.card-appartamento > img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
+.card-appartamento {
+   img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
 }
 
 @media screen and (max-width: 990px) {
@@ -288,9 +346,11 @@ a {
   margin-right: 8px;
 }
 
- .dettagli > i {
+ .dettagli {
+   i {
   margin-right: 0px;
   font-size: 15px;
+  }
 }
 
 /* .img-evidenza img{
@@ -313,9 +373,11 @@ a {
   width: 90%;
   margin: auto;
 }
-.localita h3{
-  padding: 5px;
-  width: 100%;
+.localita {
+  h3{
+    padding: 5px;
+    width: 100%;
+  }
 }
 .box-card-cit{
   display: flex;
@@ -330,9 +392,9 @@ a {
   box-shadow:0 -3px 31px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
   border-radius: 3px;
   overflow: hidden;
-}
-.card-citta:hover {
-  cursor: pointer;
+  .card-citta:hover {
+    cursor: pointer;
+  }
 }
 @media screen and (max-width: 1000px){
   .card-citta{
@@ -345,10 +407,12 @@ a {
   }
 }
 
-.img-city > img{
-  width: 100%;
-  height: 300px;
-  background-size: cover;
+.img-city{
+    img{
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+  }
 }
 .galleria .card-citta:hover{
   filter: brightness(70%);
@@ -377,10 +441,10 @@ h4 {
   background: #ECE9E6;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #FFFFFF, #ECE9E6);
-}
-.footer h6{
-  text-align: center;
-  width: 100%;
-  padding: 5px;
+  h6{
+    text-align: center;
+    width: 100%;
+    padding: 5px;
 
+  }
 }
