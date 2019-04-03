@@ -4,15 +4,7 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <div class="owl-carousel">
-            <div> Your Content </div>
-            <div> 2 </div>
-            <div> 3 </div>
-            <div> 4 </div>
-            <div> 5 </div>
-            <div> 6 </div>
-            <div> 7 </div>
-          </div>
+          
         </div>
       </div>
     </div>
