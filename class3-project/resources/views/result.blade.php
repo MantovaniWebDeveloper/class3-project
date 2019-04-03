@@ -1,16 +1,16 @@
 @extends('layout.main')
 @section('content')
-    @include('header')
-    <div class="wrapSearch">
-        @include('search')
-        <div class="modalLoading text-center">
-            <i class="fas fa-circle-notch fa-spin"></i>
-        </div>
-        <div class="wrapAll">
-            <div class="container">
-                <div class="wrapAllInterno">
-                    <aside>
-                        <h4 class="pt-2 pl-2">Filtri per servizi clienti:</h4>
+@include('header')
+<div class="wrapSearch">
+    @include('search')
+    <div class="modalLoading text-center">
+      <i class="fas fa-circle-notch fa-spin"></i>
+    </div>
+      <div class="wrapAll">
+        <div class="container">
+          <div class="wrapAllInterno">
+            <aside>
+              <h4 class="pt-2 pl-2">Filtri per servizi clienti:</h4>
 
                         <hr>
                         <div class="wrapServizi pt-2 pl-2">

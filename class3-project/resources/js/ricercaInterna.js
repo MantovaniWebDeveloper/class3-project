@@ -10,14 +10,14 @@ function getCities() {
     $.ajax({
         url: url,
         type: 'GET',
-        success: function (data) {
+        success: function(data) {
             populateCitiesDataList(data);
             //attaching listener for search options
             attachListeners();
             const STARTING_PAGE = 1;
             readSearchValues(false, STARTING_PAGE);
         },
-        error: function (errore) {
+        error: function(errore) {
             console.log(errore);
         }
     });
@@ -70,13 +70,13 @@ function readSearchValues(appendData, currentPage) {
     let room_count = $('#room_count option:selected').val();
     let bed_count = $('#bed_count option:selected').val();
 
-    $.each($("input[name='services']:checked"), function () {
+    $.each($("input[name='services']:checked"), function() {
         servizi.push($(this).val());
     });
 
     let radioValue = $("input[name='order_type']:checked").val();
 
-    $.each($("input[name='price_range']:checked"), function () {
+    $.each($("input[name='price_range']:checked"), function() {
         priceRange.push($(this).val());
     });
 
@@ -109,10 +109,10 @@ function search(data, appendData, current_page) {
         url: url,
         type: 'GET',
         data: data,
-        beforeSend: function () {
+        beforeSend: function() {
             $(".modalLoading").show();
         },
-        success: function (result) {
+        success: function(result) {
             let parsedData = JSON.parse(result);
             console.log(parsedData);
             $('#result_count').text(parsedData.total);
@@ -126,33 +126,33 @@ function search(data, appendData, current_page) {
                 attachScrollbarListener(true, current_page, last_page);
             }
         },
-        error: function (errore) {
+        error: function(errore) {
             console.log(errore);
         },
-        complete: function () {
+        complete: function() {
             $(".modalLoading").hide();
         }
     });
 }
 
 function attachListeners() {
-    $('.servizio').change(function () {
+    $('.servizio').change(function() {
         performSearch();
     });
 
-    $('.ordinamento').change(function () {
+    $('.ordinamento').change(function() {
         performSearch();
     });
 
-    $('.tipoPrezzo').change(function () {
+    $('.tipoPrezzo').change(function() {
         performSearch();
     });
 
-    $('.barra').change(function () {
+    $('.barra').change(function() {
         performSearch();
     });
 
-    $('#cercaBtn').click(function (e) {
+    $('#cercaBtn').click(function(e) {
         e.preventDefault();
         performSearch();
     });
@@ -165,7 +165,7 @@ function performSearch() {
 
 function attachScrollbarListener(attach, current_page, last_page) {
     if (attach) {
-        $(window).scroll(function () {
+        $(window).scroll(function() {
             if ($(window).scrollTop() + $(window).height() === $(document).height()) {
                 attachScrollbarListener(false);
                 loadMore(current_page, last_page);

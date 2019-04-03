@@ -12985,12 +12985,13 @@ __webpack_require__.r(__webpack_exports__);
 var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 
-$(document).ready(function () {
-  $('#burgher-menu').on('click', function () {
-    console.log('click');
-    $('#menu').toggleClass('active');
-  });
-  flatpickr__WEBPACK_IMPORTED_MODULE_0___default()($('.flatpickr'), {});
+$('#burgher-menu').on('click', function () {
+  console.log('click');
+  $('#menu').toggleClass('active');
+});
+var show_date = flatpickr__WEBPACK_IMPORTED_MODULE_0___default()($('.flatpickr'), {
+  clickOpens: true,
+  dateFormat: "d-m-Y"
 });
 
 /***/ }),
