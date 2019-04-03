@@ -15266,9 +15266,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
-var last_page = 0;
-var current_page = 1;
-getCities();
+getCities(); //entry point after page is loaded
 
 function getCities() {
   var url = 'http://127.0.0.1:8000/api/cities';
@@ -15276,15 +15274,17 @@ function getCities() {
     url: url,
     type: 'GET',
     success: function success(data) {
-      populateCitiesDataList(data);
+      populateCitiesDataList(data); //attaching listener for search options
+
       attachListeners();
-      leggiValori(false);
+      var STARTING_PAGE = 1;
+      readSearchValues(false, STARTING_PAGE);
     },
     error: function error(errore) {
       console.log(errore);
     }
   });
-} //funzione per stampare via handlebars le citta nel datalist
+} //populate datalist with cities data
 
 
 function populateCitiesDataList(data) {
@@ -15294,7 +15294,7 @@ function populateCitiesDataList(data) {
   $('#listaCitta').html(html);
 }
 
-function controllaCitta() {
+function checkCityField() {
   var codiceCitta = $("#listaCitta option[value='" + $('#listaCitta-input').val() + "']").attr('data-id');
 
   if (typeof codiceCitta === 'undefined') {
@@ -15318,22 +15318,22 @@ function showResult(data, append) {
   }
 }
 
-function addLoading() {
+function showMoreItemsLoading() {
   var template = $('#resultLoading-template').html();
   var compiledTemplate = handlebars_dist_cjs_handlebars__WEBPACK_IMPORTED_MODULE_0___default.a.compile(template);
   var html = compiledTemplate();
   $('.wrap_results_content').append(html);
 }
 
-function leggiValori(appendData) {
-  var codiceCitta = controllaCitta();
+function readSearchValues(appendData, currentPage) {
+  var cityCode = checkCityField();
 
-  if (codiceCitta === false) {
+  if (cityCode === false) {
     return;
   }
 
   var servizi = [];
-  var tipoPrezzi = [];
+  var priceRange = [];
   var barraKm = $('.barra').val();
   var room_count = $('#room_count option:selected').val();
   var bed_count = $('#bed_count option:selected').val();
@@ -15342,21 +15342,21 @@ function leggiValori(appendData) {
   });
   var radioValue = $("input[name='order_type']:checked").val();
   $.each($("input[name='price_range']:checked"), function () {
-    tipoPrezzi.push($(this).val());
+    priceRange.push($(this).val());
   });
   var data = {
-    "city_code": codiceCitta,
+    "city_code": cityCode,
     "room_count": room_count,
     "bed_count": bed_count,
     "order_type": radioValue,
     "radius": barraKm
   };
 
-  if (tipoPrezzi.length > 0) {
+  if (priceRange.length > 0) {
     var sommaPrezzi = 0;
 
-    for (var i = 0; i < tipoPrezzi.length; i++) {
-      sommaPrezzi = sommaPrezzi + parseInt(tipoPrezzi[i]);
+    for (var i = 0; i < priceRange.length; i++) {
+      sommaPrezzi = sommaPrezzi + parseInt(priceRange[i]);
     }
 
     data.price_range = sommaPrezzi;
@@ -15366,11 +15366,12 @@ function leggiValori(appendData) {
     data.services = servizi;
   }
 
-  search(data, appendData);
+  search(data, appendData, currentPage);
 }
 
-function search(data, appendData) {
+function search(data, appendData, current_page) {
   var url = 'http://127.0.0.1:8000/api/search?page=' + current_page;
+  var last_page = 1;
   console.log(url);
   $.ajax({
     url: url,
@@ -15391,7 +15392,7 @@ function search(data, appendData) {
         showResult(parsedData.data, appendData);
         current_page = parsedData.current_page;
         last_page = parsedData.last_page;
-        attachScrollbarListener(true);
+        attachScrollbarListener(true, current_page, last_page);
       }
     },
     error: function error(errore) {
@@ -15423,15 +15424,16 @@ function attachListeners() {
 }
 
 function performSearch() {
-  current_page = 1;
-  leggiValori(false);
+  // current_page=1;
+  readSearchValues(false, 1);
 }
 
-function attachScrollbarListener(attach) {
+function attachScrollbarListener(attach, current_page, last_page) {
   if (attach) {
     $(window).scroll(function () {
       if ($(window).scrollTop() + $(window).height() === $(document).height()) {
-        loadMore();
+        attachScrollbarListener(false);
+        loadMore(current_page, last_page);
       }
     });
   } else {
@@ -15439,14 +15441,11 @@ function attachScrollbarListener(attach) {
   }
 }
 
-function loadMore() {
-  attachScrollbarListener(false);
-
-  if (current_page === last_page) {// console.log("no loading");
-  } else {
+function loadMore(current_page, last_page) {
+  if (current_page !== last_page) {
     current_page++;
-    addLoading();
-    leggiValori(true);
+    showMoreItemsLoading();
+    readSearchValues(true, current_page);
   }
 }
 
