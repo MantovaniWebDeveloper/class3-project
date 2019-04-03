@@ -19,7 +19,6 @@ function searchAddress(element, user_input) {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         success: function(result) {
-            // console.log(result);
             showVie(result);
         },
         error: function(error) {
@@ -39,7 +38,6 @@ function showVie(data) {
     var elenco = $('#elencovie');
     elenco.empty();
     for (var via of vie) {
-        // console.log(via);
         elenco.append(
             '<li class="via" data-lat="' + via.lat + '" data-long="' + via.lng + '">' + via.address_name + '</li>'
         );
@@ -61,10 +59,9 @@ function showMap(lat, long) {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         success: function(result) {
-            // console.log(result);
-            // <img id="mappa" src="data:image/png;charset=binary;base64,">
             $('#mappa').attr('src', "data:image/png;charset=binary;base64," + result);
-            // showVie(result);
+            $('#map_wrapper').removeAttr("hidden");
+            $('#old_address').remove();
         },
         error: function(error) {
             console.log(error);
@@ -72,9 +69,6 @@ function showMap(lat, long) {
         data: {
             'lat': lat,
             'long': long
-        },
-        complete: function() {
-            // element.prop('disabled', false);
         }
     });
 }

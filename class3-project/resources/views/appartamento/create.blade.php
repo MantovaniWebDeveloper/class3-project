@@ -18,10 +18,12 @@
 
             <div class="col-12">
 
-                <form class="form-group row" action="{{route('salva.modifica', $apartment->id)}}" method="post" enctype="multipart/form-data">
-                    @method('put')
+                <form class="form-group row" action="{{route('salva.nuovo')}}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    @method('post')
                     <div class="col-7">
                         <div class="form-group">
+
                             <label class="form_item" for="title">Nome Appartamento</label>
                             @if( old('title') )
                                 <input class="form-control col-8 form_item{{($errors->has('title')? ' error':NULL)}}" type="text" id="title" name="title" required autofocus value="{{old('title')}}">
@@ -37,13 +39,10 @@
                                 <textarea class="form-control form_item{{($errors->has('description')? ' error':NULL)}}" id="description" name="description" rows="15" cols="80" required>{{isset($apartment)?$apartment->description:NULL}}</textarea>
                             @endif
                         </div>
-                        <div id="map_wrapper" style="width: 512px;height: 512px;position: relative">
-                            <img id="mappa" src="data:image/png;charset=binary;base64,{!! $image !!}">
+                        <div id="map_wrapper" hidden="true" style="width: 512px;height: 512px;position: relative">
+                            <img id="mappa" src="">
                             <i class="fas fa-map-marker-alt" style="position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);color: red;font-size: 40px"></i>
                         </div>
-                        <p id="old_address">
-                            <i class="fas fa-map-marker-alt pr-2 "></i>{{$apartment->address['streetName']}} {{$apartment->address['postal_code']}} {{$apartment->address['municipality']}} - {{$apartment->address['province']}}
-                        </p>
                         <div class="form-group">
                             <label for="address">Inserisci l'indirizzo dell'appartamento</label>
                             <input id="user_address" type="text" name="address" placeholder="digita l'indirizzo">
@@ -54,6 +53,7 @@
                                 </ul>
                             </div>
                         </div>
+
                         <div class="form-group">
                             <label class="form-inline" for="apartment_img">Carica un'immagine</label>
                             <input type="file" name="apartment_img[]" value="scegli.." multiple>
@@ -66,6 +66,7 @@
 
                     <div class="col-2">
                         <div class="form-group">
+
                             <label class="form_item" for="square_meters">Di metri quadrati</label>
                             @if(old('square_meters'))
                                 <input class="form-control col-8 form_item{{($errors->has('square_meters')? ' error':NULL)}}" name="square_meters" type="text" id="square_meters" required value="{{old('square_meters')}}">
@@ -125,24 +126,18 @@
                     <div class="form-group col-3">
                         <h5>Scegli i servizi disponibili</h5>
                         <div id="services_list">
-                            @foreach ($serviziNonSelezionati as $service)
+                            @foreach ($services as $service)
                                 <div class="inpuServizi">
                                     <input type="checkbox" name="services[]" value="{{$service->id}}">
                                     <label for="{{$service->name}}">{{$service->name}}</label>
                                 </div>
                             @endforeach
                         </div>
-                        <h5>Servizi già selezionati</h5>
-                        @foreach ($apartment->services as $service)
-                            <div class="inpuServizi">
-                                <input type="checkbox" name="services[]" value="{{$service->id}}" checked>
-                                <label for="{{$service->name}}">{{$service->name}}</label>
-                            </div>
-                        @endforeach
                         <div class="form-group col-10">
                             <h5>Vuoi aggiungere un servizio non in lista?</h5>
                             <button id="show" class="btn btn-primary" type="button" name="button">Aggiungi</button>
                         </div>
+
                         <div class="hidden" id="insert_new">
                             <div class="form-group">
                                 <input id="user_serv" type="text" placeholder="nome servizio">

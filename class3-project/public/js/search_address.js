@@ -10491,7 +10491,6 @@ function searchAddress(element, user_input) {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     },
     success: function success(result) {
-      // console.log(result);
       showVie(result);
     },
     error: function error(_error) {
@@ -10517,7 +10516,6 @@ function showVie(data) {
   try {
     for (var _iterator = vie[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
       var via = _step.value;
-      // console.log(via);
       elenco.append('<li class="via" data-lat="' + via.lat + '" data-long="' + via.lng + '">' + via.address_name + '</li>');
     }
   } catch (err) {
@@ -10551,9 +10549,9 @@ function showMap(lat, long) {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     },
     success: function success(result) {
-      // console.log(result);
-      // <img id="mappa" src="data:image/png;charset=binary;base64,">
-      $('#mappa').attr('src', "data:image/png;charset=binary;base64," + result); // showVie(result);
+      $('#mappa').attr('src', "data:image/png;charset=binary;base64," + result);
+      $('#map_wrapper').removeAttr("hidden");
+      $('#old_address').remove();
     },
     error: function error(_error2) {
       console.log(_error2);
@@ -10561,8 +10559,6 @@ function showMap(lat, long) {
     data: {
       'lat': lat,
       'long': long
-    },
-    complete: function complete() {// element.prop('disabled', false);
     }
   });
 }

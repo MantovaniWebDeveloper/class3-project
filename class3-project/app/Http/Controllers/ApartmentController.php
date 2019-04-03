@@ -104,8 +104,7 @@
 		
 		public function newApartment() {
 			$services = Service::all();
-			$action = 'new_apartment';
-			return view('appartamento.edit', compact('services', 'action'));
+			return view('appartamento.create')->withServices($services);
 		}
 		
 		public function store(Request $request) {
@@ -164,14 +163,9 @@
 			  'id', function ($query) use ($apartment) {
 				$query->select('service_id')->from('apartment_service')->where('apartment_id', '=', $apartment->id);
 			})->get();
-			
-			$action = 'edit';
-			
 			$this->collectAddress($apartment);
-			
 			$imgData = $this->getMap($apartment->latitude, $apartment->longitude);
-			
-			return view('appartamento.edit', compact('servizi_non_selezionati', 'action'))->withApartment($apartment)->withImage($imgData);
+			return view('appartamento.edit')->withServiziNonSelezionati($servizi_non_selezionati)->withApartment($apartment)->withImage($imgData);
 		}
 		
 		public function update(Request $request, $id) {
