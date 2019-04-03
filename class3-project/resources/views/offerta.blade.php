@@ -1,7 +1,7 @@
 <div class="box-offerta">
       <h3>Offerta imperdibile !</h3>
       <div class="img-offerta_prezzo">
-        <img src="img/vistamare.jpg" alt="stanza">
+        {{--<img src="img/vistamare.jpg" alt="stanza">--}}
         <div class="prezzo">
           <p>188€</p> <br>
           <p>Invece di</p> <br>

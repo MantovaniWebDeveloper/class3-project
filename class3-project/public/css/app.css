@@ -10664,23 +10664,6 @@ a.text-dark:focus {
   visibility: hidden;
 }
 
-.formRicerca {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 300px;
-  width: 100%;
-}
-
-.formRicerca form {
-  text-align: center;
-  width: 100%;
-}
-
-.formRicerca form .errore {
-  border: 2px solid red;
-}
-
 .wrapAll {
   background-color: #e5e5e5;
 }

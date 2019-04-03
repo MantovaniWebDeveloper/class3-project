@@ -106,7 +106,7 @@
 				$builder->orderBy('price');
 			}
 			//ottenimento risultati
-			$apartments = $builder->paginate(100);
+			$apartments = $builder->paginate(5);
 			//recupero indirizzi
 			$this->collectAddresses($apartments);
 			return $apartments->toJson();

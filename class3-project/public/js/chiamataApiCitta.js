@@ -15268,12 +15268,10 @@ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"
 
 $(document).ready(function () {
   var url = 'http://127.0.0.1:8000/api/cities';
-  var cittaItaliane = [];
   $.ajax({
     url: url,
     type: 'GET',
     success: function success(data) {
-      console.log(data);
       renderDatalistCitta(data);
     },
     error: function error(errore) {
@@ -15282,16 +15280,16 @@ $(document).ready(function () {
   }); //funzione per stampare via handlebars le citta nel datalist
 
   function renderDatalistCitta(data) {
-    var templateBase = $('#elencoCitta-template').html();
-    var templateCompilato = handlebars_dist_cjs_handlebars__WEBPACK_IMPORTED_MODULE_0___default.a.compile(templateBase);
-    var html = templateCompilato(data);
+    var template = $('#elencoCitta-template').html();
+    var compiled = handlebars_dist_cjs_handlebars__WEBPACK_IMPORTED_MODULE_0___default.a.compile(template);
+    var html = compiled(data);
     $('#listaCitta').html(html);
   } //invio del form che riesce a passare il data-id
 
 
   $('#cercaBtn').on('click', function (e) {
     e.preventDefault();
-    var ricerca = $("#listaCitta option[value='" + $('#listaCitta-input').val() + "']").attr('data-id');
+    var ricerca = $("#listaCitta option[value='" + $('#listaCitta-input').val().replace("'", "\\'") + "']").attr('data-id');
     $('#inputNascosto').val(ricerca);
     $('#formInterno').submit();
   });
