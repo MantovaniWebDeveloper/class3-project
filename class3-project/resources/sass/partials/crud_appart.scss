@@ -12,7 +12,38 @@
   h5 {
     margin: 20px 0;
   }
-  .hidden{
-    display: none;
+}
+.hidden{
+  display: none;
+}
+
+#tomtom_map {
+  max-width: 200px;
+}
+#tomtom_map_big {
+  max-width: 300px;
+}
+.apartment_map{
+  position: relative;
+  display: inline-block;
+}
+#marker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: red;
+  font-size: 40px;
+}
+
+#message_block {
+  margin: 30px auto;
+}
+@media screen and (max-width: 550px){
+  #tomtom_map{
+    max-width:100px;
+  }
+  #marker{
+    font-size: 30px;
   }
 }

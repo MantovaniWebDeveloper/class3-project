@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* flatpickr v4.5.7, @license MIT */
+/* WEBPACK VAR INJECTION */(function(jQuery) {/* flatpickr v4.5.7, @license MIT */
 (function (global, factory) {
      true ? module.exports = factory() :
     undefined;
@@ -2592,6 +2592,7 @@
 
 }));
 
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
 
 /***/ }),
 

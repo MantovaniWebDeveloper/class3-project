@@ -10,6 +10,3 @@ var show_date = flatpickr($('.flatpickr'), {
     clickOpens: true,
     dateFormat: "d-m-Y",
 });
-
-
-});
