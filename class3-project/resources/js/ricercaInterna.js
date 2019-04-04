@@ -5,13 +5,13 @@ const $ = require('jquery');
 (function () {
     let current_page = 1;
     let last_page = 1;
+    const CITIES_URL = 'http://127.0.0.1:8000/api/cities';
+    const SEARCH_URL = 'http://127.0.0.1:8000/api/search?page=';
     getCities();
 
     function getCities() {
-        let url = 'http://127.0.0.1:8000/api/cities';
-
         $.ajax({
-            url: url,
+            url: CITIES_URL,
             type: 'GET',
             success: function (data) {
                 populateCitiesDataList(data);
@@ -104,9 +104,8 @@ const $ = require('jquery');
     }
 
     function search(data, appendData) {
-        let url = 'http://127.0.0.1:8000/api/search?page=' + current_page;
         $.ajax({
-            url: url,
+            url: SEARCH_URL + current_page,
             type: 'GET',
             data: data,
             beforeSend: function () {
