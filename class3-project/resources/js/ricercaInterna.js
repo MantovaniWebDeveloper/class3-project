@@ -40,16 +40,20 @@ import Handlebars from 'handlebars/dist/cjs/handlebars';
         return codiceCitta;
     }
 
-    function showResult(data, append) {
-        let template = $('#resultAjax-template').html();
-        let compiledTemplate = Handlebars.compile(template);
-        let html = compiledTemplate(data);
+    function showResult(apartments_data, promotion_data, append) {
+        let promoTemplate = $('#resultAjax-promo-template').html();
+        let stdTemplate = $('#resultAjax-template').html();
+        let compiledPromoTemplate = Handlebars.compile(promoTemplate);
+        let compiledStdTemplate = Handlebars.compile(stdTemplate);
+        let promoHtml = compiledPromoTemplate(promotion_data);
+        let stdHtml = compiledStdTemplate(apartments_data);
         $('#loading-element').remove();
         if (append) {
-            $('.wrap_results_content').append(html);
+            $('.wrap_results_content').append(promoHtml);
         } else {
-            $('.wrap_results_content').html(html);
+            $('.wrap_results_content').html(promoHtml);
         }
+        $('.wrap_results_content').append(stdHtml);
     }
 
     function showMoreItemsLoading() {
@@ -111,18 +115,16 @@ import Handlebars from 'handlebars/dist/cjs/handlebars';
                     $(".modalLoading").show();
                 }
             },
-            success: function (result) {
-                let parsedData = JSON.parse(result);
-                console.log(parsedData);
-                $('#result_count').text(parsedData.total);
-                if (parsedData.total === 0) {
+            success: function (response) {
+                console.log(response);
+                $('#result_count').text(response.paginated_results.total);
+                if (response.paginated_results.total === 0) {
                     $('.wrap_results_content').html('');
                     attachScrollbarListener(false);
                 } else {
-                    showResult(parsedData.data, appendData);
-                    current_page = parsedData.current_page;
-                    last_page = parsedData.last_page;
-                    console.log("success: last " + last_page + " current " + current_page);
+                    showResult(response.paginated_results.data, response.promo_apartments, appendData);
+                    current_page = response.paginated_results.current_page;
+                    last_page = response.paginated_results.last_page;
                     attachScrollbarListener(true);
                 }
             },
@@ -164,7 +166,6 @@ import Handlebars from 'handlebars/dist/cjs/handlebars';
     }
 
     function attachScrollbarListener(attach) {
-        console.log("attachScrollbarListener: last " + last_page + " current " + current_page);
         if (attach) {
             $(window).scroll(function () {
                 if ($(window).scrollTop() + $(window).height() === $(document).height()) {
@@ -178,7 +179,6 @@ import Handlebars from 'handlebars/dist/cjs/handlebars';
     }
 
     function loadMore() {
-        console.log("load_more " + current_page + " " + last_page);
         if (current_page !== last_page) {
             current_page++;
             showMoreItemsLoading();

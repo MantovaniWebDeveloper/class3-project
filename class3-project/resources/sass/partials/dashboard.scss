@@ -9,6 +9,7 @@
 		height: 100%;
 		line-height: 40px;
 		text-align: center;
+		border-radius: 10px;
 	}
 
 	.on_state {
@@ -17,7 +18,7 @@
 	}
 
 	.off_state {
-		background-color: blue;
+		background-color: red;
 		cursor: pointer;
 	}
 
@@ -27,7 +28,8 @@
 	}
 
 	.active {
-		color: red;
+		color: blue;
+		border: 3px solid blue;
 	}
 }
 

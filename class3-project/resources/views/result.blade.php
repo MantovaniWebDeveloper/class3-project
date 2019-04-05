@@ -10,7 +10,7 @@
             <div class="container">
                 <div class="wrapAllInterno">
                     <aside>
-                        <h4 class="pt-2 pl-2">Filtri per servizi clienti:</h4>
+                        <h3 class="pt-2 pl-2">Filtri per servizi clienti:</h3>
 
                         <hr>
                         <div class="wrapServizi pt-2 pl-2">
@@ -21,7 +21,7 @@
                                 </div>
                             @endforeach
                         </div>
-                        <h4 class="pt-2 pl-2">Odinamento:</h4>
+                        <h3 class="pt-2 pl-2">Ordinamento:</h3>
                         <div class="wrapOrdinamento pt-2 pl-2">
                             <div class="inpuOrdinamento">
                                 <input class="ordinamento" type="radio" name="order_type" value="distance" checked>
@@ -32,7 +32,7 @@
                                 <label for="distanza">prezzo</label>
                             </div>
                         </div>
-                        <h4 class="pt-2 pl-2">Prezzi :</h4>
+                        <h3 class="pt-2 pl-2">Prezzi :</h3>
                         <div class="wrapOrdinamento pt-2 pl-2">
                             <div class="inpuPrezzo">
                                 <input class="tipoPrezzo" type="checkbox" name="price_range" value="1">
@@ -68,6 +68,32 @@
     <script id="resultAjax-template" type="text/x-handlebars-template">
         @{{#each this}}
         <div class="wrapRisultato">
+            <div class="row">
+                <div class="col-4 wrap-img">
+                    <img class="img-fluid pt-2" src="" alt="">
+                </div>
+                <div class="col-8">
+                    <h3 class="pt-2">@{{title}}</h3>
+                    <p>
+                        <i class="fas fa-map-marker-alt pr-2 "></i>
+                    </p>
+                    <h5>numeri letto: @{{bed_count}}</h5>
+                    <p>@{{description}}</p>
+                    <h3>@{{price}} €</h3>
+                    <div class="wrapBtn">
+                        <a href="http://127.0.0.1:8000/appartamenti/@{{slug}}">
+                            <button class="btn btn-danger text-right" type="button" name="button">Descrizione completa</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @{{/each}}
+    </script>
+    <script id="resultAjax-promo-template" type="text/x-handlebars-template">
+        @{{#each this}}
+        <div class="wrapRisultato" style="background-color:lightblue;position:relative">
+            <p style="position: absolute;top:0;right: 0;font-size: 7px;padding-right: 5px">Sponsorizzato</p>
             <div class="row">
                 <div class="col-4 wrap-img">
                     <img class="img-fluid pt-2" src="" alt="">

@@ -1,7 +1,7 @@
 <?php
-	
+
 	namespace App\Http\Controllers;
-	
+
 	use App\Apartment;
 	use App\Message;
 	use App\Service;
@@ -13,11 +13,11 @@
 	use Illuminate\Support\Facades\Auth;
 	use Illuminate\Support\Facades\DB;
 	use Validator;
-	
+
 	class ApartmentController extends Controller {
-		
+
 		use ReverseGeo;
-		
+
 		/*
 		 * Ritorna la homepage con un 1 appartamento in offerta,
 		 * n appartamenti in evidenza e
@@ -36,7 +36,7 @@
 				$mainCities = array_filter(
 				  $rawData, function ($city) {
 					return array_key_exists("capoluogo", $city);
-					
+
 				});
 				$filteredMainCities = [];
 				foreach ($mainCities as $key => $mainCity) {
@@ -55,7 +55,7 @@
 				return abort(500);
 			}
 		}
-		
+
 		function simpleSearch(Request $request) {
 			$validator = Validator::make(
 			  $request->all(), [
@@ -81,7 +81,7 @@
 				return abort(500);
 			}
 		}
-		
+
 		function show($slug) {
 			$apartment = Apartment::where('slug', $slug)->get()->first();
 			if (is_null($apartment) || !$apartment->is_showed) {
@@ -93,23 +93,24 @@
 			$imgData = $this->getMap($apartment->latitude, $apartment->longitude);
 			return view('showAppartamento')->withApartment($apartment)->withImage($imgData);
 		}
-		
+
 		public function manageApartments() {
 			if (!Auth::check()) {
 				return redirect()->route('login');
 			}
 			$user = Auth::user();
+			// dd($user->apartments()->orderBy('apartments.id', 'asc')->first());
 			return view('dashboard')->withApartments($user->apartments()->orderBy('apartments.id', 'asc')->get());
 		}
-		
+
 		public function newApartment() {
 			$services = Service::all();
 			return view('appartamento.create')->withServices($services);
 		}
-		
+
 		public function store(Request $request) {
 			// $data = $request->all();
-			
+
 			$validator = $request->validate(
 			  [
 				'title' => 'required',
@@ -122,10 +123,10 @@
 				'longitude' => 'required',
 				'price' => 'required'
 			  ]);
-			
+
 			$validator['user_id'] = Auth::id();
 			$apartment = Apartment::create($validator);
-			
+
 			// $apartment = New Apartment;
 			// $data['title'] = $apartment->title;
 			// $data['description'] = $apartment->description;
@@ -136,27 +137,27 @@
 			// $data['user_id']= $apartment->user_id;
 			// dd($apartment);
 			// $apartment->save();
-			
+
 			$services = $request->input('services');
-			
+
 			foreach ($services as $service) {
 				$apartment->services()->attach($service);
 			};
-			
+
 			foreach ($request['apartment_img'] as $img) {
 				Storage::disk('public')->put('apartment_img', $img);
 				$image = new Image;
 				$image->path = $img;
 				$image->apartment_id = $apartment->id;
 				$image->save();
-				
+
 			}
-			
+
 			return redirect()->route('dashboard');
 		}
-		
+
 		public function edit(Request $request) {
-			
+
 			$apartment = Apartment::where('slug', $request->input('slug'))->get()->first();
 			//RIGHT OUTERJOIN
 			$servizi_non_selezionati = DB::table('services')->select('name', 'id')->whereNOTIn(
@@ -167,13 +168,13 @@
 			$imgData = $this->getMap($apartment->latitude, $apartment->longitude);
 			return view('appartamento.edit')->withServiziNonSelezionati($servizi_non_selezionati)->withApartment($apartment)->withImage($imgData);
 		}
-		
+
 		public function update(Request $request, $id) {
 			// dd($request->all());
 			foreach ($request['apartment_img'] as $img) {
 				Storage::disk('public')->put('apartment_img', $img);
 			}
-			
+
 			$validator = $request->validate(
 			  [
 				'title' => 'required',
@@ -186,7 +187,7 @@
 				'longitude' => 'required',
 				'price' => 'required'
 			  ]);
-			
+
 			if (isset($request->new_services)) {
 				$newservices = $request->new_services;
 				$apartment = Apartment::find($id);
@@ -199,12 +200,12 @@
 			} else {
 				$apartment = Apartment::find($id);
 			};
-			
+
 			$apartment->update($validator);
-			
+
 			return redirect()->route('dashboard');
 		}
-		
+
 		public function promote($appartamento) {
 			//se l'utente non è loggato lo rimando al login
 			if (!Auth::check()) {
@@ -221,7 +222,7 @@
 			$apartments = Apartment::where('id', '<>', $apartment->id)->whereDate('end_promo', '<', now())->orderBy('created_at', 'desc')->take(5)->get();
 			return view('payment')->withApartment($apartment)->withWannaPromote($apartments);
 		}
-		
+
 		public function stats($slug) {
 			if (!Auth::check()) {
 				return redirect()->route('login');

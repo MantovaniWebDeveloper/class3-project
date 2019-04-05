@@ -1,7 +1,7 @@
 const $ = require('jquery');
 const chartJs = require('chart.js');
 
-showStats($('.check').data('slug'), "matteoTIVEDO!");
+showStats($('.check').data('slug'), "stringaprova");
 function showStats(slug, group) {
     let url = 'http://127.0.0.1:8000/api/apartment/stats';
     $.ajax(url, {

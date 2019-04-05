@@ -19,7 +19,7 @@
             <div class="box-card-app">
                 @foreach($promoApartments as $apartment)
                     <div class="card-appartamento" onclick="window.location='{{route('appartamento', $apartment->slug)}}'">
-                        {{--<img src="http://lorempixel.com/200/200/nature" alt="">--}}
+                        <img src="http://lorempixel.com/200/200/nature" alt="">
                         <div class="testo">
                             <small>la promozione termina il :
                                 <br>{{$apartment->end_promo}}
@@ -47,7 +47,7 @@
                 @foreach ($mainCities as $city)
                     <div class="card-citta">
                         <div class="img-city" onclick="location.href='appartamenti/ricerca?bed_count=0&city_code={{$city['city_code']}}';">
-                            {{--<img src="http://lorempixel.com/250/250/nature" alt="camera">--}}
+                            <img src="http://lorempixel.com/250/250/nature" alt="camera">
                         </div>
                         <div class="contenuto">
                             <h4>{{$city['city_name']}}</h4>

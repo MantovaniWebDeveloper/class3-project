@@ -1,18 +1,19 @@
 <?php
-	
+
 	namespace App\Http\Controllers\Api;
-	
+
 	use App\Apartment;
 	use Illuminate\Http\Request;
 	use App\Http\Controllers\Controller;
+	use Illuminate\Support\Carbon;
 	use Illuminate\Validation\Rule;
 	use App\Traits\ReverseGeo;
 	use Validator;
-	
+
 	class ApartmentController extends Controller {
-		
+
 		use ReverseGeo;
-		
+
 		function cities() {
 			$rawData = \Config::get('cities');
 			$cities = [];
@@ -24,7 +25,7 @@
 			}
 			return $cities;
 		}
-		
+
 		function advancedSearch(Request $request) {
 			$accepted_price_range = [1, 10, 11, 100, 101, 110, 111];
 			$accepted_order_type = ['distance', 'price'];
@@ -112,10 +113,19 @@
 				$apartments = $builder->paginate(5);
 				//recupero indirizzi
 				$this->collectAddresses($apartments);
-				return $apartments->toJson();
+				//ottenimento di n appartamenti sponsorizzati
+				$utc = Carbon::now('Europe/Rome');
+				$promoApartmentsToShow = 4;
+				$currentPage = $request->page;
+				if ($currentPage == 1) {
+					$promoApartments = Apartment::isShowed()->where('end_promo', '>', $utc)->orderBy('end_promo', 'asc')->take($promoApartmentsToShow)->get();
+				}else{
+					$promoApartments = null;
+				}
+				return response()->json(['paginated_results' => $apartments, 'promo_apartments' => $promoApartments], 200);
 			} catch (\Exception $e) {
 				return response()->json('Server error',500);
 			}
 		}
-		
+
 	}

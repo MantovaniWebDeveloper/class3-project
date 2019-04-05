@@ -10676,7 +10676,7 @@ a.text-dark:focus {
 }
 
 .wrapAll .wrapAllInterno aside {
-  height: 100vh;
+  height: 900px;
   width: 30%;
   background-color: #fff;
 }
@@ -10733,6 +10733,7 @@ a.text-dark:focus {
   height: 100%;
   line-height: 40px;
   text-align: center;
+  border-radius: 10px;
 }
 
 .mytoggle .on_state {
@@ -10741,7 +10742,7 @@ a.text-dark:focus {
 }
 
 .mytoggle .off_state {
-  background-color: blue;
+  background-color: red;
   cursor: pointer;
 }
 
@@ -10751,7 +10752,8 @@ a.text-dark:focus {
 }
 
 .mytoggle .active {
-  color: red;
+  color: blue;
+  border: 3px solid blue;
 }
 
 .message {
@@ -10863,6 +10865,13 @@ a.text-dark:focus {
   #marker {
     font-size: 30px;
   }
+}
+
+#apartment_dashboard .apartment {
+  margin: 30px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
 }
 
 * {

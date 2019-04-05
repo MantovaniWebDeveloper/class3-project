@@ -42801,7 +42801,7 @@ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"
 
 var chartJs = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/dist/Chart.js");
 
-showStats($('.check').data('slug'), "matteoTIVEDO!");
+showStats($('.check').data('slug'), "stringaprova");
 
 function showStats(slug, group) {
   var url = 'http://127.0.0.1:8000/api/apartment/stats';
