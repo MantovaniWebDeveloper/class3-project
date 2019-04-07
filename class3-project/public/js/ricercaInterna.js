@@ -15260,21 +15260,20 @@ module.exports = g;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var handlebars_dist_cjs_handlebars__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! handlebars/dist/cjs/handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js");
+/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var handlebars_dist_cjs_handlebars__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! handlebars/dist/cjs/handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js");
 /* harmony import */ var handlebars_dist_cjs_handlebars__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(handlebars_dist_cjs_handlebars__WEBPACK_IMPORTED_MODULE_0__);
 
-
-var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 (function () {
   var current_page = 1;
   var last_page = 1;
+  var CITIES_URL = 'http://127.0.0.1:8000/api/cities';
+  var SEARCH_URL = 'http://127.0.0.1:8000/api/search?page=';
   getCities();
 
   function getCities() {
-    var url = 'http://127.0.0.1:8000/api/cities';
     $.ajax({
-      url: url,
+      url: CITIES_URL,
       type: 'GET',
       success: function success(data) {
         populateCitiesDataList(data); //attaching listener for search options
@@ -15307,17 +15306,22 @@ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"
     return codiceCitta;
   }
 
-  function showResult(data, append) {
-    var template = $('#resultAjax-template').html();
-    var compiledTemplate = handlebars_dist_cjs_handlebars__WEBPACK_IMPORTED_MODULE_0___default.a.compile(template);
-    var html = compiledTemplate(data);
+  function showResult(apartments_data, promotion_data, append) {
+    var promoTemplate = $('#resultAjax-promo-template').html();
+    var stdTemplate = $('#resultAjax-template').html();
+    var compiledPromoTemplate = handlebars_dist_cjs_handlebars__WEBPACK_IMPORTED_MODULE_0___default.a.compile(promoTemplate);
+    var compiledStdTemplate = handlebars_dist_cjs_handlebars__WEBPACK_IMPORTED_MODULE_0___default.a.compile(stdTemplate);
+    var promoHtml = compiledPromoTemplate(promotion_data);
+    var stdHtml = compiledStdTemplate(apartments_data);
     $('#loading-element').remove();
 
     if (append) {
-      $('.wrap_results_content').append(html);
+      $('.wrap_results_content').append(promoHtml);
     } else {
-      $('.wrap_results_content').html(html);
+      $('.wrap_results_content').html(promoHtml);
     }
+
+    $('.wrap_results_content').append(stdHtml);
   }
 
   function showMoreItemsLoading() {
@@ -15372,9 +15376,8 @@ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"
   }
 
   function search(data, appendData) {
-    var url = 'http://127.0.0.1:8000/api/search?page=' + current_page;
     $.ajax({
-      url: url,
+      url: SEARCH_URL + current_page,
       type: 'GET',
       data: data,
       beforeSend: function beforeSend() {
@@ -15382,19 +15385,17 @@ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"
           $(".modalLoading").show();
         }
       },
-      success: function success(result) {
-        var parsedData = JSON.parse(result);
-        console.log(parsedData);
-        $('#result_count').text(parsedData.total);
+      success: function success(response) {
+        console.log(response);
+        $('#result_count').text(response.paginated_results.total);
 
-        if (parsedData.total === 0) {
+        if (response.paginated_results.total === 0) {
           $('.wrap_results_content').html('');
           attachScrollbarListener(false);
         } else {
-          showResult(parsedData.data, appendData);
-          current_page = parsedData.current_page;
-          last_page = parsedData.last_page;
-          console.log("success: last " + last_page + " current " + current_page);
+          showResult(response.paginated_results.data, response.promo_apartments, appendData);
+          current_page = response.paginated_results.current_page;
+          last_page = response.paginated_results.last_page;
           attachScrollbarListener(true);
         }
       },
@@ -15432,8 +15433,6 @@ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"
   }
 
   function attachScrollbarListener(attach) {
-    console.log("attachScrollbarListener: last " + last_page + " current " + current_page);
-
     if (attach) {
       $(window).scroll(function () {
         if ($(window).scrollTop() + $(window).height() === $(document).height()) {
@@ -15447,8 +15446,6 @@ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"
   }
 
   function loadMore() {
-    console.log("load_more " + current_page + " " + last_page);
-
     if (current_page !== last_page) {
       current_page++;
       showMoreItemsLoading();
@@ -15456,6 +15453,7 @@ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"
     }
   }
 })();
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
 
 /***/ }),
 

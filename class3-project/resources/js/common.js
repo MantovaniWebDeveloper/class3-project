@@ -1,6 +1,5 @@
-var $ = require("jquery");
+// var $ = require("jquery");
 import flatpickr from "flatpickr";
-
 
 $('#burgher-menu').on('click', function() {
     console.log('click');

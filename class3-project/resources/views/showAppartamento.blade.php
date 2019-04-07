@@ -21,6 +21,13 @@
         <input type="submit" value="INVIA MESSAGGIO">
         <textarea name="message" id="" cols="30" rows="10" placeholder="Scrivi il tuo messaggio qui" required></textarea>
     </form>
-
-    <script src="{{asset('js/common.js')}}"></script>
+    <div class="owl-carousel owl-theme">
+        <div class="item" style="width:400px"><img src="http://lorempixel.com/400/200"></div>
+        <div class="item" style="width:700px"><img src="http://lorempixel.com/700/300"></div>
+        <div class="item" style="width:400px"><img src="http://lorempixel.com/400/100"></div>
+        <div class="item" style="width:300px"><img src="http://lorempixel.com/300/200"></div>
+        <div class="item" style="width:800px"><img src="http://lorempixel.com/800/500"></div>
+        <div class="item" style="width:900px"><img src="http://lorempixel.com/900/600"></div>
+    </div>
+    <script src="{{asset('js/show.js')}}"></script>
 @endsection

@@ -8,6 +8,7 @@
 	use Illuminate\Validation\Rule;
 	use App\Traits\ReverseGeo;
 	use Validator;
+	use Illuminate\Support\Carbon;
 	
 	class ApartmentController extends Controller {
 		
@@ -112,9 +113,18 @@
 				$apartments = $builder->paginate(5);
 				//recupero indirizzi
 				$this->collectAddresses($apartments);
-				return $apartments->toJson();
+				//ottenimento di n appartamenti sponsorizzati
+				$utc = Carbon::now('Europe/Rome');
+				$promoApartmentsToShow = 4;
+				$currentPage = $request->page;
+				if ($currentPage == 1) {
+					$promoApartments = Apartment::isShowed()->where('end_promo', '>', $utc)->orderBy('end_promo', 'asc')->take($promoApartmentsToShow)->get();
+				}else{
+					$promoApartments = null;
+				}
+				return response()->json(['paginated_results' => $apartments, 'promo_apartments' => $promoApartments], 200);
 			} catch (\Exception $e) {
-				return response()->json('Server error',500);
+				return response()->json('Server error', 500);
 			}
 		}
 		

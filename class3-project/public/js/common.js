@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* flatpickr v4.5.7, @license MIT */
+/* WEBPACK VAR INJECTION */(function(jQuery) {/* flatpickr v4.5.7, @license MIT */
 (function (global, factory) {
      true ? module.exports = factory() :
     undefined;
@@ -2592,6 +2592,7 @@
 
 }));
 
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
 
 /***/ }),
 
@@ -12980,10 +12981,9 @@ return jQuery;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var flatpickr__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! flatpickr */ "./node_modules/flatpickr/dist/flatpickr.js");
+/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var flatpickr__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! flatpickr */ "./node_modules/flatpickr/dist/flatpickr.js");
 /* harmony import */ var flatpickr__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(flatpickr__WEBPACK_IMPORTED_MODULE_0__);
-var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-
+// var $ = require("jquery");
 
 $('#burgher-menu').on('click', function () {
   console.log('click');
@@ -12993,6 +12993,7 @@ var show_date = flatpickr__WEBPACK_IMPORTED_MODULE_0___default()($('.flatpickr')
   clickOpens: true,
   dateFormat: "d-m-Y"
 });
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
 
 /***/ }),
 
